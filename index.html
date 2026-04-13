@@ -6,7 +6,6 @@
   <title>Gilmar Filho | Profissional de TI</title>
   
   <link rel="stylesheet" href="./assets/css/tailwind-out.css">
-  
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,6 +14,7 @@
   
   <style>
     body { font-family: 'Inter', sans-serif; }
+    .modal-backdrop { backdrop-filter: blur(8px); background-color: rgba(0,0,0,0.4); }
   </style>
 </head>
 <body class="bg-background text-foreground transition-colors duration-300 antialiased">
@@ -36,53 +36,73 @@
     </div>
   </header>
 
-  <main class="container mx-auto px-6 py-12">
+  <main class="container mx-auto px-6 py-12 transition-all duration-300">
     <section class="py-20 md:py-24 text-center md:text-left md:flex items-center justify-between">
       <div class="md:w-3/4 lg:w-2/3">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface border border-borderColor text-sm font-medium mb-6 text-primary ring-1 ring-inset ring-primary/20 hover:bg-primary/10 transition-colors">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface border border-borderColor text-sm font-medium mb-6 text-primary ring-1 ring-inset ring-primary/20">
           <span class="relative flex h-2 w-2">
             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
             <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
           </span>
-          Disponível para projetos
+          Disponível para novos desafios
         </div>
         <h2 class="text-5xl md:text-6xl font-bold mb-6 leading-tight tracking-tight">
           Profissional de TI
         </h2>
         <p class="text-lg md:text-xl mb-10 text-foreground/80 max-w-2xl leading-relaxed">
-          Tenho paixão em resolver problemas e desenvolver sistemas e automações que economizam tempo e organizam processos.
+          Especialista em resolver problemas através de automações inteligentes e sistemas que organizam processos e otimizam o tempo.
         </p>
-        <a href="#contato" class="bg-primary text-white px-8 py-3.5 rounded-lg font-medium hover:bg-primary/90 transition-all flex items-center justify-center gap-2 w-full md:w-auto inline-flex shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/20 hover:-translate-y-0.5">
+        <button class="open-contact-modal bg-primary text-white px-8 py-3.5 rounded-lg font-medium hover:bg-primary/90 transition-all flex items-center justify-center gap-2 w-full md:w-auto inline-flex shadow-lg shadow-primary/30 hover:-translate-y-0.5">
           Entrar em contato <i class="ph ph-paper-plane-right text-lg"></i>
-        </a>
+        </button>
       </div>
     </section>
 
     <section id="projetos" class="py-16">
       <div class="flex items-center gap-3 mb-10 border-b border-borderColor pb-4">
-        <i class="ph ph-cpu text-3xl text-primary"></i>
-        <h3 class="text-3xl font-bold tracking-tight">Projetos & Arquitetura</h3>
+        <i class="ph ph-stack text-3xl text-primary"></i>
+        <h3 class="text-3xl font-bold tracking-tight">Projetos</h3>
       </div>
       
-      <article class="bg-surface p-8 rounded-xl border border-borderColor hover:border-primary hover:shadow-lg transition-all duration-300 group">
-        <div class="flex justify-between items-start mb-4">
-          <h4 class="text-2xl font-bold group-hover:text-primary transition-colors">NiadAgent</h4>
-          <i class="ph ph-robot text-2xl opacity-50"></i>
-        </div>
-        <p class="mb-6 text-foreground/80 leading-relaxed">
-          Ferramenta para transcrição de áudios enviados pelo Telegram e sumarização de pontos principais via API do Gemini. Fui responsável pela organização da arquitetura e estrutura do projeto. Para a execução distribuída, configurei o módulo Whisper em uma máquina local, interligada ao ambiente de desenvolvimento via Tailscale.
-        </p>
-        <div class="flex flex-wrap gap-2 text-xs font-semibold text-primary">
-          <span class="bg-primary/10 border border-transparent px-3 py-1 rounded-full">Whisper</span>
-          <span class="bg-primary/10 border border-transparent px-3 py-1 rounded-full">API Telegram</span>
-          <span class="bg-primary/10 border border-transparent px-3 py-1 rounded-full">API Gemini</span>
-          <span class="bg-primary/10 border border-transparent px-3 py-1 rounded-full">Langchain</span>
-          <span class="bg-primary/10 border border-transparent px-3 py-1 rounded-full">Python</span>
-          <span class="bg-primary/10 border border-transparent px-3 py-1 rounded-full">JavaScript</span>
-          <span class="bg-primary/10 border border-transparent px-3 py-1 rounded-full">Docker</span>
-          <span class="bg-primary/10 border border-transparent px-3 py-1 rounded-full">Tailscale</span>
-        </div>
-      </article>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <article class="bg-surface p-6 rounded-xl border border-borderColor flex flex-col justify-between hover:border-primary transition-all group">
+          <div>
+            <div class="flex justify-between items-start mb-4">
+              <span class="text-xs font-bold uppercase tracking-wider text-green-500 bg-green-500/10 px-2 py-1 rounded">Concluído</span>
+              <i class="ph ph-robot text-2xl opacity-50"></i>
+            </div>
+            <h4 class="text-xl font-bold mb-3 group-hover:text-primary transition-colors">NiadAgent</h4>
+            <p class="text-sm text-foreground/80 mb-6 leading-relaxed">
+              Automação de transcrição e sumarização de reuniões via Telegram e Gemini API. Fui responsável por toda a arquitetura distribuída com Docker e Tailscale.
+            </p>
+          </div>
+          <a href="https://github.com/gilmar-filho/NiadAgent" target="_blank" class="w-full text-center bg-background border border-borderColor py-2 rounded-lg text-sm font-semibold hover:bg-primary hover:text-white hover:border-primary transition-all flex items-center justify-center gap-2">
+            <i class="ph ph-github-logo"></i> Acessar Repositório
+          </a>
+        </article>
+
+        <article class="bg-surface p-6 rounded-xl border border-borderColor hover:border-primary transition-all group">
+          <div class="flex justify-between items-start mb-4">
+            <span class="text-xs font-bold uppercase tracking-wider text-amber-500 bg-amber-500/10 px-2 py-1 rounded">Em andamento</span>
+            <i class="ph ph-package text-2xl opacity-50"></i>
+          </div>
+          <h4 class="text-xl font-bold mb-3 group-hover:text-primary transition-colors">Gestão de Estoque</h4>
+          <p class="text-sm text-foreground/80 leading-relaxed">
+            Sistema inteligente integrado ao Google Sheets para controle de entradas, saídas e alertas automáticos de reposição via Telegram.
+          </p>
+        </article>
+
+        <article class="bg-surface p-6 rounded-xl border border-borderColor hover:border-primary transition-all group">
+          <div class="flex justify-between items-start mb-4">
+            <span class="text-xs font-bold uppercase tracking-wider text-amber-500 bg-amber-500/10 px-2 py-1 rounded">Em andamento</span>
+            <i class="ph ph-arrows-clockwise text-2xl opacity-50"></i>
+          </div>
+          <h4 class="text-xl font-bold mb-3 group-hover:text-primary transition-colors">Sistema de Follow-Up</h4>
+          <p class="text-sm text-foreground/80 leading-relaxed">
+            Motor de automação para acompanhamento de fluxos de trabalho e lembretes estratégicos baseados em prazos e condições de planilha.
+          </p>
+        </article>
+      </div>
     </section>
 
     <section id="freelance" class="py-16">
@@ -91,25 +111,39 @@
         <h3 class="text-3xl font-bold tracking-tight">Soluções Freelance</h3>
       </div>
       
-      <div class="grid md:grid-cols-2 gap-8">
-        <article class="bg-surface p-8 rounded-xl border border-borderColor hover:border-primary hover:shadow-lg transition-all duration-300 group">
-          <div class="flex justify-between items-start mb-4">
-            <h4 class="text-xl font-bold group-hover:text-primary transition-colors">Gestão de Estoque e Follow-up</h4>
-            <i class="ph ph-chart-line-up text-2xl opacity-50"></i>
+      <div class="grid gap-8">
+        <article class="bg-surface p-8 rounded-xl border border-borderColor">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+              <i class="ph-fill ph-user-gear text-2xl text-primary"></i>
+            </div>
+            <div>
+              <h4 class="text-xl font-bold">Consultoria e Desenvolvimento (Cliente: Kaio)</h4>
+              <p class="text-sm text-foreground/60 tracking-wide">Sistemas Financeiros e Engenharia de Dados</p>
+            </div>
           </div>
-          <p class="mb-6 text-foreground/80 leading-relaxed text-sm">
-            Desenvolvimento de lógicas de negócio estruturadas utilizando Google Apps Script. O foco principal é a integração direta entre planilhas do Google Sheets e bots do Telegram, automatizando o controle de estoque e rotinas de follow-up sem a necessidade de intervenção manual constante.
-          </p>
           
-          <div class="mb-6 bg-surface rounded-lg border border-dashed border-borderColor/60 h-48 flex flex-col items-center justify-center text-sm text-foreground/60 group-hover:border-primary transition-colors">
-            <i class="ph ph-image text-3xl mb-2"></i>
-            <span>Imagem do painel/planilha aqui</span>
-          </div>
-
-          <div class="flex flex-wrap gap-2 text-xs font-semibold text-primary">
-            <span class="bg-primary/10 border border-transparent px-3 py-1 rounded-full">Google Apps Script</span>
-            <span class="bg-primary/10 border border-transparent px-3 py-1 rounded-full">Google Sheets</span>
-            <span class="bg-primary/10 border border-transparent px-3 py-1 rounded-full">Telegram API</span>
+          <div class="grid md:grid-cols-2 gap-8">
+            <div>
+              <h5 class="font-bold text-primary mb-3 flex items-center gap-2">
+                <i class="ph ph-check-circle"></i> Escopo do Projeto
+              </h5>
+              <ul class="space-y-3 text-sm text-foreground/80">
+                <li class="flex gap-2"><span>•</span> Tradução técnica completa do ecossistema para Inglês.</li>
+                <li class="flex gap-2"><span>•</span> Tratamento de dados complexos para garantir integridade financeira.</li>
+                <li class="flex gap-2"><span>•</span> Criação de Dashboards estratégicos com visão clara de rentabilidade.</li>
+              </ul>
+            </div>
+            <div>
+              <h5 class="font-bold text-primary mb-3 flex items-center gap-2">
+                <i class="ph ph-code"></i> Automações em Apps Script
+              </h5>
+              <ul class="space-y-3 text-sm text-foreground/80">
+                <li class="flex gap-2"><span>•</span> Projeção automática de parcelas futuras a partir de faturas de cartão.</li>
+                <li class="flex gap-2"><span>•</span> Importação de dados financeiros via arquivos <strong>.csv, .ofx e .xlsx</strong>.</li>
+                <li class="flex gap-2"><span>•</span> Resumos automáticos e comparativos mensais de uso das contas.</li>
+              </ul>
+            </div>
           </div>
         </article>
       </div>
@@ -122,82 +156,84 @@
       </div>
       
       <div class="grid md:grid-cols-2 gap-8">
-        <article class="bg-surface p-8 rounded-xl border border-borderColor hover:border-primary hover:shadow-lg transition-all duration-300 group flex flex-col justify-between">
+        <article class="bg-surface p-8 rounded-xl border border-borderColor hover:border-primary transition-all flex flex-col justify-between group">
           <div>
             <div class="flex items-center gap-3 mb-3">
               <i class="ph ph-brain text-xl text-primary"></i>
               <h4 class="text-lg font-bold group-hover:text-primary transition-colors">Algoritmos de IA</h4>
             </div>
             <p class="text-foreground/80 text-sm leading-relaxed mb-6">
-              Estudos práticos da disciplina de IA na UFLA. Implementação e benchmark de algoritmos como KNN contra o Scikit-learn, com desenvolvimentos futuros planejados para K-means e RNA-MLP.
+              Benchmark de algoritmos KNN vs Scikit-learn, com foco em precisão e tempo de execução.
             </p>
-            <div class="flex flex-wrap gap-2 text-xs font-semibold text-primary mb-6">
-              <span class="bg-primary/10 border border-transparent px-3 py-1 rounded-full">KNN</span>
-              <span class="bg-primary/10 border border-transparent px-3 py-1 rounded-full">Scikit-learn</span>
-              <span class="bg-primary/10 border border-transparent px-3 py-1 rounded-full">Python</span>
-              <span class="bg-primary/10 border border-transparent px-3 py-1 rounded-full">K-means</span>
-              <span class="bg-primary/10 border border-transparent px-3 py-1 rounded-full">RNA-MLP</span>
+            <div class="flex flex-wrap gap-2 text-xs font-semibold text-primary">
+              <span class="bg-primary/10 px-3 py-1 rounded-full">Python</span>
+              <span class="bg-primary/10 px-3 py-1 rounded-full">Scikit-learn</span>
             </div>
           </div>
-          <a href="https://github.com/gilmar-filho/GCC128-Inteligencia_Artificial" target="_blank" class="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline">
-            <i class="ph ph-github-logo text-lg"></i> Ver Repositório
+          <a href="https://github.com/gilmar-filho/GCC128-Inteligencia_Artificial" target="_blank" class="mt-6 inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline">
+            <i class="ph ph-github-logo"></i> Ver Repositório
           </a>
         </article>
         
-        <article class="bg-surface p-8 rounded-xl border border-borderColor hover:border-primary hover:shadow-lg transition-all duration-300 group flex flex-col justify-between">
+        <article class="bg-surface p-8 rounded-xl border border-borderColor hover:border-primary transition-all flex flex-col justify-between group">
           <div>
             <div class="flex items-center gap-3 mb-3">
               <i class="ph ph-game-controller text-xl text-primary"></i>
               <h4 class="text-lg font-bold group-hover:text-primary transition-colors">Jogo da Memória</h4>
             </div>
-            <p class="text-foreground/80 text-sm leading-relaxed mb-4">
-              Projeto desenvolvido para a disciplina de Programação Web, aplicando conceitos de manipulação do DOM e estruturação de interfaces iterativas.
+            <p class="text-foreground/80 text-sm leading-relaxed mb-6">
+              Implementação de interface iterativa manipulando o DOM em tempo real.
             </p>
-            <div class="flex flex-wrap gap-2 text-xs font-semibold text-primary mb-6">
-              <span class="bg-primary/10 border border-transparent px-3 py-1 rounded-full">HTML</span>
-              <span class="bg-primary/10 border border-transparent px-3 py-1 rounded-full">CSS</span>
-              <span class="bg-primary/10 border border-transparent px-3 py-1 rounded-full">JavaScript</span>
-            </div>
           </div>
           <div class="flex gap-4">
-            <a href="https://gilmar-filho.github.io/GAC116-Jogo_da_Memoria/page" target="_blank" class="inline-flex items-center gap-2 text-sm font-medium text-white bg-primary px-4 py-2 rounded-lg hover:opacity-90 transition-opacity">
-              <i class="ph ph-play-circle text-lg"></i> Jogar
-            </a>
-            <a href="https://github.com/gilmar-filho/GAC116-Jogo_da_Memoria" target="_blank" class="inline-flex items-center gap-2 text-sm font-medium text-foreground hover:text-primary transition-colors">
-              <i class="ph ph-github-logo text-lg"></i> Código
-            </a>
+            <a href="https://gilmar-filho.github.io/GAC116-Jogo_da_Memoria/page" target="_blank" class="bg-primary text-white px-4 py-2 rounded-lg text-sm font-medium hover:opacity-90">Jogar</a>
+            <a href="https://github.com/gilmar-filho/GAC116-Jogo_da_Memoria" target="_blank" class="px-4 py-2 rounded-lg text-sm font-medium border border-borderColor hover:border-primary transition-colors">Código</a>
           </div>
         </article>
       </div>
     </section>
   </main>
 
-  <footer id="contato" class="border-t border-borderColor bg-surface py-12 mt-12">
-    <div class="container mx-auto px-6 text-center">
-      <h3 class="text-2xl font-bold mb-8">Vamos conversar?</h3>
+  <div id="contact-modal" class="hidden fixed inset-0 z- items-center justify-center p-6 modal-backdrop">
+    <div class="bg-surface w-full max-w-md rounded-2xl border border-borderColor p-8 shadow-2xl relative">
+      <button id="close-modal" class="absolute top-4 right-4 text-foreground/50 hover:text-primary transition-colors text-2xl">
+        <i class="ph ph-x"></i>
+      </button>
       
-      <div class="flex flex-wrap justify-center gap-6 mb-8">
-        <a href="https://wa.me/5535997304374" target="_blank" class="flex items-center gap-2 hover:text-primary transition-colors font-medium">
-          <i class="ph ph-whatsapp-logo text-2xl"></i> WhatsApp
-        </a>
-        <a href="https://www.linkedin.com/in/gilmarfilh/" target="_blank" class="flex items-center gap-2 hover:text-primary transition-colors font-medium">
-          <i class="ph ph-linkedin-logo text-2xl"></i> LinkedIn
-        </a>
-        <a href="https://github.com/gilmar-filho" target="_blank" class="flex items-center gap-2 hover:text-primary transition-colors font-medium">
-          <i class="ph ph-github-logo text-2xl"></i> GitHub
-        </a>
+      <div class="text-center mb-8">
+        <h3 class="text-2xl font-bold">Vamos conversar?</h3>
+        <p class="text-sm text-foreground/60">Escolha o melhor canal para falarmos sobre seu projeto.</p>
       </div>
 
-      <div class="mb-10 flex justify-center items-center gap-2 text-foreground/80">
+      <div class="grid grid-cols-2 gap-4">
+        <a href="https://wa.me/5535997304374" target="_blank" class="flex flex-col items-center gap-3 p-4 rounded-xl bg-background border border-borderColor hover:border-primary hover:text-primary transition-all group">
+          <i class="ph ph-whatsapp-logo text-3xl"></i>
+          <span class="text-sm font-semibold text-foreground group-hover:text-primary">WhatsApp</span>
+        </a>
+        <a href="https://www.linkedin.com/in/gilmarfilh/" target="_blank" class="flex flex-col items-center gap-3 p-4 rounded-xl bg-background border border-borderColor hover:border-primary hover:text-primary transition-all group">
+          <i class="ph ph-linkedin-logo text-3xl"></i>
+          <span class="text-sm font-semibold text-foreground group-hover:text-primary">LinkedIn</span>
+        </a>
+        <a href="https://github.com/gilmar-filho" target="_blank" class="flex flex-col items-center gap-3 p-4 rounded-xl bg-background border border-borderColor hover:border-primary hover:text-primary transition-all group">
+          <i class="ph ph-github-logo text-3xl"></i>
+          <span class="text-sm font-semibold text-foreground group-hover:text-primary">GitHub</span>
+        </a>
+        <a href="mailto:gfilho416@gmail.com" class="flex flex-col items-center gap-3 p-4 rounded-xl bg-background border border-borderColor hover:border-primary hover:text-primary transition-all group">
+          <i class="ph ph-envelope-simple text-3xl"></i>
+          <span class="text-sm font-semibold text-foreground group-hover:text-primary">E-mail</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <footer id="contato" class="border-t border-borderColor bg-surface py-12">
+    <div class="container mx-auto px-6 text-center">
+      <div class="mb-4 flex justify-center items-center gap-2 text-foreground/80">
         <i class="ph ph-envelope-simple text-xl"></i>
         <span class="font-medium">gfilho416@gmail.com</span>
       </div>
-
-      <p class="text-foreground/60 text-sm mb-4">© 2024 Gilmar Filho. Estudante de Sistemas de Informação.</p>
-      
-      <a href="./bootstrap-version/index.html" class="text-sm text-primary hover:underline mt-2 inline-flex items-center gap-1 font-medium bg-primary/10 px-4 py-2 rounded-full transition-colors">
-        <i class="ph ph-graduation-cap text-lg"></i> Versão Acadêmica (Bootstrap)
-      </a>
+      <p class="text-foreground/60 text-sm mb-4">© 2026 Gilmar Filho. Estudante de Sistemas de Informação.</p>
+      <a href="./bootstrap-version/index.html" class="text-xs text-primary bg-primary/10 px-4 py-2 rounded-full font-medium">Versão Acadêmica (Bootstrap)</a>
     </div>
   </footer>
 
