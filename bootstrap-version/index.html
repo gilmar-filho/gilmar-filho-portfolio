@@ -15,6 +15,8 @@
     .card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); border-color: var(--bs-primary); }
     .btn-contact-grid { transition: all 0.2s ease; }
     .btn-contact-grid:hover { background-color: var(--bs-primary-bg-subtle); border-color: var(--bs-primary); color: var(--bs-primary); }
+    .btn-soft-primary { background-color: rgba(13, 110, 253, 0.1); color: #0d6efd; transition: all 0.2s ease; }
+    .btn-soft-primary:hover { background-color: rgba(13, 110, 253, 0.2); color: #0a58ca; }
   </style>
 </head>
 <body>
@@ -169,8 +171,8 @@
             </h5>
             <p class="small text-muted mb-4">Implementação de interface iterativa manipulando o DOM em tempo real.</p>
             <div class="mt-auto d-flex gap-2">
-              <a href="https://gilmar-filho.github.io/GAC116-Jogo_da_Memoria/page" target="_blank" class="btn btn-primary btn-sm d-flex align-items-center gap-2">
-                <i class="ph ph-play-circle fs-5"></i> Jogar
+              <a href="https://gilmar-filho.github.io/GAC116-Jogo_da_Memoria/page" target="_blank" class="btn btn-primary btn-sm d-flex align-items-center gap-2 fw-bold">
+                <span class="fs-6">🎮</span> Jogar
               </a>
               <a href="https://github.com/gilmar-filho/GAC116-Jogo_da_Memoria" target="_blank" class="btn btn-outline-secondary btn-sm d-flex align-items-center gap-2">
                 <i class="ph ph-github-logo fs-5"></i> Ver repositório
@@ -194,25 +196,25 @@
           
           <div class="row g-3">
             <div class="col-6">
-              <a href="https://wa.me/5535997304374" target="_blank" class="btn btn-light w-100 p-3 btn-contact-grid rounded-3 border">
+              <a href="https://wa.me/5535997304374" target="_blank" class="btn btn-light w-100 p-3 btn-contact-grid rounded-3 border text-decoration-none text-body">
                 <i class="ph ph-whatsapp-logo fs-2 mb-2"></i>
                 <div class="small fw-bold">WhatsApp</div>
               </a>
             </div>
             <div class="col-6">
-              <a href="https://www.linkedin.com/in/gilmarfilh/" target="_blank" class="btn btn-light w-100 p-3 btn-contact-grid rounded-3 border">
+              <a href="https://www.linkedin.com/in/gilmarfilh/" target="_blank" class="btn btn-light w-100 p-3 btn-contact-grid rounded-3 border text-decoration-none text-body">
                 <i class="ph ph-linkedin-logo fs-2 mb-2"></i>
                 <div class="small fw-bold">LinkedIn</div>
               </a>
             </div>
             <div class="col-6">
-              <a href="https://github.com/gilmar-filho" target="_blank" class="btn btn-light w-100 p-3 btn-contact-grid rounded-3 border">
+              <a href="https://github.com/gilmar-filho" target="_blank" class="btn btn-light w-100 p-3 btn-contact-grid rounded-3 border text-decoration-none text-body">
                 <i class="ph ph-github-logo fs-2 mb-2"></i>
                 <div class="small fw-bold">GitHub</div>
               </a>
             </div>
             <div class="col-6">
-              <a href="mailto:gfilho416@gmail.com" class="btn btn-light w-100 p-3 btn-contact-grid rounded-3 border">
+              <a href="mailto:gfilho416@gmail.com" class="btn btn-light w-100 p-3 btn-contact-grid rounded-3 border text-decoration-none text-body">
                 <i class="ph ph-envelope-simple fs-2 mb-2"></i>
                 <div class="small fw-bold">E-mail</div>
               </a>
@@ -230,9 +232,11 @@
         <span class="small fw-medium">gfilho416@gmail.com</span>
       </div>
       <p class="text-muted small mb-4">© 2026 Gilmar Filho. Estudante de Sistemas de Informação.</p>
-      <a href="../index.html" class="btn btn-primary bg-opacity-10 text-primary border-0 rounded-pill px-4 btn-sm fw-bold">
-        ← Versão Principal (Tailwind)
+      
+      <a href="../index.html" class="text-decoration-none d-inline-flex align-items-center gap-2 btn-soft-primary px-4 py-2 rounded-pill small fw-bold mt-2">
+        <i class="ph ph-arrow-left"></i> Versão Principal (Tailwind)
       </a>
+      
     </div>
   </footer>
 
