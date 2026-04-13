@@ -5,11 +5,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        background: 'var(--bg-color)',
-        foreground: 'var(--text-color)',
-        primary: 'var(--primary-color)',
-        surface: 'var(--secondary-bg)',
-        borderColor: 'var(--border-color)',
+        background: 'rgb(var(--bg-color) / <alpha-value>)',
+        foreground: 'rgb(var(--text-color) / <alpha-value>)',
+        primary: 'rgb(var(--primary-color) / <alpha-value>)',
+        surface: 'rgb(var(--secondary-bg) / <alpha-value>)',
+        borderColor: 'rgb(var(--border-color) / <alpha-value>)',
       }
     },
   },

@@ -1,23 +1,23 @@
-:root {
-  /* Tema Claro - Padrão */
-  --bg-color: #F8FAFC;
-  --text-color: #0F172A;
-  --primary-color: #1D4ED8;
-  --secondary-bg: #FFFFFF;
-  --border-color: #E2E8F0;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-html.dark {
-  /* Tema Escuro */
-  --bg-color: #0B1120;
-  --text-color: #CBD5E1;
-  --primary-color: #38BDF8;
-  --secondary-bg: #1E293B;
-  --border-color: #334155;
-}
+@layer base {
+  :root {
+    /* Tema Claro - Padrão (Valores em RGB para suportar opacidade) */
+    --bg-color: 248 250 252;
+    --text-color: 15 23 42;
+    --primary-color: 29 78 216;
+    --secondary-bg: 255 255 255;
+    --border-color: 226 232 240;
+  }
 
-body {
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  html.dark {
+    /* Tema Escuro */
+    --bg-color: 11 17 32;
+    --text-color: 203 213 225;
+    --primary-color: 56 189 248;
+    --secondary-bg: 30 41 59;
+    --border-color: 51 65 85;
+  }
 }
