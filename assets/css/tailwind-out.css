@@ -1,0 +1,23 @@
+:root {
+  /* Tema Claro - Padrão */
+  --bg-color: #F8FAFC;
+  --text-color: #0F172A;
+  --primary-color: #1D4ED8;
+  --secondary-bg: #FFFFFF;
+  --border-color: #E2E8F0;
+}
+
+html.dark {
+  /* Tema Escuro */
+  --bg-color: #0B1120;
+  --text-color: #CBD5E1;
+  --primary-color: #38BDF8;
+  --secondary-bg: #1E293B;
+  --border-color: #334155;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}

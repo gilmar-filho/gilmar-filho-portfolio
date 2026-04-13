@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gilmar Filho | Profissional de TI</title>
+  <link rel="stylesheet" href="./assets/css/tailwind-out.css">
+</head>
+<body class="bg-background text-foreground transition-colors duration-300 font-sans">
+
+  <header class="border-b border-borderColor bg-surface sticky top-0 z-10">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <h1 class="text-xl font-bold tracking-tight">Gilmar Filho</h1>
+      <nav class="hidden md:flex space-x-8">
+        <a href="#projetos" class="hover:text-primary transition-colors">Projetos</a>
+        <a href="#freelance" class="hover:text-primary transition-colors">Freelance</a>
+        <a href="#lab" class="hover:text-primary transition-colors">Laboratório</a>
+        <a href="#contato" class="hover:text-primary transition-colors">Contato</a>
+      </nav>
+      <button id="theme-toggle" class="p-2 rounded bg-background border border-borderColor hover:border-primary transition-colors">
+        🌓 Tema
+      </button>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-6 py-12">
+    <section class="py-20 text-center md:text-left md:flex items-center justify-between">
+      <div class="md:w-2/3">
+        <h2 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">Profissional de TI</h2>
+        <p class="text-lg md:text-xl mb-8 opacity-90 max-w-2xl">Tenho paixão em resolver problemas e desenvolver sistemas e automações que economizam tempo e organizam processos.</p>
+        <a href="#contato" class="bg-primary text-white px-8 py-3 rounded font-medium hover:opacity-90 transition-opacity">Entrar em contato</a>
+      </div>
+    </section>
+
+    <section id="projetos" class="py-16">
+      <h3 class="text-3xl font-bold mb-10 border-b border-borderColor pb-4">Projetos & Arquitetura</h3>
+      
+      <article class="bg-surface p-8 rounded border border-borderColor hover:border-primary transition-colors mb-8">
+        <h4 class="text-2xl font-bold mb-3">NiadAgent</h4>
+        <p class="mb-4 opacity-80">Ferramenta para transcrição de áudios enviados pelo Telegram e sumarização de pontos principais via API do Gemini. Fui responsável pela organização da arquitetura e estrutura do projeto. Para a execução distribuída, configurei o módulo Whisper em uma máquina local, interligada ao ambiente de desenvolvimento via Tailscale.</p>
+        <div class="flex flex-wrap gap-2 text-sm font-mono text-primary">
+          <span class="bg-background px-2 py-1 rounded">Whisper</span>
+          <span class="bg-background px-2 py-1 rounded">API Telegram</span>
+          <span class="bg-background px-2 py-1 rounded">API Gemini</span>
+          <span class="bg-background px-2 py-1 rounded">Langchain</span>
+          <span class="bg-background px-2 py-1 rounded">Python</span>
+          <span class="bg-background px-2 py-1 rounded">JavaScript</span>
+          <span class="bg-background px-2 py-1 rounded">Docker</span>
+          <span class="bg-background px-2 py-1 rounded">Tailscale</span>
+        </div>
+      </article>
+    </section>
+
+    <section id="freelance" class="py-16">
+      <h3 class="text-3xl font-bold mb-10 border-b border-borderColor pb-4">Soluções Freelance</h3>
+      
+      <div class="grid md:grid-cols-2 gap-8">
+        <article class="bg-surface p-8 rounded border border-borderColor hover:border-primary transition-colors">
+          <h4 class="text-2xl font-bold mb-3">Gestão de Estoque e Follow-up</h4>
+          <p class="mb-4 opacity-80">Desenvolvimento de lógicas de negócio estruturadas utilizando Google Apps Script. O foco principal é a integração direta entre planilhas do Google Sheets e bots do Telegram, automatizando o controle de estoque e rotinas de follow-up sem a necessidade de intervenção manual constante.</p>
+          <div class="mt-4 bg-background h-48 rounded border border-borderColor flex items-center justify-center text-sm opacity-50">
+            [Espaço reservado para imagem de demonstração]
+          </div>
+          <div class="flex flex-wrap gap-2 text-sm font-mono text-primary mt-4">
+            <span class="bg-background px-2 py-1 rounded">Google Apps Script</span>
+            <span class="bg-background px-2 py-1 rounded">Google Sheets</span>
+            <span class="bg-background px-2 py-1 rounded">Telegram Bot API</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="lab" class="py-16">
+      <h3 class="text-3xl font-bold mb-10 border-b border-borderColor pb-4">Laboratório & Estudos</h3>
+      <div class="grid md:grid-cols-2 gap-8">
+        <article class="bg-surface p-6 rounded border border-borderColor">
+          <h4 class="text-xl font-bold mb-2">Algoritmos de Inteligência Artificial</h4>
+          <p class="opacity-80 text-sm">Estudos práticos da disciplina de IA na UFLA. Implementação e benchmark de algoritmos como KNN contra o Scikit-learn, com desenvolvimentos futuros planejados para K-means e RNA-MLP.</p>
+        </article>
+        <article class="bg-surface p-6 rounded border border-borderColor">
+          <h4 class="text-xl font-bold mb-2">Jogo da Memória</h4>
+          <p class="opacity-80 text-sm">Projeto desenvolvido para a disciplina de Programação Web, aplicando conceitos de manipulação do DOM e estruturação de interfaces iterativas.</p>
+          <div class="flex flex-wrap gap-2 text-sm font-mono text-primary mt-3">
+            <span class="bg-background px-2 py-1 rounded">HTML</span>
+            <span class="bg-background px-2 py-1 rounded">CSS</span>
+            <span class="bg-background px-2 py-1 rounded">JavaScript</span>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contato" class="border-t border-borderColor bg-surface py-12 mt-12">
+    <div class="container mx-auto px-6 text-center">
+      <h3 class="text-2xl font-bold mb-6">Contato</h3>
+      
+      <div class="flex justify-center space-x-6 mb-4">
+        <a href="https://wa.me/5535997304374" target="_blank" class="hover:text-primary transition-colors">WhatsApp</a>
+        <a href="https://www.linkedin.com/in/gilmarfilh/" target="_blank" class="hover:text-primary transition-colors">LinkedIn</a>
+        <a href="https://github.com/gilmar-filho" target="_blank" class="hover:text-primary transition-colors">GitHub</a>
+      </div>
+
+      <div class="mb-8">
+        <span class="text-sm opacity-90">E-mail: gfilho416@gmail.com</span>
+      </div>
+
+      <p class="opacity-80 mb-4">© 2026 Gilmar Filho. Estudante de Sistemas de Informação.</p>
+      <a href="./bootstrap-version/index.html" class="text-sm text-primary hover:underline mt-4 inline-block">Versão Acadêmica (Bootstrap)</a>
+    </div>
+  </footer>
+
+  <script src="./assets/js/theme-toggle.js"></script>
+</body>
+</html>
