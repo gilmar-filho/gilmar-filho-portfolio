@@ -1,23 +1,33 @@
 document.addEventListener('DOMContentLoaded', () => {
   const themeToggleBtn = document.getElementById('theme-toggle');
   const htmlElement = document.documentElement;
-  
-  // Verifica o tema salvo ou a preferência do sistema
+
   const savedTheme = localStorage.getItem('theme');
   const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-  if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
-    htmlElement.classList.add('dark');
+  const applyTheme = (theme) => {
+    if (theme === 'dark') {
+      htmlElement.classList.add('dark'); // Para o Tailwind
+      htmlElement.setAttribute('data-bs-theme', 'dark'); // Para o Bootstrap
+    } else {
+      htmlElement.classList.remove('dark'); // Para o Tailwind
+      htmlElement.setAttribute('data-bs-theme', 'light'); // Para o Bootstrap
+    }
+  };
+
+  if (savedTheme) {
+    applyTheme(savedTheme);
+  } else if (systemPrefersDark) {
+    applyTheme('dark');
+  } else {
+    applyTheme('light');
   }
 
-  // Lógica de alternância
   themeToggleBtn?.addEventListener('click', () => {
-    htmlElement.classList.toggle('dark');
+    const isDark = htmlElement.getAttribute('data-bs-theme') === 'dark' || htmlElement.classList.contains('dark');
+    const newTheme = isDark ? 'light' : 'dark';
     
-    if (htmlElement.classList.contains('dark')) {
-      localStorage.setItem('theme', 'dark');
-    } else {
-      localStorage.setItem('theme', 'light');
-    }
+    applyTheme(newTheme);
+    localStorage.setItem('theme', newTheme);
   });
 });

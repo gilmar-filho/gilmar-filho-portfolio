@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-bs-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gilmar Filho | Profissional de TI (Versão Bootstrap)</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-md border-bottom sticky-top bg-body">
+    <div class="container">
+      <span class="navbar-brand fw-bold">Gilmar Filho</span>
+      <div class="d-none d-md-flex gap-4">
+        <a href="#projetos" class="nav-link">Projetos</a>
+        <a href="#freelance" class="nav-link">Freelance</a>
+        <a href="#lab" class="nav-link">Laboratório</a>
+        <a href="#contato" class="nav-link">Contato</a>
+      </div>
+      <button id="theme-toggle" class="btn btn-outline-secondary btn-sm">🌓 Tema</button>
+    </div>
+  </nav>
+
+  <main class="container py-5">
+    <section class="row align-items-center py-5">
+      <div class="col-md-8">
+        <h2 class="display-4 fw-bold mb-4">Profissional de TI</h2>
+        <p class="lead mb-4">Tenho paixão em resolver problemas e desenvolver sistemas e automações que economizam tempo e organizam processos.</p>
+        <a href="#contato" class="btn btn-primary btn-lg">Entrar em contato</a>
+      </div>
+    </section>
+
+    <section id="projetos" class="py-5">
+      <h3 class="fw-bold mb-4 border-bottom pb-2">Projetos & Arquitetura</h3>
+      <div class="card mb-4">
+        <div class="card-body p-4">
+          <h4 class="card-title fw-bold">NiadAgent</h4>
+          <p class="card-text text-muted">Ferramenta para transcrição de áudios enviados pelo Telegram e sumarização de pontos principais via API do Gemini. Fui responsável pela organização da arquitetura e estrutura do projeto. Para a execução distribuída, configurei o módulo Whisper em uma máquina local, interligada ao ambiente de desenvolvimento via Tailscale.</p>
+          <div class="d-flex flex-wrap gap-2 font-monospace small">
+            <span class="badge text-bg-light border text-primary">Whisper</span>
+            <span class="badge text-bg-light border text-primary">API Telegram</span>
+            <span class="badge text-bg-light border text-primary">API Gemini</span>
+            <span class="badge text-bg-light border text-primary">Langchain</span>
+            <span class="badge text-bg-light border text-primary">Python</span>
+            <span class="badge text-bg-light border text-primary">JavaScript</span>
+            <span class="badge text-bg-light border text-primary">Docker</span>
+            <span class="badge text-bg-light border text-primary">Tailscale</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="freelance" class="py-5">
+      <h3 class="fw-bold mb-4 border-bottom pb-2">Soluções Freelance</h3>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card h-100">
+            <div class="card-body p-4">
+              <h4 class="card-title fw-bold">Gestão de Estoque e Follow-up</h4>
+              <p class="card-text text-muted">Desenvolvimento de lógicas de negócio estruturadas utilizando Google Apps Script. O foco principal é a integração direta entre planilhas do Google Sheets e bots do Telegram, automatizando o controle de estoque e rotinas de follow-up sem a necessidade de intervenção manual constante.</p>
+              <div class="bg-secondary bg-opacity-10 rounded d-flex align-items-center justify-content-center text-muted small" style="height: 200px;">
+                [Espaço reservado para imagem de demonstração]
+              </div>
+              <div class="d-flex flex-wrap gap-2 font-monospace small mt-3">
+                <span class="badge text-bg-light border text-primary">Google Apps Script</span>
+                <span class="badge text-bg-light border text-primary">Google Sheets</span>
+                <span class="badge text-bg-light border text-primary">Telegram Bot API</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="lab" class="py-5">
+      <h3 class="fw-bold mb-4 border-bottom pb-2">Laboratório & Estudos</h3>
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title fw-bold">Algoritmos de Inteligência Artificial</h5>
+              <p class="card-text text-muted small">Estudos práticos da disciplina de IA na UFLA. Implementação e benchmark de algoritmos como KNN contra o Scikit-learn, com desenvolvimentos futuros planejados para K-means e RNA-MLP.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title fw-bold">Jogo da Memória</h5>
+              <p class="card-text text-muted small">Projeto desenvolvido para a disciplina de Programação Web, aplicando conceitos de manipulação do DOM e estruturação de interfaces iterativas.</p>
+              <div class="d-flex flex-wrap gap-2 font-monospace small mt-2">
+                <span class="badge text-bg-light border text-primary">HTML</span>
+                <span class="badge text-bg-light border text-primary">CSS</span>
+                <span class="badge text-bg-light border text-primary">JavaScript</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contato" class="border-top py-5 mt-5 bg-body-tertiary">
+    <div class="container text-center">
+      <h3 class="fw-bold mb-4">Contato</h3>
+      <div class="d-flex justify-content-center gap-4 mb-3">
+        <a href="https://wa.me/5535997304374" target="_blank" class="text-decoration-none">WhatsApp</a>
+        <a href="https://www.linkedin.com/in/gilmarfilh/" target="_blank" class="text-decoration-none">LinkedIn</a>
+        <a href="https://github.com/gilmar-filho" target="_blank" class="text-decoration-none">GitHub</a>
+      </div>
+      <div class="mb-4">
+        <span class="small text-muted">E-mail: gfilho416@gmail.com</span>
+      </div>
+      <p class="text-muted small mb-3">© 2026 Gilmar Filho. Estudante de Sistemas de Informação.</p>
+      <a href="../index.html" class="small text-decoration-none">← Voltar para a versão principal (Tailwind)</a>
+    </div>
+  </footer>
+
+  <script src="../assets/js/theme-toggle.js"></script>
+</body>
+</html>
