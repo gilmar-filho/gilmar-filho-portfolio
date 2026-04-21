@@ -37,24 +37,89 @@
   </header>
 
   <main class="container mx-auto px-6 py-12 transition-all duration-300">
-    <section class="py-20 md:py-24 text-center md:text-left md:flex items-center justify-between">
-      <div class="md:w-3/4 lg:w-2/3">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface border border-borderColor text-sm font-medium mb-6 text-primary ring-1 ring-inset ring-primary/20">
-          <span class="relative flex h-2 w-2">
-            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-            <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-          </span>
+    <section class="py-20 md:py-24 flex flex-col lg:flex-row items-center justify-between gap-12">
+      
+      <div class="w-full lg:w-1/2 text-left">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#f0efff] dark:bg-[#5c45fd]/10 border border-[#d6d3ff] dark:border-[#5c45fd]/30 text-xs font-bold text-[#5c45fd] dark:text-[#a094fa] tracking-widest uppercase mb-8 transition-colors">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#00e676]"></span>
           Disponível para novos desafios
         </div>
-        <h2 class="text-5xl md:text-6xl font-bold mb-6 leading-tight tracking-tight">
-          Profissional de TI
-        </h2>
-        <p class="text-lg md:text-xl mb-10 text-foreground/80 max-w-2xl leading-relaxed">
-          Especialista em resolver problemas através de automações inteligentes e sistemas que organizam processos e otimizam o tempo.
+        
+        <h1 class="text-6xl md:text-[5rem] font-black mb-6 leading-[1.05] tracking-tighter text-[#1a1a1a] dark:text-white transition-colors">
+          Automação de processos e<br><span class="text-[#5c45fd]">sistemas inteligentes</span>
+        </h1>
+        
+        <p class="text-lg md:text-xl mb-10 text-gray-500 dark:text-gray-400 max-w-lg leading-relaxed font-medium transition-colors">
+          Crio sistemas que substituem tarefas repetitivas, organizam operações e economizam horas de trabalho todos os dias.
         </p>
-        <button class="open-contact-modal bg-primary text-white px-8 py-3.5 rounded-lg font-medium hover:bg-primary/90 transition-all flex items-center justify-center gap-2 w-full md:w-auto inline-flex shadow-lg shadow-primary/30 hover:-translate-y-0.5">
-          Entrar em contato <i class="ph ph-paper-plane-right text-lg"></i>
-        </button>
+        
+        <div class="flex flex-col sm:flex-row items-center gap-4">
+          <button class="open-contact-modal bg-[#5c45fd] text-white px-8 py-4 rounded-xl font-bold hover:bg-[#4a36db] transition-colors flex items-center justify-center gap-2 w-full sm:w-auto shadow-lg shadow-[#5c45fd]/30">
+            Entrar em contato <i class="ph ph-paper-plane-right text-lg"></i>
+          </button>
+          <a href="#projetos" class="px-8 py-4 rounded-xl font-bold text-gray-600 dark:text-gray-300 bg-[#f8f9fa] dark:bg-surface border border-gray-200 dark:border-borderColor hover:bg-gray-100 dark:hover:border-[#5c45fd] transition-colors flex items-center justify-center gap-2 w-full sm:w-auto">
+            Ver projetos <i class="ph ph-arrow-down text-lg"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="w-full lg:w-[45%] max-w-[550px] mx-auto lg:mx-0">
+        <div class="rounded-[1rem] bg-[#1a1b26] shadow-2xl overflow-hidden font-mono text-sm sm:text-base text-left border border-gray-800/50">
+          
+          <div class="flex items-center px-5 py-4 bg-[#1a1b26] gap-2 border-b border-gray-800">
+            <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+            <div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+            <div class="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+            <span class="ml-4 text-xs text-gray-500 font-medium">gilmar@portfolio ~ %</span>
+          </div>
+          
+          <div class="p-6 md:p-8 leading-[2.2] text-gray-300">
+            <div class="text-gray-500 mb-6">// perfil.ts</div>
+            
+            <div class="mb-1">
+              <span class="text-[#c792ea]">const</span>
+              <span class="text-white"> dev </span>
+              <span class="text-[#89ddff]">=</span>
+              <span class="text-[#89ddff]"> {</span>
+            </div>
+            
+            <div class="pl-8 mb-1">
+              <span class="text-[#82aaff]">name</span><span class="text-[#89ddff]">:</span>
+              <span class="text-[#c3e88d]">'Gilmar Filho'</span><span class="text-[#89ddff]">,</span>
+            </div>
+            
+            <div class="pl-8 mb-1">
+              <span class="text-[#82aaff]">role</span><span class="text-[#89ddff]">:</span>
+              <span class="text-[#c3e88d]">'Profissional de TI'</span><span class="text-[#89ddff]">,</span>
+            </div>
+            
+            <div class="pl-8 mb-1">
+              <span class="text-[#82aaff]">stack</span><span class="text-[#89ddff]">: [</span>
+              <span class="text-[#c3e88d]">'Python'</span><span class="text-[#89ddff]">,</span>
+              <span class="text-[#c3e88d]">'Docker'</span><span class="text-[#89ddff]">,</span>
+              <span class="text-[#c3e88d]">'JavaScript'</span><span class="text-[#89ddff]">,</span>
+              <span class="text-[#c3e88d]">'Google Apps Script'</span>
+              <span class="text-[#89ddff]">],</span>
+            </div>
+            
+            <div class="pl-8 mb-1">
+              <span class="text-[#82aaff]">available</span><span class="text-[#89ddff]">:</span>
+              <span class="text-[#f78c6c]">true</span><span class="text-[#89ddff]">,</span>
+            </div>
+            
+            <div class="pl-8 mb-1">
+              <span class="text-[#82aaff]">focus</span><span class="text-[#89ddff]">:</span>
+              <span class="text-[#c3e88d]">'Automação'</span><span class="text-[#89ddff]">,</span>
+            </div>
+            
+            <div class="mb-8"><span class="text-[#89ddff]">}</span></div>
+            
+            <div class="flex items-center">
+              <span class="text-[#89ddff] mr-3 font-bold">&gt;</span>
+              <span class="text-[#c792ea]">dev</span><span class="text-[#89ddff]">.</span><span class="text-[#82aaff]">solve</span><span class="text-[#89ddff]">(</span><span class="text-[#c3e88d]">problem</span><span class="text-[#89ddff]">)</span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -99,7 +164,7 @@
           </div>
           <h4 class="text-xl font-bold mb-3 group-hover:text-primary transition-colors">Sistema de Follow-Up</h4>
           <p class="text-sm text-foreground/80 leading-relaxed">
-            Motor de automação para acompanhamento de fluxos de trabalho e lembretes estratégicos baseados em prazos e condições de planilha.
+            Planilha personalizada de controle de tarefas e serviços com alertas automatizados no Telegram.
           </p>
         </article>
       </div>
@@ -118,18 +183,18 @@
               <i class="ph-fill ph-user-gear text-2xl text-primary"></i>
             </div>
             <div>
-              <h4 class="text-xl font-bold">Consultoria e Desenvolvimento (Cliente: Kaio)</h4>
-              <p class="text-sm text-foreground/60 tracking-wide">Sistemas Financeiros e Engenharia de Dados</p>
+              <h4 class="text-xl font-bold">Consultoria e Desenvolvimento em Google Sheets</h4>
+              <p class="text-sm text-foreground/60 tracking-wide">Sistemas Financeiros</p>
             </div>
           </div>
           
           <div class="grid md:grid-cols-2 gap-8">
             <div>
               <h5 class="font-bold text-primary mb-3 flex items-center gap-2">
-                <i class="ph ph-check-circle"></i> Escopo do Projeto
+                <i class="ph ph-check-circle"></i> Escopo do Trabalho
               </h5>
               <ul class="space-y-3 text-sm text-foreground/80">
-                <li class="flex gap-2"><span>•</span> Tradução técnica completa do ecossistema para Inglês.</li>
+                <li class="flex gap-2"><span>•</span> Tradução completa da planilha para Inglês.</li>
                 <li class="flex gap-2"><span>•</span> Tratamento de dados complexos para garantir integridade financeira.</li>
                 <li class="flex gap-2"><span>•</span> Criação de Dashboards estratégicos com visão clara de rentabilidade.</li>
               </ul>
@@ -156,7 +221,7 @@
       </div>
       
       <div class="grid md:grid-cols-2 gap-8">
-        <article class="bg-surface p-8 rounded-xl border border-borderColor hover:border-primary transition-all flex flex-col justify-between group">
+        <article class="bg-surface p-8 rounded-xl border border-borderColor hover:border-primary transition-all flex flex-col h-full group">
           <div>
             <div class="flex items-center gap-3 mb-3">
               <i class="ph ph-brain text-xl text-primary"></i>
@@ -170,12 +235,15 @@
               <span class="bg-primary/10 px-3 py-1 rounded-full">Scikit-learn</span>
             </div>
           </div>
-          <a href="https://github.com/gilmar-filho/GCC128-Inteligencia_Artificial" target="_blank" class="mt-6 inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline">
-            <i class="ph ph-github-logo"></i> Ver Repositório
-          </a>
+          
+          <div class="mt-auto pt-8">
+            <a href="https://github.com/gilmar-filho/GCC128-Inteligencia_Artificial" target="_blank" class="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline">
+              <i class="ph ph-github-logo text-lg"></i> Acessar Repositório
+            </a>
+          </div>
         </article>
         
-        <article class="bg-surface p-8 rounded-xl border border-borderColor hover:border-primary transition-all flex flex-col justify-between group">
+        <article class="bg-surface p-8 rounded-xl border border-borderColor hover:border-primary transition-all flex flex-col h-full group">
           <div>
             <div class="flex items-center gap-3 mb-3">
               <i class="ph ph-game-controller text-xl text-primary"></i>
@@ -184,10 +252,18 @@
             <p class="text-foreground/80 text-sm leading-relaxed mb-6">
               Implementação de interface iterativa manipulando o DOM em tempo real.
             </p>
+            <div class="flex flex-wrap gap-2 text-xs font-semibold text-primary">
+              <span class="bg-primary/10 px-3 py-1 rounded-full">HTML</span>
+              <span class="bg-primary/10 px-3 py-1 rounded-full">JavaScript</span>
+              <span class="bg-primary/10 px-3 py-1 rounded-full">CSS</span>
+            </div>
           </div>
-          <div class="flex gap-4">
+          
+          <div class="mt-auto pt-8 flex gap-4">
             <a href="https://gilmar-filho.github.io/GAC116-Jogo_da_Memoria/page" target="_blank" class="bg-primary text-white px-4 py-2 rounded-lg text-sm font-medium hover:opacity-90">Jogar</a>
-            <a href="https://github.com/gilmar-filho/GAC116-Jogo_da_Memoria" target="_blank" class="px-4 py-2 rounded-lg text-sm font-medium border border-borderColor hover:border-primary transition-colors">Código</a>
+            <a href="https://github.com/gilmar-filho/GAC116-Jogo_da_Memoria" target="_blank" class="px-4 py-2 rounded-lg text-sm font-medium border border-borderColor hover:border-primary transition-colors flex items-center gap-2">
+              <i class="ph ph-github-logo text-lg"></i> Acessar Repositório
+            </a>
           </div>
         </article>
       </div>

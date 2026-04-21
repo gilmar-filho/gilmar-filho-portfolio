@@ -17,6 +17,11 @@
     .btn-contact-grid:hover { background-color: var(--bs-primary-bg-subtle); border-color: var(--bs-primary); color: var(--bs-primary); }
     .btn-soft-primary { background-color: rgba(13, 110, 253, 0.1); color: #0d6efd; transition: all 0.2s ease; }
     .btn-soft-primary:hover { background-color: rgba(13, 110, 253, 0.2); color: #0a58ca; }
+    
+    /* Estilos específicos para preservar o terminal */
+    .terminal-box { background-color: #1a1b26; border: 1px solid rgba(255,255,255,0.1); max-width: 550px; }
+    .terminal-header { background-color: #1a1b26; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .terminal-text { color: #d1d5db; line-height: 2.2; font-size: 0.9rem; }
   </style>
 </head>
 <body>
@@ -39,16 +44,89 @@
   </header>
 
   <main class="container py-5">
-    <section class="row align-items-center py-5">
-      <div class="col-md-8">
+    
+    <section class="row align-items-center py-5 gx-lg-5">
+      
+      <div class="col-lg-6 mb-5 mb-lg-0 text-center text-lg-start">
         <div class="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill border border-primary-subtle text-primary bg-primary-subtle bg-opacity-10 small fw-bold mb-4">
-          <i class="ph-fill ph-circle fs-6 animate-pulse"></i> Disponível para novos desafios
+          <span class="bg-success rounded-circle" style="width: 8px; height: 8px;"></span> Disponível para novos desafios
         </div>
-        <h2 class="display-3 fw-bold mb-4">Profissional de TI</h2>
-        <p class="lead mb-5 text-secondary">Especialista em resolver problemas através de automações inteligentes e sistemas que organizam processos e otimizam o tempo.</p>
-        <button class="btn btn-primary btn-lg px-4 py-3 fw-bold d-inline-flex align-items-center gap-2 shadow-sm" data-bs-toggle="modal" data-bs-target="#contactModal">
-          Entrar em contato <i class="ph ph-paper-plane-right"></i>
-        </button>
+        
+        <h1 class="display-4 fw-bolder mb-4" style="line-height: 1.1; letter-spacing: -1px;">
+          Automação de processos e<br><span class="text-primary">sistemas inteligentes</span>
+        </h1>
+        
+        <p class="lead mb-5 text-secondary">
+          Crio sistemas que substituem tarefas repetitivas, organizam operações e economizam horas de trabalho todos os dias.
+        </p>
+        
+        <div class="d-flex flex-column flex-sm-row justify-content-center justify-content-lg-start gap-3">
+          <button class="btn btn-primary btn-lg px-4 py-3 fw-bold d-inline-flex align-items-center justify-content-center gap-2 shadow-sm" data-bs-toggle="modal" data-bs-target="#contactModal">
+            Entrar em contato <i class="ph ph-paper-plane-right"></i>
+          </button>
+          <a href="#projetos" class="btn btn-light btn-lg px-4 py-3 fw-bold d-inline-flex align-items-center justify-content-center gap-2 border">
+            Ver projetos <i class="ph ph-arrow-down"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="terminal-box rounded-4 shadow-lg overflow-hidden font-monospace text-start mx-auto mx-lg-0 ms-lg-auto">
+          
+          <div class="terminal-header d-flex align-items-center px-4 py-3">
+            <div class="rounded-circle me-2" style="width: 12px; height: 12px; background-color: #ff5f56;"></div>
+            <div class="rounded-circle me-2" style="width: 12px; height: 12px; background-color: #ffbd2e;"></div>
+            <div class="rounded-circle" style="width: 12px; height: 12px; background-color: #27c93f;"></div>
+            <span class="ms-3 text-secondary small">gilmar@portfolio ~ %</span>
+          </div>
+          
+          <div class="p-4 p-md-5 terminal-text">
+            <div style="color: #676e95;" class="mb-4">// perfil.ts</div>
+            
+            <div class="mb-1">
+              <span style="color: #c792ea;">const</span>
+              <span class="text-white"> dev </span>
+              <span style="color: #89ddff;">=</span>
+              <span style="color: #89ddff;"> {</span>
+            </div>
+            
+            <div class="ps-4 mb-1">
+              <span style="color: #82aaff;">name</span><span style="color: #89ddff;">:</span>
+              <span style="color: #c3e88d;">'Gilmar Filho'</span><span style="color: #89ddff;">,</span>
+            </div>
+            
+            <div class="ps-4 mb-1">
+              <span style="color: #82aaff;">role</span><span style="color: #89ddff;">:</span>
+              <span style="color: #c3e88d;">'Profissional de TI'</span><span style="color: #89ddff;">,</span>
+            </div>
+            
+            <div class="ps-4 mb-1">
+              <span style="color: #82aaff;">stack</span><span style="color: #89ddff;">: [</span>
+              <span style="color: #c3e88d;">'Python'</span><span style="color: #89ddff;">,</span>
+              <span style="color: #c3e88d;">'Docker'</span><span style="color: #89ddff;">,</span>
+              <span style="color: #c3e88d;">'JavaScript'</span><span style="color: #89ddff;">,</span>
+              <span style="color: #c3e88d;">'Google Apps Script'</span>
+              <span style="color: #89ddff;">],</span>
+            </div>
+            
+            <div class="ps-4 mb-1">
+              <span style="color: #82aaff;">available</span><span style="color: #89ddff;">:</span>
+              <span style="color: #f78c6c;">true</span><span style="color: #89ddff;">,</span>
+            </div>
+            
+            <div class="ps-4 mb-1">
+              <span style="color: #82aaff;">focus</span><span style="color: #89ddff;">:</span>
+              <span style="color: #c3e88d;">'Automação'</span><span style="color: #89ddff;">,</span>
+            </div>
+            
+            <div class="mb-4"><span style="color: #89ddff;">}</span></div>
+            
+            <div class="d-flex align-items-center">
+              <span style="color: #89ddff;" class="me-3 fw-bold">&gt;</span>
+              <span style="color: #c792ea;">dev</span><span style="color: #89ddff;">.</span><span style="color: #82aaff;">solve</span><span style="color: #89ddff;">(</span><span style="color: #c3e88d;">problem</span><span style="color: #89ddff;">)</span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -62,13 +140,13 @@
         <div class="col-md-6 col-lg-4">
           <div class="card h-100 p-4">
             <div class="d-flex justify-content-between mb-3">
-              <span class="badge rounded-pill text-bg-success bg-opacity-10 text-success border border-success border-opacity-25 uppercase">Concluído</span>
+              <span class="badge rounded-pill text-bg-success bg-opacity-10 text-success border border-success border-opacity-25 text-uppercase">Concluído</span>
               <i class="ph ph-robot fs-3 opacity-50"></i>
             </div>
             <h4 class="fw-bold mb-3">NiadAgent</h4>
-            <p class="small text-muted mb-4">Automação de transcrição e sumarização de reuniões via Telegram e Gemini API. Arquitetura distribuída com Docker e Tailscale.</p>
-            <a href="https://github.com/gilmar-filho/NiadAgent" target="_blank" class="btn btn-outline-secondary btn-sm w-100 fw-bold d-flex align-items-center justify-content-center gap-2">
-              <i class="ph ph-github-logo"></i> Ver repositório
+            <p class="small text-muted mb-4">Automação de transcrição e sumarização de reuniões via Telegram e Gemini API. Fui responsável por toda a arquitetura distribuída com Docker e Tailscale.</p>
+            <a href="https://github.com/gilmar-filho/NiadAgent" target="_blank" class="btn btn-outline-secondary btn-sm w-100 fw-bold d-flex align-items-center justify-content-center gap-2 mt-auto">
+              <i class="ph ph-github-logo"></i> Acessar Repositório
             </a>
           </div>
         </div>
@@ -76,22 +154,22 @@
         <div class="col-md-6 col-lg-4">
           <div class="card h-100 p-4">
             <div class="d-flex justify-content-between mb-3">
-              <span class="badge rounded-pill text-bg-warning bg-opacity-10 text-warning border border-warning border-opacity-25 uppercase">Em andamento</span>
+              <span class="badge rounded-pill text-bg-warning bg-opacity-10 text-warning border border-warning border-opacity-25 text-uppercase">Em andamento</span>
               <i class="ph ph-package fs-3 opacity-50"></i>
             </div>
             <h4 class="fw-bold mb-3">Gestão de Estoque</h4>
-            <p class="small text-muted">Sistema inteligente integrado ao Google Sheets para controle de estoque e alertas automáticos via Telegram.</p>
+            <p class="small text-muted">Sistema inteligente integrado ao Google Sheets para controle de entradas, saídas e alertas automáticos de reposição via Telegram.</p>
           </div>
         </div>
 
         <div class="col-md-6 col-lg-4">
           <div class="card h-100 p-4">
             <div class="d-flex justify-content-between mb-3">
-              <span class="badge rounded-pill text-bg-warning bg-opacity-10 text-warning border border-warning border-opacity-25 uppercase">Em andamento</span>
+              <span class="badge rounded-pill text-bg-warning bg-opacity-10 text-warning border border-warning border-opacity-25 text-uppercase">Em andamento</span>
               <i class="ph ph-arrows-clockwise fs-3 opacity-50"></i>
             </div>
             <h4 class="fw-bold mb-3">Sistema de Follow-Up</h4>
-            <p class="small text-muted">Motor de automação para acompanhamento de fluxos de trabalho e lembretes baseados em condições de planilha.</p>
+            <p class="small text-muted">Planilha personalizada de controle de tarefas e serviços com alertas automatizados no Telegram.</p>
           </div>
         </div>
       </div>
@@ -109,20 +187,20 @@
             <i class="ph-fill ph-user-gear fs-3"></i>
           </div>
           <div>
-            <h4 class="fw-bold mb-0">Consultoria e Desenvolvimento (Cliente: Kaio)</h4>
-            <p class="small text-muted mb-0">Sistemas Financeiros e Engenharia de Dados</p>
+            <h4 class="fw-bold mb-0">Consultoria e Desenvolvimento em Google Sheets</h4>
+            <p class="small text-muted mb-0">Sistemas Financeiros</p>
           </div>
         </div>
         
         <div class="row g-4">
           <div class="col-md-6">
             <h5 class="h6 fw-bold text-primary mb-3">
-              <i class="ph ph-check-circle me-2"></i>Escopo do Projeto
+              <i class="ph ph-check-circle me-2"></i>Escopo do Trabalho
             </h5>
             <ul class="list-unstyled small text-secondary">
-              <li class="mb-2">• Tradução técnica completa do ecossistema para Inglês.</li>
-              <li class="mb-2">• Tratamento de dados complexos para integridade financeira.</li>
-              <li>• Criação de Dashboards estratégicos com visão de rentabilidade.</li>
+              <li class="mb-2">• Tradução completa da planilha para Inglês.</li>
+              <li class="mb-2">• Tratamento de dados complexos para garantir integridade financeira.</li>
+              <li>• Criação de Dashboards estratégicos com visão clara de rentabilidade.</li>
             </ul>
           </div>
           <div class="col-md-6">
@@ -130,9 +208,9 @@
               <i class="ph ph-code me-2"></i>Automações em Apps Script
             </h5>
             <ul class="list-unstyled small text-secondary">
-              <li class="mb-2">• Projeção automática de parcelas de cartão de crédito.</li>
-              <li class="mb-2">• Importação financeira via arquivos <strong>.csv, .ofx e .xlsx</strong>.</li>
-              <li>• Resumos automáticos para melhor visualização do mês de referência.</li>
+              <li class="mb-2">• Projeção automática de parcelas futuras a partir de faturas de cartão.</li>
+              <li class="mb-2">• Importação de dados financeiros via arquivos <strong>.csv, .ofx e .xlsx</strong>.</li>
+              <li>• Resumos automáticos e comparativos mensais de uso das contas.</li>
             </ul>
           </div>
         </div>
@@ -156,9 +234,9 @@
               <span class="badge bg-primary bg-opacity-10 text-primary border-0">Python</span>
               <span class="badge bg-primary bg-opacity-10 text-primary border-0">Scikit-learn</span>
             </div>
-            <div class="mt-auto">
-              <a href="https://github.com/gilmar-filho/GCC128-Inteligencia_Artificial" target="_blank" class="btn btn-outline-secondary btn-sm d-flex align-items-center gap-2 w-fit">
-                <i class="ph ph-github-logo"></i> Ver repositório
+            <div class="mt-auto pt-4">
+              <a href="https://github.com/gilmar-filho/GCC128-Inteligencia_Artificial" target="_blank" class="btn btn-outline-secondary btn-sm d-inline-flex align-items-center gap-2">
+                <i class="ph ph-github-logo"></i> Acessar Repositório
               </a>
             </div>
           </div>
@@ -170,12 +248,17 @@
               <i class="ph ph-game-controller text-primary"></i> Jogo da Memória
             </h5>
             <p class="small text-muted mb-4">Implementação de interface iterativa manipulando o DOM em tempo real.</p>
-            <div class="mt-auto d-flex gap-2">
+            <div class="flex flex-wrap gap-2 text-xs font-semibold text-primary">
+              <span class="badge bg-primary bg-opacity-10 text-primary border-0">HTML</span>
+              <span class="badge bg-primary bg-opacity-10 text-primary border-0">JavaScript</span>
+              <span class="badge bg-primary bg-opacity-10 text-primary border-0">CSS</span>
+            </div>
+            <div class="mt-auto pt-4 d-flex gap-2">
               <a href="https://gilmar-filho.github.io/GAC116-Jogo_da_Memoria/page" target="_blank" class="btn btn-primary btn-sm d-flex align-items-center gap-2 fw-bold">
-                <span class="fs-6">🎮</span> Jogar
+                Jogar
               </a>
               <a href="https://github.com/gilmar-filho/GAC116-Jogo_da_Memoria" target="_blank" class="btn btn-outline-secondary btn-sm d-flex align-items-center gap-2">
-                <i class="ph ph-github-logo fs-5"></i> Ver repositório
+                <i class="ph ph-github-logo fs-5"></i> Acessar Repositório
               </a>
             </div>
           </div>
