@@ -20,6 +20,8 @@
 </head>
 <body class="bg-ink text-cream antialiased transition-colors duration-300">
 
+  <canvas id="smoke-canvas"></canvas>
+
   <!-- Cursor -->
   <div id="cursor"></div>
   <div id="cursor-ring"></div>
@@ -65,11 +67,12 @@
        CONTAINER FULLPAGE
   ══════════════════════════════════════════════ -->
   <div id="fp-container">
+    <!-- <canvas id="smoke-canvas"
+      style="position:absolute;inset:0;width:100%;height:100%;z-index:1;opacity:.6;pointer-events:none;">
+    </canvas> -->
 
     <!-- ════════════ SLIDE 0 — HERO ════════════ -->
-    <section class="fp-slide bg-ink" id="slide-hero">
-      <canvas id="smoke-canvas" class="absolute inset-0 w-full h-full opacity-50 pointer-events-none"></canvas>
-
+    <section class="fp-slide" id="slide-hero">
       <div class="relative z-10 w-full max-w-[1140px] mx-auto px-6 md:px-10">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center
                     min-h-screen py-20 md:py-0">
@@ -78,10 +81,10 @@
           <div class="flex flex-col gap-0">
             <p class="rv section-kicker">Desenvolvedor · Lavras, MG</p>
 
-            <h1 class="rv d1 font-sans font-light text-cream leading-none tracking-tighter mt-4 mb-4"
+            <h1 class="rv d1 font-sans font-light text-cream leading-none tracking-tighter mt-4 mb-4 glow-text"
                 style="font-size: clamp(3rem,6vw,5.2rem)">
               Gilmar<br>
-              <strong class="font-bold">Filho</strong>
+              <strong class="font-bold glow-text">Filho</strong>
             </h1>
 
             <p class="rv d2 font-mono text-cream-3 leading-loose max-w-sm"
@@ -209,18 +212,17 @@
     </section>
 
     <!-- ════════════ SLIDE 1 — SOBRE ════════════ -->
-    <section class="fp-slide bg-ink" id="slide-sobre">
-      <div class="relative z-10 w-full max-w-[1140px] mx-auto px-6 md:px-10">
+    <section class="fp-slide" id="slide-sobre">
+      <div class="relative z-10 w-full max-w-[1140px] mx-auto px-6 md:px-10 py-12">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
 
           <!-- Foto + facts -->
           <div class="rv-l flex flex-col items-start gap-6">
             <div class="photo-ring">
               <div class="photo-inner">
-                  <img>:
+                  <img>
                   <img src="./assets/img/foto.jpg" alt="Gilmar Filho"
                        class="w-full h-full object-cover">
-                <!-- <i class="ph ph-user"></i> -->
               </div>
             </div>
 
@@ -270,8 +272,8 @@
     </section>
 
     <!-- ════════════ SLIDE 2 — FREELANCE ════════════ -->
-    <section class="fp-slide bg-ink-2" id="slide-freelance">
-      <div class="relative z-10 w-full max-w-[1140px] mx-auto px-6 md:px-10">
+    <section class="fp-slide" id="slide-freelance">
+      <div class="relative z-10 w-full max-w-[1140px] mx-auto px-6 md:px-10 py-12">
 
         <div class="grid grid-cols-1 md:grid-cols-[260px_1fr] gap-8 md:gap-14 items-start">
 
@@ -490,8 +492,8 @@
     </section>
 
     <!-- ════════════ SLIDE 3 — PROJETOS ════════════ -->
-    <section class="fp-slide bg-ink" id="slide-projetos">
-      <div class="relative z-10 w-full max-w-[1140px] mx-auto px-6 md:px-10">
+    <section class="fp-slide" id="slide-projetos">
+      <div class="relative z-10 w-full max-w-[1140px] mx-auto px-6 md:px-10 py-12">
 
         <div class="flex justify-between items-end mb-9 flex-wrap gap-4">
           <div>
@@ -642,17 +644,17 @@
     </section>
 
     <!-- ════════════ SLIDE 4 — CONTATO ════════════ -->
-    <section class="fp-slide bg-ink-2" id="slide-contato">
-      <div class="relative z-10 w-full max-w-[1140px] mx-auto px-6 md:px-10">
+    <section class="fp-slide" id="slide-contato">
+      <div class="relative z-10 w-full max-w-[1140px] mx-auto px-6 md:px-10 py-12">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
 
           <!-- Esquerda -->
           <div>
             <div class="rv section-kicker">Contato</div>
-            <h2 class="rv d1 font-sans font-bold text-cream tracking-tighter leading-[1.05] mt-3 mb-4"
+            <h2 class="rv d1 font-sans font-bold text-cream tracking-tighter leading-[1.05] mt-3 mb-4 glow-text"
                 style="font-size:clamp(2.2rem,4vw,3.4rem)">
               Vamos resolver um<br>
-              <span style="color:rgb(var(--accent))">problema juntos?</span>
+              <span class="glow-accent" style="color:rgb(var(--accent))">problema juntos?</span>
             </h2>
             <p class="rv d2 text-cream-2 leading-loose max-w-sm" style="font-size:.95rem">
               Sem compromisso. Me conta o que está travando no seu trabalho e vejo se consigo ajudar.

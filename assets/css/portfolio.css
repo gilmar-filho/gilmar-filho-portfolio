@@ -29,12 +29,12 @@ html.fp-ready body {
   opacity: 0;
   transition: transform .9s cubic-bezier(0,0,.2,1),
               opacity   .9s cubic-bezier(0,0,.2,1);
-  will-change: transform, opacity;
+  overflow-y: auto;
 }
 
-.fp-slide.active { transform: translateY(0);     opacity: 1; z-index: 2; }
-.fp-slide.above  { transform: translateY(-100%); opacity: 0; z-index: 1; }
-.fp-slide.below  { transform: translateY(100%);  opacity: 0; z-index: 1; }
+.fp-slide.active { transform: translateY(0);     opacity: 1; z-index: 3; }
+.fp-slide.above  { transform: translateY(-100%); opacity: 0; z-index: 2; }
+.fp-slide.below  { transform: translateY(100%);  opacity: 0; z-index: 2; }
 
 /* mobile: fullpage desativado */
 @media (max-width: 768px) {
@@ -164,6 +164,11 @@ html.fp-ready body {
   background:
     radial-gradient(ellipse 80vw 60vh at 8% -5%,  rgba(var(--accent-rgb),.06) 0%, transparent 65%),
     radial-gradient(ellipse 55vw 45vh at 92% 105%, rgba(var(--accent-rgb),.03) 0%, transparent 60%);
+}
+[data-theme="light"] #smoke-canvas,
+[data-theme="light"] .smoke-canvas-section {
+  opacity: .18;
+  filter: hue-rotate(10deg) saturate(1.4);
 }
 
 /* ─── BOTÃO DE TEMA ──────────────────────────────── */
@@ -416,3 +421,57 @@ html.fp-ready body {
 ::-webkit-scrollbar-track    { background: rgb(var(--ink)); }
 ::-webkit-scrollbar-thumb    { background: rgb(var(--ink-4)); border-radius: 2px; }
 ::-webkit-scrollbar-thumb:hover { background: rgb(var(--accent)); }
+
+/* 1. Canvas no fundo, mas acima do mesh */
+#smoke-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 1; /* Controle a força no JS, não aqui */
+  overflow: visible !important;
+}
+
+/* Garante que o conteúdo dos slides fique acima do fundo */
+.fp-slide > * {
+  position: relative;
+  z-index: 1; /* Conteúdo do slide fica sobre o ::before */
+}
+
+/* Remove fundo nativo dos slides para o ::before funcionar */
+#slide-hero,
+#slide-sobre,
+#slide-freelance,
+#slide-projetos,
+#slide-contato {
+  background: transparent !important;
+}
+
+/* 4. O SEGREDO: O fundo das seções deve ser bem transparente */
+#slide-hero::before,
+#slide-sobre::before,
+#slide-freelance::before,
+#slide-projetos::before,
+#slide-contato::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1; /* Fica atrás do conteúdo do slide, mas dentro do Z-index do slide */
+  background: rgba(var(--ink), 0.35);
+  transition: background 0.5s ease;
+}
+
+/* Seções com ink-2 (leve variação) */
+#slide-freelance::before,
+#slide-contato::before {
+  background: rgba(var(--ink-2), 0.35);
+}
+
+/* ─── BRILHO NO TEXTO (TEXT GLOW) ────────────────── */
+.glow-text {
+  text-shadow: 0 0 24px rgba(237, 232, 220, 0.45); /* Brilho na cor --cream */
+}
+
+.glow-accent {
+  text-shadow: 0 0 24px rgba(var(--accent-rgb), 0.7); /* Brilho verde */
+}
