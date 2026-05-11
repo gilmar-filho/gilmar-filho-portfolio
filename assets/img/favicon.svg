@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Fundo -->
+  <rect width="32" height="32" rx="7" fill="#0D1A12"/>
+
+  <!-- { G } em JetBrains Mono feel -->
+  <text
+    x="16"
+    y="22"
+    text-anchor="middle"
+    font-family="'JetBrains Mono', 'Fira Mono', monospace"
+    font-size="14"
+    font-weight="500"
+    letter-spacing="-0.5"
+    fill="#5FE89A"
+  >{G}</text>
+</svg>
