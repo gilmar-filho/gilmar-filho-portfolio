@@ -3,21 +3,116 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
-    /* Tema Claro - Padrão (Valores em RGB para suportar opacidade) */
-    --bg-color: 248 250 252;
-    --text-color: 15 23 42;
-    --primary-color: 29 78 216;
-    --secondary-bg: 255 255 255;
-    --border-color: 226 232 240;
+  /* ─── TOKENS — dark (padrão) ──────────────────────
+     Verde escuro + creme
+  ─────────────────────────────────────────────────── */
+  :root,
+  [data-theme="dark"] {
+    --ink:        13  26  18;    /* #0D1A12 — fundo principal     */
+    --ink-2:      22  32  16;    /* #162010 — superfícies          */
+    --ink-3:      30  46  26;    /* #1E2E1A — cards               */
+    --ink-4:      38  51  35;    /* #263323 — bordas              */
+
+    --cream:      237 232 220;   /* #EDE8DC — texto principal     */
+    --cream-2:    200 194 180;   /* #C8C2B4 — texto secundário    */
+    --cream-3:    122 118 112;   /* #7A7670 — texto terciário     */
+
+    --accent:     95  232 154;   /* #5FE89A — verde brilhante     */
+    --accent-rgb: 95, 232, 154;
+
+    --border:     rgba(237,232,220,.07);
+    --border-2:   rgba(237,232,220,.14);
+    --border-3:   rgba(237,232,220,.22);
   }
 
-  html.dark {
-    /* Tema Escuro */
-    --bg-color: 11 17 32;
-    --text-color: 203 213 225;
-    --primary-color: 56 189 248;
-    --secondary-bg: 30 41 59;
-    --border-color: 51 65 85;
+  /* ─── TOKENS — light ─────────────────────────────── */
+  [data-theme="light"] {
+    --ink:        240 237 228;   /* #F0EDE4 */
+    --ink-2:      232 228 216;   /* #E8E4D8 */
+    --ink-3:      222 218 208;   /* #DEDAD0 */
+    --ink-4:      206 201 188;   /* #CEC9BC */
+
+    --cream:      26  30  20;    /* #1A1E14 */
+    --cream-2:    61  66  52;    /* #3D4234 */
+    --cream-3:    122 120 112;   /* #7A7870 */
+
+    --accent:     26  122  64;   /* #1A7A40 — verde mais escuro no light */
+    --accent-rgb: 26, 122, 64;
+
+    --border:     rgba(26,30,20,.08);
+    --border-2:   rgba(26,30,20,.14);
+    --border-3:   rgba(26,30,20,.22);
+  }
+}
+
+@layer components {
+  /* Pill / badge reutilizável */
+  .pill {
+    @apply inline-flex items-center gap-1 px-3 py-1 rounded-full
+           font-mono text-[.65rem] tracking-wider;
+    background: rgba(var(--accent-rgb), .1);
+    border: 1px solid rgba(var(--accent-rgb), .22);
+    color: rgb(var(--accent));
+  }
+
+  .pill:hover {
+    background: rgba(var(--accent-rgb), .18);
+  }
+
+  .badge-green {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 rounded-full
+           font-mono text-[.6rem] tracking-wider uppercase;
+    background: rgba(var(--accent-rgb), .08);
+    border: 1px solid rgba(var(--accent-rgb), .22);
+    color: rgb(var(--accent));
+  }
+
+  .badge-amber {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 rounded-full
+           font-mono text-[.6rem] tracking-wider uppercase;
+    background: rgba(255,184,77,.08);
+    border: 1px solid rgba(255,184,77,.22);
+    color: #FFB84D;
+  }
+
+  /* Kicker de seção */
+  .section-kicker {
+    @apply flex items-center gap-2 font-mono text-[.68rem]
+           tracking-[.15em] uppercase mb-3;
+    color: rgb(var(--accent));
+  }
+
+  .section-kicker::before {
+    content: '';
+    @apply block w-5 h-px;
+    background: rgb(var(--accent));
+  }
+
+  /* Botão primário */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-xl
+           font-medium text-[.95rem] transition-all duration-200;
+    background: rgb(var(--accent));
+    color: rgb(var(--ink));
+    box-shadow: 0 0 28px rgba(var(--accent-rgb), .22);
+  }
+
+  .btn-primary:hover {
+    @apply opacity-85 -translate-y-px;
+  }
+
+  /* Botão ghost */
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-xl
+           font-medium text-[.95rem] transition-all duration-200;
+    background: transparent;
+    color: rgb(var(--cream-2));
+    border: 1px solid var(--border-2);
+  }
+
+  .btn-ghost:hover {
+    border-color: rgba(var(--accent-rgb), .5);
+    color: rgb(var(--cream));
+    background: rgba(var(--accent-rgb), .06);
   }
 }
