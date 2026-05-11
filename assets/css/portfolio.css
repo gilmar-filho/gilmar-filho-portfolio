@@ -475,3 +475,12 @@ html.fp-ready body {
 .glow-accent {
   text-shadow: 0 0 24px rgba(var(--accent-rgb), 0.7); /* Brilho verde */
 }
+
+[data-theme="light"] #cursor {
+  mix-blend-mode: normal;
+  background: rgb(var(--accent));
+}
+
+[data-theme="light"] #cursor-ring {
+  border-color: rgba(var(--accent-rgb), .5);
+}
