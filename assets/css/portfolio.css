@@ -370,9 +370,31 @@ html.fp-ready body {
 .card-glow:hover { border-color: rgba(var(--accent-rgb),.35) !important; transform: translateY(-3px); box-shadow: 0 18px 52px rgba(0,0,0,.35); }
 .card-glow:hover::before { opacity: 1; }
 
-/* ─── FREELANCE — tabs ───────────────────────────── */
-.fl-panel          { display: none; }
-.fl-panel.active   { display: flex; flex-direction: column; gap: 20px; }
+/* ─── FREELANCE — tabs (Refatorado contra Layout Shift) ──── */
+/* Transforma o contêiner pai dos painéis em um grid */
+#slide-freelance .rv-r.min-w-0 {
+  display: grid;
+  align-items: start;
+}
+
+/* Coloca todos os painéis na mesma célula (sobrepostos) */
+.fl-panel {
+  grid-area: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.2s ease-in-out; /* Bônus: transição suave */
+}
+
+/* Exibe apenas o ativo sem alterar a altura do container */
+.fl-panel.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
 
 /* ─── CONTATO — CTA hover ────────────────────────── */
 .cta-btn {

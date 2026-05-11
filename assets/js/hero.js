@@ -364,13 +364,33 @@ function initDashBars() {
 function initTabs() {
   const tabs   = document.querySelectorAll('.fl-tab');
   const panels = document.querySelectorAll('.fl-panel');
+  let hoverTimer; // Guarda a referência do timer
 
   function activate(i) {
     tabs.forEach((t, j)   => t.classList.toggle('active', j === i));
     panels.forEach((p, j) => p.classList.toggle('active', j === i));
   }
 
-  tabs.forEach((tab, i) => tab.addEventListener('click', () => activate(i)));
+  tabs.forEach((tab, i) => {
+    // Inicia um timer ao entrar na aba
+    tab.addEventListener('mouseenter', () => {
+      hoverTimer = setTimeout(() => {
+        activate(i);
+      }, 150); // 150ms: tempo suficiente para ignorar passagens rápidas
+    });
+
+    // Cancela a troca se o mouse sair antes dos 150ms
+    tab.addEventListener('mouseleave', () => {
+      clearTimeout(hoverTimer);
+    });
+    
+    // Mantém o clique instantâneo (ignora o timer) para mobile
+    tab.addEventListener('click', () => {
+      clearTimeout(hoverTimer);
+      activate(i);
+    });
+  });
+  
   activate(0);
 }
 
@@ -389,8 +409,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // Inicializa apenas o canvas global
   const mainCanvas = document.getElementById('smoke-canvas');
   if (mainCanvas) {
-    // createSmoke(mainCanvas, 0.08);
-    createSpace(mainCanvas, 0.35);
+    // createSmoke(mainCanvas, 0.12);
+    createSpace(mainCanvas, 0.5);
   }
 
   // Mantém os outros efeitos
