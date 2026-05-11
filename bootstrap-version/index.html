@@ -1,330 +1,402 @@
 <!DOCTYPE html>
-<html lang="pt-BR" data-bs-theme="light">
+<html lang="pt-BR" data-bs-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
-  <title>Gilmar Filho | Profissional de TI (Versão Bootstrap)</title>
+  <title>Gilmar Filho · Automação & Sistemas (Bootstrap)</title>
   
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://unpkg.com/@phosphor-icons/web"></script>
-  
-  <style>
-    .modal-blur { transition: filter 0.3s ease; }
-    body.modal-open main, body.modal-open header { filter: blur(8px); }
-    .card { transition: transform 0.2s ease, box-shadow 0.2s ease; border: 1px solid var(--bs-border-color); }
-    .card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); border-color: var(--bs-primary); }
-    .btn-contact-grid { transition: all 0.2s ease; }
-    .btn-contact-grid:hover { background-color: var(--bs-primary-bg-subtle); border-color: var(--bs-primary); color: var(--bs-primary); }
-    .btn-soft-primary { background-color: rgba(13, 110, 253, 0.1); color: #0d6efd; transition: all 0.2s ease; }
-    .btn-soft-primary:hover { background-color: rgba(13, 110, 253, 0.2); color: #0a58ca; }
-    
-    /* Estilos específicos para preservar o terminal */
-    .terminal-box { background-color: #1a1b26; border: 1px solid rgba(255,255,255,0.1); max-width: 550px; }
-    .terminal-header { background-color: #1a1b26; border-bottom: 1px solid rgba(255,255,255,0.05); }
-    .terminal-text { color: #d1d5db; line-height: 2.2; font-size: 0.9rem; }
-  </style>
-</head>
-<body>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
 
-  <header class="border-bottom sticky-top bg-body py-3">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/bootstrap-style.css">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body class="antialiased">
+
+  <header class="sticky-top bg-body py-3 border-bottom border-secondary-subtle z-3 shadow-sm">
     <div class="container d-flex justify-content-between align-items-center">
-      <h1 class="h4 mb-0 fw-bold d-flex align-items-center gap-2">
+      <h1 class="h5 mb-0 fw-bold d-flex align-items-center gap-2">
         <i class="ph-fill ph-terminal-window text-primary"></i> Gilmar Filho
       </h1>
-      <nav class="d-none d-md-flex gap-4 fw-medium small">
-        <a href="#projetos" class="nav-link p-0">Projetos</a>
-        <a href="#freelance" class="nav-link p-0">Freelance</a>
-        <a href="#lab" class="nav-link p-0">Laboratório</a>
-        <a href="#contato" class="nav-link p-0">Contato</a>
-      </nav>
-      <button id="theme-toggle" class="btn btn-outline-secondary btn-sm d-flex align-items-center gap-2">
-        <i class="ph ph-circle-half fs-5"></i> Tema
-      </button>
+      
+      <div class="d-flex align-items-center gap-4">
+        <nav class="d-none d-md-flex gap-4 fw-medium small font-mono text-uppercase tracking-wider">
+          <a href="#sobre" class="nav-link text-body-secondary hover-primary p-0">Sobre</a>
+          <a href="#freelance" class="nav-link text-body-secondary hover-primary p-0">Freelance</a>
+          <a href="#projetos" class="nav-link text-body-secondary hover-primary p-0">Projetos</a>
+          <a href="#contato" class="nav-link text-body-secondary hover-primary p-0">Contato</a>
+        </nav>
+        
+        <button id="theme-toggle" class="btn btn-outline-secondary border-0 btn-sm d-flex align-items-center justify-content-center p-2 rounded-circle" aria-label="Alternar tema">
+          <i class="ph ph-circle-half fs-5"></i>
+        </button>
+      </div>
     </div>
   </header>
 
   <main class="container py-5">
     
-    <section class="row align-items-center py-5 gx-lg-5">
-      
-      <div class="col-lg-6 mb-5 mb-lg-0 text-center text-lg-start">
-        <div class="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill border border-primary-subtle text-primary bg-primary-subtle bg-opacity-10 small fw-bold mb-4">
-          <span class="bg-success rounded-circle" style="width: 8px; height: 8px;"></span> Disponível para novos desafios
-        </div>
-        
-        <h1 class="display-4 fw-bolder mb-4" style="line-height: 1.1; letter-spacing: -1px;">
-          Automação de processos e<br><span class="text-primary">sistemas inteligentes</span>
+    <section id="inicio" class="row align-items-center min-vh-50 py-5 gx-lg-5">
+      <div class="col-lg-6 mb-5 mb-lg-0 text-start">
+        <p class="section-kicker">Desenvolvedor · Lavras, MG</p>
+        <h1 class="display-3 fw-light text-body tracking-tighter lh-1 mb-4">
+          Gilmar<br><strong class="fw-bold">Filho</strong>
         </h1>
-        
-        <p class="lead mb-5 text-secondary">
-          Crio sistemas que substituem tarefas repetitivas, organizam operações e economizam horas de trabalho todos os dias.
+        <p class="font-mono text-body-secondary lh-lg mb-5" style="max-width: 400px; font-size: 0.9rem;">
+          <em class="text-body fst-normal">Automação de processos</em> e sistemas inteligentes.<br>
+          Transformo tarefas manuais em fluxos automáticos integrados com ferramentas que as pessoas já usam.
         </p>
-        
-        <div class="d-flex flex-column flex-sm-row justify-content-center justify-content-lg-start gap-3">
-          <button class="btn btn-primary btn-lg px-4 py-3 fw-bold d-inline-flex align-items-center justify-content-center gap-2 shadow-sm" data-bs-toggle="modal" data-bs-target="#contactModal">
-            Entrar em contato <i class="ph ph-paper-plane-right"></i>
-          </button>
-          <a href="#projetos" class="btn btn-light btn-lg px-4 py-3 fw-bold d-inline-flex align-items-center justify-content-center gap-2 border">
-            Ver projetos <i class="ph ph-arrow-down"></i>
-          </a>
+        <div class="d-inline-flex align-items-center gap-2 px-3 py-2 rounded-pill border border-primary text-primary bg-primary bg-opacity-10 small font-mono text-uppercase tracking-wider">
+          <span class="bg-primary rounded-circle animate-pulse" style="width: 8px; height: 8px;"></span> Disponível para novos projetos
         </div>
       </div>
 
-      <div class="col-lg-6">
-        <div class="terminal-box rounded-4 shadow-lg overflow-hidden font-monospace text-start mx-auto mx-lg-0 ms-lg-auto">
+      <div class="col-lg-6 d-none d-md-block">
+        <div class="hero-windows ms-lg-4" style="width: 100%; max-width: 380px;">
           
-          <div class="terminal-header d-flex align-items-center px-4 py-3">
-            <div class="rounded-circle me-2" style="width: 12px; height: 12px; background-color: #ff5f56;"></div>
-            <div class="rounded-circle me-2" style="width: 12px; height: 12px; background-color: #ffbd2e;"></div>
-            <div class="rounded-circle" style="width: 12px; height: 12px; background-color: #27c93f;"></div>
-            <span class="ms-3 text-secondary small">gilmar@portfolio ~ %</span>
+          <div class="win win-1">
+            <div class="win-bar">
+              <span class="win-dot bg-danger"></span><span class="win-dot bg-warning"></span><span class="win-dot bg-success"></span>
+              <span class="win-titlebar">terminal</span>
+            </div>
+            <div class="win-body">
+              <div class="win-terminal">
+                <span class="text-primary">~ $</span> <span class="text-white">python automate.py</span><br>
+                <span class="text-secondary">✓ conectando à planilha...</span><br>
+                <span class="text-secondary">✓ importando 347 transações</span><br>
+                <span class="text-secondary">✓ projetando parcelas...</span><br>
+                <span class="text-secondary">✓ relatório gerado em 2.3s</span><br>
+                <span class="text-primary">~ $</span> <span class="t-cur"></span>
+              </div>
+              <div class="win-caption">Automação financeira</div>
+            </div>
           </div>
-          
-          <div class="p-4 p-md-5 terminal-text">
-            <div style="color: #676e95;" class="mb-4">// perfil.ts</div>
-            
-            <div class="mb-1">
-              <span style="color: #c792ea;">const</span>
-              <span class="text-white"> dev </span>
-              <span style="color: #89ddff;">=</span>
-              <span style="color: #89ddff;"> {</span>
+
+          <div class="win win-2">
+            <div class="win-bar">
+              <span class="win-dot bg-danger"></span><span class="win-dot bg-warning"></span><span class="win-dot bg-success"></span>
+              <span class="win-titlebar">dashboard.gs</span>
             </div>
-            
-            <div class="ps-4 mb-1">
-              <span style="color: #82aaff;">name</span><span style="color: #89ddff;">:</span>
-              <span style="color: #c3e88d;">'Gilmar Filho'</span><span style="color: #89ddff;">,</span>
+            <div class="win-body">
+              <div class="win-dashboard">
+                <div>
+                  <span class="dash-label">Importações / mês</span>
+                  <div class="dash-bar-wrap mt-1"><div class="dash-bar" style="width:82%"></div></div>
+                  <span class="dash-val">347 registros</span>
+                </div>
+                <div class="dash-divider"></div>
+                <div>
+                  <span class="dash-label">Cartões monitorados</span>
+                  <div class="dash-bar-wrap mt-1"><div class="dash-bar" style="width:60%"></div></div>
+                  <span class="dash-val">6 cartões</span>
+                </div>
+                <div class="dash-divider"></div>
+                <div>
+                  <span class="dash-label">Alertas esta semana</span>
+                  <div class="dash-bar-wrap mt-1"><div class="dash-bar" style="width:45%"></div></div>
+                  <span class="dash-val">12 alertas</span>
+                </div>
+              </div>
+              <div class="win-caption">Controle de métricas</div>
             </div>
-            
-            <div class="ps-4 mb-1">
-              <span style="color: #82aaff;">role</span><span style="color: #89ddff;">:</span>
-              <span style="color: #c3e88d;">'Profissional de TI'</span><span style="color: #89ddff;">,</span>
+          </div>
+
+          <div class="win win-3">
+            <div class="win-bar">
+              <span class="win-dot bg-danger"></span><span class="win-dot bg-warning"></span><span class="win-dot bg-success"></span>
+              <span class="win-titlebar">estoque.sheets</span>
             </div>
-            
-            <div class="ps-4 mb-1">
-              <span style="color: #82aaff;">stack</span><span style="color: #89ddff;">: [</span>
-              <span style="color: #c3e88d;">'Python'</span><span style="color: #89ddff;">,</span>
-              <span style="color: #c3e88d;">'Docker'</span><span style="color: #89ddff;">,</span>
-              <span style="color: #c3e88d;">'JavaScript'</span><span style="color: #89ddff;">,</span>
-              <span style="color: #c3e88d;">'Google Apps Script'</span>
-              <span style="color: #89ddff;">],</span>
+            <div class="win-body">
+              <div class="win-sheet">
+                <div class="sheet-header"><span>Produto</span><span>Status</span><span class="text-end">Qtd</span></div>
+                <div class="sheet-row"><span>Cimento</span><span class="text-primary">✓ OK</span><span class="text-end">142</span></div>
+                <div class="sheet-row"><span>Tijolo</span><span class="text-warning">⚠ Baixo</span><span class="text-end">18</span></div>
+                <div class="sheet-row"><span>Areia</span><span class="text-primary">✓ OK</span><span class="text-end">87</span></div>
+                <div class="sheet-row"><span>Cal</span><span class="text-secondary">— —</span><span class="text-end">0</span></div>
+              </div>
+              <div class="win-caption">Gestão de estoque</div>
             </div>
-            
-            <div class="ps-4 mb-1">
-              <span style="color: #82aaff;">available</span><span style="color: #89ddff;">:</span>
-              <span style="color: #f78c6c;">true</span><span style="color: #89ddff;">,</span>
+          </div>
+
+          <div class="win win-4">
+            <div class="win-bar">
+              <span class="win-dot bg-danger"></span><span class="win-dot bg-warning"></span><span class="win-dot bg-success"></span>
+              <span class="win-titlebar">microservices</span>
             </div>
-            
-            <div class="ps-4 mb-1">
-              <span style="color: #82aaff;">focus</span><span style="color: #89ddff;">:</span>
-              <span style="color: #c3e88d;">'Automação'</span><span style="color: #89ddff;">,</span>
+            <div class="win-body">
+              <div class="win-network" style="position: relative; width: 100%; height: 100%;">
+                <canvas id="net-canvas" style="position: absolute; inset: 0; width: 100%; height: 100%;"></canvas>
+              </div>
+              <div class="win-caption">Sistemas distribuídos</div>
             </div>
-            
-            <div class="mb-4"><span style="color: #89ddff;">}</span></div>
-            
-            <div class="d-flex align-items-center">
-              <span style="color: #89ddff;" class="me-3 fw-bold">&gt;</span>
-              <span style="color: #c792ea;">dev</span><span style="color: #89ddff;">.</span><span style="color: #82aaff;">solve</span><span style="color: #89ddff;">(</span><span style="color: #c3e88d;">problem</span><span style="color: #89ddff;">)</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="sobre" class="py-5">
+      <div class="row align-items-center gx-lg-5">
+        <div class="col-lg-5 mb-5 mb-lg-0">
+          <div class="d-flex flex-column gap-3 font-mono small text-body-secondary">
+            <div class="rounded-circle overflow-hidden mb-3 border border-secondary-subtle mx-auto mx-lg-0" style="width: 180px; height: 180px; background: var(--ink-3);">
+              <img src="../assets/img/foto.jpg" alt="Gilmar Filho" class="w-100 h-100 object-fit-cover" onerror="this.style.display='none'">
             </div>
+            <div class="d-flex align-items-center gap-3"><i class="ph ph-map-pin text-primary fs-5"></i> Lavras, MG</div>
+            <div class="d-flex align-items-center gap-3"><i class="ph ph-graduation-cap text-primary fs-5"></i> UFLA · SI · 6º período</div>
+            <div class="d-flex align-items-center gap-3"><i class="ph ph-briefcase text-primary fs-5"></i> Freelance disponível</div>
+            <div class="d-flex align-items-center gap-3"><i class="ph ph-github-logo text-primary fs-5"></i> github.com/gilmar-filho</div>
+          </div>
+        </div>
+        <div class="col-lg-7">
+          <p class="section-kicker">Sobre mim</p>
+          <h2 class="display-6 fw-bold mb-4 tracking-tighter">Sistemas simples<br>que funcionam de verdade</h2>
+          <div class="d-flex flex-column gap-3 text-body-secondary lh-lg mb-4">
+            <p>Olá, sou <strong class="text-body fw-medium">Gilmar Filho</strong>, estudante de Sistemas de Informação na UFLA (6º período). Trabalho construindo automações para quem não tem tempo a perder com tarefas repetitivas.</p>
+            <p>Minha especialidade é transformar processos manuais em fluxos automáticos — usando <strong class="text-body fw-medium">Google Planilhas</strong> com Apps Script, <strong class="text-body fw-medium">Python</strong> e integrações com ferramentas que as pessoas já usam no dia a dia, como o Telegram.</p>
+            <p>O que guia cada projeto é uma escolha deliberada: <strong class="text-body fw-medium">entregar o que resolve com qualidade, não o que impressiona com quantidade</strong>. Um sistema com 3 funcionalidades que o usuário usa todos os dias vale mais do que um sistema "completo" que no fim vira um peso.</p>
+          </div>
+          <div class="d-flex flex-wrap gap-2">
+            <span class="custom-pill">Apps Script</span><span class="custom-pill">Python</span><span class="custom-pill">Docker</span>
+            <span class="custom-pill">Telegram API</span><span class="custom-pill">Google Planilhas</span><span class="custom-pill">LangChain</span>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="projetos" class="py-5">
-      <div class="d-flex align-items-center gap-3 mb-4 border-bottom pb-3">
-        <i class="ph ph-stack fs-2 text-primary"></i>
-        <h3 class="fw-bold mb-0">Projetos</h3>
+    <section id="freelance" class="py-5 mt-5">
+      <div class="row g-5">
+        <div class="col-md-4">
+          <p class="font-mono small text-uppercase tracking-widest text-body-secondary mb-4">projetos / cliente</p>
+          <div class="d-flex flex-column gap-2">
+            <button class="btn btn-tab text-start p-3 border-0 rounded-4 fl-tab active" data-index="0">
+              <div class="d-flex justify-content-between align-items-center mb-1">
+                <span class="font-mono small text-body fw-medium">Consultoria<br>Financeira</span>
+                <span class="font-mono text-primary" style="font-size: 0.65rem;">em uso</span>
+              </div>
+            </button>
+            <button class="btn btn-tab text-start p-3 border-0 rounded-4 fl-tab" data-index="1">
+              <div class="d-flex justify-content-between align-items-center mb-1">
+                <span class="font-mono small text-body fw-medium">Follow-Up<br>Engenheiro Civil</span>
+                <span class="font-mono text-primary" style="font-size: 0.65rem;">em uso</span>
+              </div>
+            </button>
+            <button class="btn btn-tab text-start p-3 border-0 rounded-4 fl-tab" data-index="2">
+              <div class="d-flex justify-content-between align-items-center mb-1">
+                <span class="font-mono small text-body fw-medium">Gestão de Estoque<br>via Telegram</span>
+                <span class="font-mono text-warning" style="font-size: 0.65rem;">validação</span>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        <div class="col-md-8">
+          <div class="fl-content-container">
+            
+            <div class="fl-panel active">
+              <div class="d-flex align-items-center gap-3 mb-3">
+                <div class="bg-primary bg-opacity-10 text-primary p-3 rounded-4 border border-primary border-opacity-25"><i class="ph-fill ph-chart-pie fs-3"></i></div>
+                <div>
+                  <h3 class="fw-bold mb-1 fs-4 tracking-tight">Consultoria e Automação Financeira</h3>
+                  <p class="font-mono small text-body-secondary mb-0 tracking-wider">Google Planilhas · Apps Script</p>
+                </div>
+              </div>
+              <p class="text-body-secondary lh-lg mb-4">Empresa com alto volume de transações bancárias e múltiplos cartões, controlando tudo manualmente em planilha. Quatro automações entregues e em uso ativo.</p>
+              <div class="row g-3 mb-4">
+                <div class="col-sm-6"><div class="custom-card p-3 rounded-4 h-100">
+                  <div class="d-flex align-items-center gap-2 text-body fw-medium mb-2"><i class="ph ph-upload-simple text-primary"></i> Importação de Extratos</div>
+                  <p class="font-mono small text-body-secondary mb-0">Dados de <code>.csv</code>, <code>.ofx</code> e <code>.xlsx</code> em segundos.</p>
+                </div></div>
+                <div class="col-sm-6"><div class="custom-card p-3 rounded-4 h-100">
+                  <div class="d-flex align-items-center gap-2 text-body fw-medium mb-2"><i class="ph ph-arrows-split text-primary"></i> Projeção de Parcelas</div>
+                  <p class="font-mono small text-body-secondary mb-0">Reconhece padrão de parcelamento e lança compromissos futuros automaticamente.</p>
+                </div></div>
+                <div class="col-sm-6"><div class="custom-card p-3 rounded-4 h-100">
+                  <div class="d-flex align-items-center gap-2 text-body fw-medium mb-2"><i class="ph ph-credit-card text-primary"></i> Resumo por Cartão</div>
+                  <p class="font-mono small text-body-secondary mb-0">Identifica em quais meses cada cartão foi utilizado.</p>
+                </div></div>
+                <div class="col-sm-6"><div class="custom-card p-3 rounded-4 h-100">
+                  <div class="d-flex align-items-center gap-2 text-body fw-medium mb-2"><i class="ph ph-translate text-primary"></i> Tradução do Template</div>
+                  <p class="font-mono small text-body-secondary mb-0">Template financeiro para inglês norte-americano para venda internacional.</p>
+                </div></div>
+              </div>
+              <div class="d-flex flex-wrap gap-2">
+                <span class="custom-pill">Apps Script</span><span class="custom-pill">Google Planilhas</span><span class="custom-pill">OFX · CSV · XLSX</span>
+              </div>
+            </div>
+
+            <div class="fl-panel">
+              <div class="d-flex align-items-center gap-3 mb-3">
+                <div class="bg-primary bg-opacity-10 text-primary p-3 rounded-4 border border-primary border-opacity-25"><i class="ph-fill ph-bell-ringing fs-3"></i></div>
+                <div>
+                  <h3 class="fw-bold mb-1 fs-4 tracking-tight">Sistema de Follow-Up para Engenheiro Civil</h3>
+                  <p class="font-mono small text-body-secondary mb-0 tracking-wider">Google Planilhas · Telegram Bot API</p>
+                </div>
+              </div>
+              <p class="text-body-secondary lh-lg mb-4">Engenheiro com dificuldade em controlar prazos de serviços e lembretes para verificar processos no TRE — tarefa recorrente que ficava perdida na rotina.</p>
+              <div class="row g-3 mb-4">
+                <div class="col-sm-6"><div class="custom-card p-3 rounded-4 h-100">
+                  <div class="d-flex align-items-center gap-2 text-body fw-medium mb-2"><i class="ph ph-clock-countdown text-primary"></i> Alertas de prazo</div>
+                  <p class="font-mono small text-body-secondary mb-0">Notificação automática quando um serviço está próximo da data de entrega.</p>
+                </div></div>
+                <div class="col-sm-6"><div class="custom-card p-3 rounded-4 h-100">
+                  <div class="d-flex align-items-center gap-2 text-body fw-medium mb-2"><i class="ph ph-arrows-clockwise text-primary"></i> Lembretes de revisão</div>
+                  <p class="font-mono small text-body-secondary mb-0">Aviso quando um processo no TRE não foi verificado há tempo demais.</p>
+                </div></div>
+              </div>
+              <div class="d-flex flex-wrap gap-2">
+                <span class="custom-pill">Google Planilhas</span><span class="custom-pill">Apps Script</span><span class="custom-pill">Telegram Bot API</span>
+              </div>
+            </div>
+
+            <div class="fl-panel">
+              <div class="d-flex align-items-center gap-3 mb-3">
+                <div class="bg-primary bg-opacity-10 text-primary p-3 rounded-4 border border-primary border-opacity-25"><i class="ph-fill ph-package fs-3"></i></div>
+                <div>
+                  <h3 class="fw-bold mb-1 fs-4 tracking-tight">Gestão de Estoque via Telegram</h3>
+                  <p class="font-mono small text-body-secondary mb-0 tracking-wider">Google Planilhas · Webhook · Telegram Bot</p>
+                </div>
+              </div>
+              <p class="text-body-secondary lh-lg mb-4">Loja de materiais de construção gerenciada "de cabeça". A gerente tem pouco tempo e baixa tolerância para sistemas com fluxos longos.</p>
+              <div class="custom-card bg-primary bg-opacity-10 border-primary border-opacity-25 p-4 rounded-4 mb-4 d-flex gap-3">
+                <i class="ph ph-lightbulb text-primary fs-4 mt-1"></i>
+                <p class="text-body-secondary small mb-0 lh-lg"><strong class="text-body">Solução sem interface:</strong> Google Planilhas como base de dados invisível ao usuário — integrada a um bot no Telegram. Cadastro, entradas, saídas e alertas de reposição pelo app que a cliente já usa. Zero tela de sistema, zero treinamento. Tudo adaptado ao fluxo diário da cliente.</p>
+              </div>
+              <div class="d-flex flex-wrap gap-2">
+                <span class="custom-pill">Google Planilhas</span><span class="custom-pill">Apps Script</span><span class="custom-pill">Telegram Bot API</span><span class="custom-pill">Webhook</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
       </div>
-      
+    </section>
+
+    <section id="projetos" class="py-5 mt-5">
+      <div class="d-flex justify-content-between align-items-end flex-wrap gap-3 mb-5">
+        <div>
+          <p class="section-kicker">Projetos Técnicos</p>
+          <h2 class="display-6 fw-bold tracking-tighter mb-0">Capacidade técnica na prática</h2>
+        </div>
+        <p class="font-mono small text-body-secondary text-md-end mb-0 lh-lg">Projetos acadêmicos que demonstram<br>o que está por baixo das soluções.</p>
+      </div>
       <div class="row g-4">
-        <div class="col-md-6 col-lg-4">
-          <div class="card h-100 p-4">
-            <div class="d-flex justify-content-between mb-3">
-              <span class="badge rounded-pill text-bg-success bg-opacity-10 text-success border border-success border-opacity-25 text-uppercase">Concluído</span>
-              <i class="ph ph-robot fs-3 opacity-50"></i>
+        <div class="col-md-6 col-lg-3">
+          <div class="custom-card card h-100 p-4 rounded-4 border-secondary-subtle bg-transparent">
+            <div class="d-flex justify-content-between align-items-start mb-3">
+              <div class="bg-primary bg-opacity-10 text-primary p-2 rounded-3 border border-primary border-opacity-25"><i class="ph ph-robot fs-4"></i></div>
+              <span class="badge rounded-pill border border-success text-success bg-success bg-opacity-10 font-mono fw-normal uppercase tracking-wider" style="font-size: 0.65rem;"><i class="ph ph-check-circle"></i> Concluído</span>
             </div>
-            <h4 class="fw-bold mb-3">NiadAgent</h4>
-            <p class="small text-muted mb-4">Automação de transcrição e sumarização de reuniões via Telegram e Gemini API. Fui responsável por toda a arquitetura distribuída com Docker e Tailscale.</p>
-            <a href="https://github.com/gilmar-filho/NiadAgent" target="_blank" class="btn btn-outline-secondary btn-sm w-100 fw-bold d-flex align-items-center justify-content-center gap-2 mt-auto">
-              <i class="ph ph-github-logo"></i> Acessar Repositório
-            </a>
+            <h5 class="fw-bold mb-1">NiadAgent</h5>
+            <p class="font-mono text-body-secondary mb-3" style="font-size: 0.65rem;">Sistemas Distribuídos · UFLA</p>
+            <p class="small text-body-secondary lh-lg mb-4 flex-grow-1">Áudios de reuniões via Telegram → Whisper (Docker) → sumarização com Gemini API via LangChain. API Gateway orquestra microserviços.</p>
+            <a href="https://github.com/gilmar-filho/NiadAgent" target="_blank" class="btn btn-outline-secondary btn-sm w-100 font-mono tracking-wider"><i class="ph ph-github-logo"></i> Repositório</a>
           </div>
         </div>
-
-        <div class="col-md-6 col-lg-4">
-          <div class="card h-100 p-4">
-            <div class="d-flex justify-content-between mb-3">
-              <span class="badge rounded-pill text-bg-warning bg-opacity-10 text-warning border border-warning border-opacity-25 text-uppercase">Em andamento</span>
-              <i class="ph ph-package fs-3 opacity-50"></i>
+        <div class="col-md-6 col-lg-3">
+          <div class="custom-card card h-100 p-4 rounded-4 border-secondary-subtle bg-transparent">
+            <div class="d-flex justify-content-between align-items-start mb-3">
+              <div class="bg-primary bg-opacity-10 text-primary p-2 rounded-3 border border-primary border-opacity-25"><i class="ph ph-brain fs-4"></i></div>
+              <span class="badge rounded-pill border border-success text-success bg-success bg-opacity-10 font-mono fw-normal uppercase tracking-wider" style="font-size: 0.65rem;"><i class="ph ph-check-circle"></i> Concluído</span>
             </div>
-            <h4 class="fw-bold mb-3">Gestão de Estoque</h4>
-            <p class="small text-muted">Sistema inteligente integrado ao Google Sheets para controle de entradas, saídas e alertas automáticos de reposição via Telegram.</p>
+            <h5 class="fw-bold mb-1">Algoritmos de IA</h5>
+            <p class="font-mono text-body-secondary mb-3" style="font-size: 0.65rem;">Inteligência Artificial · UFLA</p>
+            <p class="small text-body-secondary lh-lg mb-4 flex-grow-1">KNN, K-Means e MLP implementados do zero e com Scikit-learn para comparação direta. Avaliação com métricas formais.</p>
+            <a href="https://github.com/gilmar-filho/GCC128-Inteligencia_Artificial" target="_blank" class="btn btn-outline-secondary btn-sm w-100 font-mono tracking-wider"><i class="ph ph-github-logo"></i> Repositório</a>
           </div>
         </div>
-
-        <div class="col-md-6 col-lg-4">
-          <div class="card h-100 p-4">
-            <div class="d-flex justify-content-between mb-3">
-              <span class="badge rounded-pill text-bg-warning bg-opacity-10 text-warning border border-warning border-opacity-25 text-uppercase">Em andamento</span>
-              <i class="ph ph-arrows-clockwise fs-3 opacity-50"></i>
+        <div class="col-md-6 col-lg-3">
+          <div class="custom-card card h-100 p-4 rounded-4 border-secondary-subtle bg-transparent">
+            <div class="d-flex justify-content-between align-items-start mb-3">
+              <div class="bg-primary bg-opacity-10 text-primary p-2 rounded-3 border border-primary border-opacity-25"><i class="ph ph-database fs-4"></i></div>
+              <span class="badge rounded-pill border border-success text-success bg-success bg-opacity-10 font-mono fw-normal uppercase tracking-wider" style="font-size: 0.65rem;"><i class="ph ph-check-circle"></i> Concluído</span>
             </div>
-            <h4 class="fw-bold mb-3">Sistema de Follow-Up</h4>
-            <p class="small text-muted">Planilha personalizada de controle de tarefas e serviços com alertas automatizados no Telegram.</p>
+            <h5 class="fw-bold mb-1">Banco de Dados — RPG</h5>
+            <p class="font-mono text-body-secondary mb-3" style="font-size: 0.65rem;">Sistemas de BD · UFLA</p>
+            <p class="small text-body-secondary lh-lg mb-4 flex-grow-1">BD relacional completo com herança, triggers, views e stored procedures. Consultas avançadas: JOINs, subqueries, EXISTS.</p>
+            <a href="https://github.com/gilmar-filho/Projeto-IntroSistemasBD" target="_blank" class="btn btn-outline-secondary btn-sm w-100 font-mono tracking-wider"><i class="ph ph-github-logo"></i> Repositório</a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="custom-card card h-100 p-4 rounded-4 border-secondary-subtle bg-transparent">
+            <div class="d-flex justify-content-between align-items-start mb-3">
+              <div class="bg-primary bg-opacity-10 text-primary p-2 rounded-3 border border-primary border-opacity-25"><i class="ph ph-game-controller fs-4"></i></div>
+              <span class="badge rounded-pill border border-primary text-primary bg-primary bg-opacity-10 font-mono fw-normal uppercase tracking-wider" style="font-size: 0.65rem;"><i class="ph ph-wifi-high"></i> Online</span>
+            </div>
+            <h5 class="fw-bold mb-1">Jogo da Memória</h5>
+            <p class="font-mono text-body-secondary mb-3" style="font-size: 0.65rem;">Programação Web · UFLA</p>
+            <p class="small text-body-secondary lh-lg mb-4 flex-grow-1">Flip 3D em CSS puro, ranking persistente, responsivo. Zero dependências. Estado global e responsabilidade única no JS.</p>
+            <div class="d-flex gap-2 mt-auto">
+              <a href="https://gilmar-filho.github.io/GAC116-Jogo_da_Memoria/page" target="_blank" class="btn btn-primary btn-sm w-50 font-mono tracking-wider fw-bold"><i class="ph ph-play"></i> Jogar</a>
+              <a href="https://github.com/gilmar-filho/GAC116-Jogo_da_Memoria" target="_blank" class="btn btn-outline-secondary btn-sm w-50 font-mono tracking-wider"><i class="ph ph-github-logo"></i> Código</a>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="freelance" class="py-5">
-      <div class="d-flex align-items-center gap-3 mb-4 border-bottom pb-3">
-        <i class="ph ph-briefcase fs-2 text-primary"></i>
-        <h3 class="fw-bold mb-0">Soluções Freelance</h3>
-      </div>
-      
-      <div class="card p-4 p-md-5 border-0 bg-body-tertiary">
-        <div class="d-flex align-items-center gap-3 mb-4">
-          <div class="bg-primary bg-opacity-10 p-3 rounded-circle text-primary">
-            <i class="ph-fill ph-user-gear fs-3"></i>
-          </div>
-          <div>
-            <h4 class="fw-bold mb-0">Consultoria e Desenvolvimento em Google Sheets</h4>
-            <p class="small text-muted mb-0">Sistemas Financeiros</p>
-          </div>
+    <section id="contato" class="py-5 mt-5 border-top border-secondary-subtle">
+      <div class="row align-items-center py-5 gx-lg-5">
+        <div class="col-lg-5 mb-5 mb-lg-0">
+          <p class="section-kicker">Contato</p>
+          <h2 class="display-5 fw-bold tracking-tighter mb-4">Vamos<br><span class="text-primary">conversar!</span></h2>
+          <p class="text-body-secondary lh-lg mb-0" style="max-width: 400px;">Sem compromisso. Me conta o que está travando no seu trabalho e vejo se consigo ajudar.</p>
         </div>
         
-        <div class="row g-4">
-          <div class="col-md-6">
-            <h5 class="h6 fw-bold text-primary mb-3">
-              <i class="ph ph-check-circle me-2"></i>Escopo do Trabalho
-            </h5>
-            <ul class="list-unstyled small text-secondary">
-              <li class="mb-2">• Tradução completa da planilha para Inglês.</li>
-              <li class="mb-2">• Tratamento de dados complexos para garantir integridade financeira.</li>
-              <li>• Criação de Dashboards estratégicos com visão clara de rentabilidade.</li>
-            </ul>
-          </div>
-          <div class="col-md-6">
-            <h5 class="h6 fw-bold text-primary mb-3">
-              <i class="ph ph-code me-2"></i>Automações em Apps Script
-            </h5>
-            <ul class="list-unstyled small text-secondary">
-              <li class="mb-2">• Projeção automática de parcelas futuras a partir de faturas de cartão.</li>
-              <li class="mb-2">• Importação de dados financeiros via arquivos <strong>.csv, .ofx e .xlsx</strong>.</li>
-              <li>• Resumos automáticos e comparativos mensais de uso das contas.</li>
-            </ul>
+        <div class="col-lg-7">
+          <div class="row g-3">
+            <div class="col-sm-6">
+              <a href="https://wa.me/5535997304374" target="_blank" class="custom-card d-flex align-items-center gap-3 p-3 rounded-4 text-decoration-none text-body h-100">
+                <div class="p-3 rounded-3" style="background:rgba(37,211,102,.15);color:#25D366"><i class="ph ph-whatsapp-logo fs-3"></i></div>
+                <div>
+                  <p class="font-mono small text-uppercase tracking-widest text-body-secondary mb-1" style="font-size: 0.65rem;">WhatsApp</p>
+                  <p class="fw-medium mb-0 small">+55 35 99730-4374</p>
+                </div>
+              </a>
+            </div>
+            <div class="col-sm-6">
+              <a href="https://www.linkedin.com/in/gilmarfilh/" target="_blank" class="custom-card d-flex align-items-center gap-3 p-3 rounded-4 text-decoration-none text-body h-100">
+                <div class="p-3 rounded-3" style="background:rgba(10,102,194,.15);color:#0A66C2"><i class="ph ph-linkedin-logo fs-3"></i></div>
+                <div>
+                  <p class="font-mono small text-uppercase tracking-widest text-body-secondary mb-1" style="font-size: 0.65rem;">LinkedIn</p>
+                  <p class="fw-medium mb-0 small">/in/gilmarfilh</p>
+                </div>
+              </a>
+            </div>
+            <div class="col-sm-6">
+              <a href="mailto:gfilho416@gmail.com" class="custom-card d-flex align-items-center gap-3 p-3 rounded-4 text-decoration-none text-body h-100">
+                <div class="p-3 rounded-3 bg-primary bg-opacity-10 text-primary"><i class="ph ph-envelope-simple fs-3"></i></div>
+                <div>
+                  <p class="font-mono small text-uppercase tracking-widest text-body-secondary mb-1" style="font-size: 0.65rem;">E-mail</p>
+                  <p class="fw-medium mb-0 small">gfilho416@gmail.com</p>
+                </div>
+              </a>
+            </div>
+            <div class="col-sm-6">
+              <a href="https://github.com/gilmar-filho" target="_blank" class="custom-card d-flex align-items-center gap-3 p-3 rounded-4 text-decoration-none text-body h-100">
+                <div class="p-3 rounded-3 bg-secondary bg-opacity-10 text-body"><i class="ph ph-github-logo fs-3"></i></div>
+                <div>
+                  <p class="font-mono small text-uppercase tracking-widest text-body-secondary mb-1" style="font-size: 0.65rem;">GitHub</p>
+                  <p class="fw-medium mb-0 small">/gilmar-filho</p>
+                </div>
+              </a>
+            </div>
           </div>
         </div>
+      </div>
+      
+      <div class="text-center font-mono small tracking-widest text-uppercase text-body-secondary opacity-50 mt-5 pt-5" style="font-size: 0.65rem;">
+        &copy; 2026 Gilmar Filho. Todos os direitos reservados.
       </div>
     </section>
 
-    <section id="lab" class="py-5">
-      <div class="d-flex align-items-center gap-3 mb-4 border-bottom pb-3">
-        <i class="ph ph-flask fs-2 text-primary"></i>
-        <h3 class="fw-bold mb-0">Laboratório & Estudos</h3>
-      </div>
-      
-      <div class="row g-4">
-        <div class="col-md-6">
-          <div class="card h-100 p-4 border-0 bg-body-tertiary shadow-sm">
-            <h5 class="fw-bold d-flex align-items-center gap-2">
-              <i class="ph ph-brain text-primary"></i> Algoritmos de IA
-            </h5>
-            <p class="small text-muted mb-4">Benchmark de algoritmos KNN vs Scikit-learn, com foco em precisão e tempo de execução.</p>
-            <div class="d-flex flex-wrap gap-2 mb-4">
-              <span class="badge bg-primary bg-opacity-10 text-primary border-0">Python</span>
-              <span class="badge bg-primary bg-opacity-10 text-primary border-0">Scikit-learn</span>
-            </div>
-            <div class="mt-auto pt-4">
-              <a href="https://github.com/gilmar-filho/GCC128-Inteligencia_Artificial" target="_blank" class="btn btn-outline-secondary btn-sm d-inline-flex align-items-center gap-2">
-                <i class="ph ph-github-logo"></i> Acessar Repositório
-              </a>
-            </div>
-          </div>
-        </div>
-        
-        <div class="col-md-6">
-          <div class="card h-100 p-4 border-0 bg-body-tertiary shadow-sm">
-            <h5 class="fw-bold d-flex align-items-center gap-2">
-              <i class="ph ph-game-controller text-primary"></i> Jogo da Memória
-            </h5>
-            <p class="small text-muted mb-4">Implementação de interface iterativa manipulando o DOM em tempo real.</p>
-            <div class="flex flex-wrap gap-2 text-xs font-semibold text-primary">
-              <span class="badge bg-primary bg-opacity-10 text-primary border-0">HTML</span>
-              <span class="badge bg-primary bg-opacity-10 text-primary border-0">JavaScript</span>
-              <span class="badge bg-primary bg-opacity-10 text-primary border-0">CSS</span>
-            </div>
-            <div class="mt-auto pt-4 d-flex gap-2">
-              <a href="https://gilmar-filho.github.io/GAC116-Jogo_da_Memoria/page" target="_blank" class="btn btn-primary btn-sm d-flex align-items-center gap-2 fw-bold">
-                Jogar
-              </a>
-              <a href="https://github.com/gilmar-filho/GAC116-Jogo_da_Memoria" target="_blank" class="btn btn-outline-secondary btn-sm d-flex align-items-center gap-2">
-                <i class="ph ph-github-logo fs-5"></i> Acessar Repositório
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
   </main>
 
-  <div class="modal fade" id="contactModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content border-0 shadow-lg rounded-4">
-        <div class="modal-header border-0 pb-0">
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body p-5 text-center">
-          <h3 class="fw-bold mb-2">Vamos conversar?</h3>
-          <p class="text-muted small mb-4">Escolha o melhor canal para falarmos sobre seu projeto.</p>
-          
-          <div class="row g-3">
-            <div class="col-6">
-              <a href="https://wa.me/5535997304374" target="_blank" class="btn btn-light w-100 p-3 btn-contact-grid rounded-3 border text-decoration-none text-body">
-                <i class="ph ph-whatsapp-logo fs-2 mb-2"></i>
-                <div class="small fw-bold">WhatsApp</div>
-              </a>
-            </div>
-            <div class="col-6">
-              <a href="https://www.linkedin.com/in/gilmarfilh/" target="_blank" class="btn btn-light w-100 p-3 btn-contact-grid rounded-3 border text-decoration-none text-body">
-                <i class="ph ph-linkedin-logo fs-2 mb-2"></i>
-                <div class="small fw-bold">LinkedIn</div>
-              </a>
-            </div>
-            <div class="col-6">
-              <a href="https://github.com/gilmar-filho" target="_blank" class="btn btn-light w-100 p-3 btn-contact-grid rounded-3 border text-decoration-none text-body">
-                <i class="ph ph-github-logo fs-2 mb-2"></i>
-                <div class="small fw-bold">GitHub</div>
-              </a>
-            </div>
-            <div class="col-6">
-              <a href="mailto:gfilho416@gmail.com" class="btn btn-light w-100 p-3 btn-contact-grid rounded-3 border text-decoration-none text-body">
-                <i class="ph ph-envelope-simple fs-2 mb-2"></i>
-                <div class="small fw-bold">E-mail</div>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <footer class="border-top py-5 bg-body-tertiary">
-    <div class="container text-center">
-      <div class="d-flex justify-content-center align-items-center gap-2 text-muted mb-3">
-        <i class="ph ph-envelope-simple fs-5"></i>
-        <span class="small fw-medium">gfilho416@gmail.com</span>
-      </div>
-      <p class="text-muted small mb-4">© 2026 Gilmar Filho. Estudante de Sistemas de Informação.</p>
-      
-      <a href="../index.html" class="text-decoration-none d-inline-flex align-items-center gap-2 btn-soft-primary px-4 py-2 rounded-pill small fw-bold mt-2">
-        <i class="ph ph-arrow-left"></i> Versão Principal (Tailwind)
-      </a>
-      
-    </div>
-  </footer>
-
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="../assets/js/theme-toggle.js"></script>
+  <script src="../assets/js/bootstrap-interactivity.js"></script>
+
 </body>
 </html>
