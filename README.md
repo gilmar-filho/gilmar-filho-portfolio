@@ -24,9 +24,9 @@ As duas versões compartilham a identidade visual e o comportamento: tokens de c
 │   ├── js/
 │   │   ├── theme.js            # tema claro/escuro
 │   │   ├── i18n.js             # tradução PT-BR / EN
-│   │   ├── hero.js             # fumaça, janelas, cursor, abas
+│   │   ├── hero.js             # rede animada, cursor, abas
 │   │   ├── scroll.js           # cabeçalho e link ativo
-│   │   └── reveal.js           # animação de entrada na rolagem
+│   │   └── reveal.js           # esmaecimento ligado à rolagem
 │   └── img/
 └── tailwind.config.js
 ```
@@ -41,8 +41,8 @@ As duas versões compartilham a identidade visual e o comportamento: tokens de c
 
 * **Alternância PT-BR / EN:** switch no cabeçalho. Na primeira visita usa o idioma do navegador; a escolha fica salva no `localStorage`. Os textos ficam em `assets/js/i18n.js` e são aplicados nos elementos com `data-i18n`.
 * **Tema claro/escuro:** respeita a preferência do sistema e guarda a escolha no `localStorage`.
-* **Rolagem nativa com revelação:** os elementos aparecem conforme a página é rolada (`IntersectionObserver`), e o cabeçalho destaca a seção atual.
-* **Efeitos visuais:** névoa animada em canvas, janelas em cascata no hero, cursor personalizado e brilho que segue o mouse nos cards.
+* **Rolagem nativa com esmaecimento:** a opacidade acompanha a posição na tela. O conteúdo surge esmaecido pela borda inferior e esmaece de novo ao se aproximar do topo, nos dois sentidos da rolagem. O cabeçalho destaca a seção atual.
+* **Efeitos visuais:** janelas em cascata no hero, rede animada em canvas, cursor personalizado e brilho que segue o mouse nos cards.
 * **Acessibilidade:** foco visível no teclado e animações desativadas para quem usa `prefers-reduced-motion`.
 
 ## 🚀 Rodando localmente
