@@ -103,20 +103,44 @@ function createSmoke(canvas, maxAlpha) {
   const ctx = canvas.getContext('2d');
   let W, H, particles = [];
 
+  // Névoa não tem detalhe fino: renderizar em 1/3 da resolução
+  // e deixar o CSS esticar corta o custo de preenchimento ~9x.
+  const SCALE = 1 / 3;
+
   function resize() {
-    const d = sizeCanvas(canvas);
-    W = d.w; H = d.h;
+    W = window.innerWidth;
+    H = window.innerHeight;
+    canvas.width  = Math.ceil(W * SCALE);
+    canvas.height = Math.ceil(H * SCALE);
+    ctx.setTransform(SCALE, 0, 0, SCALE, 0, 0);
   }
 
-  // Pegamos a cor exata do seu CSS (verde) em RGB para o gradiente
   function themeVars() {
     const light = document.documentElement.dataset.theme === 'light';
     return {
+      theme: light ? 'light' : 'dark',
       r: light ? 26 : 95,
       g: light ? 122 : 232,
       b: light ? 64 : 154,
       alpha: light ? maxAlpha * 1.5 : maxAlpha,
     };
+  }
+
+  // Gradiente desenhado uma vez numa textura e reutilizado com drawImage,
+  // em vez de criar um createRadialGradient por partícula a cada frame.
+  const sprite = document.createElement('canvas');
+  sprite.width = sprite.height = 128;
+  let spriteTheme = null;
+
+  function paintSprite(tv) {
+    const sctx = sprite.getContext('2d');
+    const grd  = sctx.createRadialGradient(64, 64, 0, 64, 64, 64);
+    grd.addColorStop(0, `rgba(${tv.r}, ${tv.g}, ${tv.b}, 1)`);
+    grd.addColorStop(1, `rgba(${tv.r}, ${tv.g}, ${tv.b}, 0)`);
+    sctx.clearRect(0, 0, 128, 128);
+    sctx.fillStyle = grd;
+    sctx.fillRect(0, 0, 128, 128);
+    spriteTheme = tv.theme;
   }
 
   class SmokeParticle {
@@ -173,22 +197,10 @@ function createSmoke(canvas, maxAlpha) {
          currentAlpha = (1 - (this.life - 0.8) / 0.2) * tv.alpha; 
       }
 
-      // Previne erros bizarros de renderização no Canvas
-      if (currentAlpha < 0) currentAlpha = 0;
+      if (currentAlpha <= 0) return;
 
-      // Cria a névoa usando Radial Gradient
-      const grd = ctx.createRadialGradient(
-        this.x, this.y, 0,
-        this.x, this.y, this.r
-      );
-      
-      grd.addColorStop(0, `rgba(${tv.r}, ${tv.g}, ${tv.b}, ${currentAlpha})`);
-      grd.addColorStop(1, `rgba(${tv.r}, ${tv.g}, ${tv.b}, 0)`);
-      
-      ctx.fillStyle = grd;
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-      ctx.fill();
+      ctx.globalAlpha = currentAlpha;
+      ctx.drawImage(sprite, this.x - this.r, this.y - this.r, this.r * 2, this.r * 2);
     }
   }
 
@@ -198,21 +210,27 @@ function createSmoke(canvas, maxAlpha) {
     for (let i = 0; i < 35; i++) particles.push(new SmokeParticle(true));
   }
 
-  function loop() {
-    ctx.clearRect(0, 0, W, H);
-    
-    // globalCompositeOperation opcional: 'lighter' pode criar um aspecto mágico, 
-    // mas 'source-over' (padrão) dá o aspecto de névoa densa.
+  function frame(advance) {
     const tv = themeVars();
-    particles.forEach(p => { p.update(); p.draw(tv); });
+    if (tv.theme !== spriteTheme) paintSprite(tv);
+
+    ctx.clearRect(0, 0, W, H);
+    particles.forEach(p => { if (advance) p.update(); p.draw(tv); });
+    ctx.globalAlpha = 1;
+  }
+
+  function loop() {
+    frame(true);
     requestAnimationFrame(loop);
   }
 
+  const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   resize();
   spawn();
-  loop();
+  still ? frame(false) : loop();
 
-  window.addEventListener('resize', () => { resize(); spawn(); });
+  window.addEventListener('resize', () => { resize(); spawn(); if (still) frame(false); });
 }
 
 /* ─── FUMAÇA HERO ────────────────────────────────── */
@@ -237,9 +255,15 @@ function initNetwork() {
   const N    = 14;
   const DIST = 88;
 
+  let running = false;
+
   function resize() {
-    W = canvas.width  = canvas.offsetWidth  || 268;
-    H = canvas.height = canvas.offsetHeight || 190;
+    const dpr = window.devicePixelRatio || 1;
+    W = canvas.offsetWidth  || 268;
+    H = canvas.offsetHeight || 190;
+    canvas.width  = W * dpr;
+    canvas.height = H * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   }
 
   function accentColor(a) {
@@ -288,23 +312,27 @@ function initNetwork() {
       }
     }
     nodes.forEach(n => n.draw());
-    requestAnimationFrame(loop);
+    if (running) requestAnimationFrame(loop);
   }
 
-  function start() {
+  function seed() {
     resize();
     nodes = [];
     for (let i = 0; i < N; i++) nodes.push(new Node());
-    loop();
   }
 
-  window.addEventListener('resize', () => {
-    resize(); nodes = [];
-    for (let i = 0; i < N; i++) nodes.push(new Node());
-  });
+  window.addEventListener('resize', seed);
 
-  /* Aguarda o elemento estar visível para ler offsetWidth correto */
-  setTimeout(start, 100);
+  /* Só anima enquanto a janela está visível na tela */
+  new IntersectionObserver(([e]) => {
+    if (e.isIntersecting && !running) {
+      if (!nodes.length) seed();
+      running = true;
+      loop();
+    } else if (!e.isIntersecting) {
+      running = false;
+    }
+  }).observe(canvas);
 }
 
 /* ─── CURSOR ─────────────────────────────────────── */
@@ -313,19 +341,20 @@ function initCursor() {
   const ring = document.getElementById('cursor-ring');
   if (!dot || !ring) return;
 
+  if (!window.matchMedia('(pointer: fine)').matches) return;
+
   let mx = 0, my = 0, rx = 0, ry = 0;
 
+  // transform em vez de left/top: só recompõe, não recalcula layout
   document.addEventListener('mousemove', e => {
     mx = e.clientX; my = e.clientY;
-    dot.style.left = mx + 'px';
-    dot.style.top  = my + 'px';
-  });
+    dot.style.transform = `translate3d(${mx}px, ${my}px, 0)`;
+  }, { passive: true });
 
   (function animRing() {
     rx += (mx - rx) * .12;
     ry += (my - ry) * .12;
-    ring.style.left = rx + 'px';
-    ring.style.top  = ry + 'px';
+    ring.style.transform = `translate3d(${rx}px, ${ry}px, 0)`;
     requestAnimationFrame(animRing);
   })();
 
@@ -409,8 +438,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // Inicializa apenas o canvas global
   const mainCanvas = document.getElementById('smoke-canvas');
   if (mainCanvas) {
-    // createSmoke(mainCanvas, 0.12);
-    createSpace(mainCanvas, 0.5);
+    createSmoke(mainCanvas, 0.12);
+    // createSpace(mainCanvas, 0.5);
   }
 
   // Mantém os outros efeitos

@@ -1,8 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./*.html",
-    "./**/*.html",
+    "./index.html",
     "./assets/js/**/*.js",
   ],
 
@@ -10,6 +9,14 @@ module.exports = {
   darkMode: ['selector', '[data-theme="dark"]'],
 
   theme: {
+    // Mesmos breakpoints do Bootstrap 5 para as duas versões quebrarem juntas
+    screens: {
+      sm: '576px',
+      md: '768px',
+      lg: '992px',
+      xl: '1200px',
+    },
+
     extend: {
       /* ── Cores mapeadas nos tokens CSS ── */
       colors: {
@@ -25,12 +32,6 @@ module.exports = {
           3:       'rgb(var(--cream-3) / <alpha-value>)',
         },
         accent: 'rgb(var(--accent) / <alpha-value>)',
-
-        /* compat — versão Bootstrap usa essas */
-        background: 'rgb(var(--ink) / <alpha-value>)',
-        foreground: 'rgb(var(--cream) / <alpha-value>)',
-        surface:    'rgb(var(--ink-3) / <alpha-value>)',
-        borderColor:'rgb(var(--ink-4) / <alpha-value>)',
       },
 
       /* ── Fontes ── */
@@ -39,41 +40,25 @@ module.exports = {
         mono: ['JetBrains Mono', 'Fira Mono', 'monospace'],
       },
 
+      /* ── Escala tipográfica (valores em portfolio.css) ── */
+      fontSize: {
+        display:      'var(--fs-display)',
+        h2:           'var(--fs-h2)',
+        'h2-lg':      'var(--fs-h2-lg)',
+        h3:           'var(--fs-h3)',
+        lede:         'var(--fs-lede)',
+        copy:         'var(--fs-copy)',
+        'card-title': 'var(--fs-card-title)',
+        card:         'var(--fs-card)',
+        meta:         'var(--fs-meta)',
+        micro:        'var(--fs-micro)',
+      },
+
       /* ── Border radius extras ── */
       borderRadius: {
         '2xl': '1rem',
         '3xl': '1.5rem',
         '4xl': '2rem',
-      },
-
-      /* ── Animações ── */
-      keyframes: {
-        ping: {
-          '0%, 100%': { boxShadow: '0 0 0 0 rgba(var(--accent-rgb), .5)' },
-          '50%':       { boxShadow: '0 0 0 6px rgba(var(--accent-rgb), 0)' },
-        },
-        blink: {
-          '0%, 100%': { opacity: '1' },
-          '50%':      { opacity: '0' },
-        },
-        'bounce-y': {
-          from: { transform: 'rotate(45deg) translateY(-3px)' },
-          to:   { transform: 'rotate(45deg) translateY(3px)' },
-        },
-        'spin-ring': {
-          to: { transform: 'rotate(360deg)' },
-        },
-      },
-      animation: {
-        ping:        'ping 2s ease-in-out infinite',
-        blink:       'blink 1s step-end infinite',
-        'bounce-y':  'bounce-y .8s ease-in-out infinite alternate',
-        'spin-ring': 'spin-ring 9s linear infinite',
-      },
-
-      /* ── Transições ── */
-      transitionTimingFunction: {
-        spring: 'cubic-bezier(.34,1.56,.64,1)',
       },
     },
   },

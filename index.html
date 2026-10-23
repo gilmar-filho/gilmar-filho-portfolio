@@ -1,269 +1,222 @@
 <!DOCTYPE html>
-<html lang="pt-BR" data-theme="dark">
+<html lang="pt-BR" data-theme="dark" data-lang="pt">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" data-i18n-attr="content:meta.description"
+        content="Gilmar Filho — automação de processos e sistemas inteligentes com Google Planilhas, Apps Script, Python e Telegram.">
   <link rel="icon" type="image/svg+xml" href="./assets/img/favicon.svg">
-  <title>Gilmar Filho · Automação & Sistemas</title>
+  <title data-i18n="meta.title">Gilmar Filho · Automação & Sistemas</title>
 
   <!-- Tailwind (compilado) -->
   <link rel="stylesheet" href="./assets/css/tailwind-out.css">
-  <!-- CSS puro — efeitos que Tailwind não expressa -->
+  <!-- CSS puro compartilhado com a versão Bootstrap -->
   <link rel="stylesheet" href="./assets/css/portfolio.css">
 
   <!-- Fontes -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <script src="./assets/js/theme.js"></script>
 
   <!-- Ícones -->
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
-<body class="bg-ink text-cream antialiased transition-colors duration-300">
+<body class="bg-ink text-cream font-sans antialiased transition-colors duration-300">
 
   <canvas id="smoke-canvas"></canvas>
+  <div class="mesh-bg"></div>
 
-  <!-- Cursor -->
   <div id="cursor"></div>
   <div id="cursor-ring"></div>
 
-  <!-- Barra de progresso mobile -->
-  <div id="progress-bar"></div>
+  <!-- ════════════ CABEÇALHO ════════════ -->
+  <header id="site-header" class="site-header">
+    <div class="h-full max-w-[1140px] mx-auto px-6 md:px-10 flex items-center justify-between gap-6">
+      <a href="#inicio" class="brand">
+        <i class="ph-fill ph-terminal-window"></i> Gilmar Filho
+      </a>
 
-  <!-- Fundo mesh -->
-  <div class="mesh-bg"></div>
+      <div class="flex items-center gap-4 md:gap-6">
+        <nav class="hidden md:flex items-center gap-6"
+             aria-label="Navegação principal" data-i18n-attr="aria-label:ui.nav">
+          <a href="#sobre" class="site-nav-link" data-i18n="nav.about">Sobre</a>
+          <a href="#freelance" class="site-nav-link" data-i18n="nav.freelance">Freelance</a>
+          <a href="#projetos" class="site-nav-link" data-i18n="nav.projects">Projetos</a>
+          <a href="#contato" class="site-nav-link" data-i18n="nav.contact">Contato</a>
+        </nav>
 
-  <!-- Botão de tema -->
-  <button id="theme-btn" aria-label="Alternar tema">
-    <i class="ph ph-circle-half"></i>
-  </button>
+        <button type="button" class="lang-switch"
+                aria-label="Mudar idioma para inglês" data-i18n-attr="aria-label:ui.lang">
+          <span class="lang-opt" data-lang="pt">PT</span>
+          <span class="lang-opt" data-lang="en">EN</span>
+        </button>
 
-  <!-- ══════════════════════════════════════════════
-       NAV LATERAL (desktop)
-  ══════════════════════════════════════════════ -->
-  <nav id="side-nav" aria-label="Navegação por seções">
-    <div class="sn-item" title="Início">
-      <span class="sn-label">Início</span>
-      <span class="sn-dot"></span>
+        <button type="button" id="theme-btn" class="theme-btn"
+                aria-label="Alternar tema" data-i18n-attr="aria-label:ui.theme">
+          <i class="ph ph-circle-half"></i>
+        </button>
+      </div>
     </div>
-    <div class="sn-item" title="Sobre">
-      <span class="sn-label">Sobre</span>
-      <span class="sn-dot"></span>
-    </div>
-    <div class="sn-item" title="Freelance">
-      <span class="sn-label">Freelance</span>
-      <span class="sn-dot"></span>
-    </div>
-    <div class="sn-item" title="Projetos">
-      <span class="sn-label">Projetos</span>
-      <span class="sn-dot"></span>
-    </div>
-    <div class="sn-item" title="Contato">
-      <span class="sn-label">Contato</span>
-      <span class="sn-dot"></span>
-    </div>
-  </nav>
+  </header>
 
-  <!-- ══════════════════════════════════════════════
-       CONTAINER FULLPAGE
-  ══════════════════════════════════════════════ -->
-  <div id="fp-container">
-    <!-- <canvas id="smoke-canvas"
-      style="position:absolute;inset:0;width:100%;height:100%;z-index:1;opacity:.6;pointer-events:none;">
-    </canvas> -->
+  <main class="page">
 
-    <!-- ════════════ SLIDE 0 — HERO ════════════ -->
-    <section class="fp-slide" id="slide-hero">
-      <div class="relative z-10 w-full max-w-[1140px] mx-auto px-6 md:px-10">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center
-                    min-h-screen py-20 md:py-0">
+    <!-- ════════════ HERO ════════════ -->
+    <section id="inicio" class="hero">
+      <div class="w-full max-w-[1140px] mx-auto px-6 md:px-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-x-20 items-center">
 
-          <!-- Esquerda -->
-          <div class="flex flex-col gap-0">
-            <p class="rv section-kicker">Desenvolvedor · Lavras, MG</p>
+          <div class="flex flex-col">
+            <p class="rv section-kicker" data-i18n="hero.kicker">Desenvolvedor · Lavras, MG</p>
 
-            <h1 class="rv d1 font-sans font-light text-cream leading-none tracking-tighter mt-4 mb-4 glow-text"
-                style="font-size: clamp(3rem,6vw,5.2rem)">
-              Gilmar<br>
-              <strong class="font-bold glow-text">Filho</strong>
+            <h1 class="rv d1 text-display font-light text-cream leading-none tracking-tighter mt-2 mb-6 glow-text">
+              Gilmar<br><strong class="font-bold">Filho</strong>
             </h1>
 
-            <p class="rv d2 font-mono text-cream-3 leading-loose max-w-sm"
-               style="font-size: clamp(.72rem,1.1vw,.9rem)">
-              <em class="not-italic text-cream-2">Automação de processos</em> e sistemas inteligentes.<br>
-              Transformo tarefas manuais em fluxos automáticos<br>integrados com ferramentas que as pessoas já usam.
+            <p class="rv d2 rich font-mono text-lede text-cream-3 leading-loose max-w-lg" data-i18n="hero.lede">
+              <em>Automação de processos</em> e sistemas inteligentes.<br>Transformo tarefas manuais em fluxos automáticos integrados com ferramentas que as pessoas já usam.
             </p>
 
-            <!-- Disponível -->
-            <div class="rv d3 mt-8 inline-flex items-center gap-2 px-3 py-1.5 rounded-full w-fit
-                        border font-mono text-[.68rem] tracking-[.08em] uppercase"
-                 style="border-color:rgba(var(--accent-rgb),.3);
-                        background:rgba(var(--accent-rgb),.06);
-                        color:rgb(var(--accent))">
-              <span class="w-1.5 h-1.5 rounded-full animate-ping"
-                    style="background:rgb(var(--accent))"></span>
-              Disponível para novos projetos
+            <div class="rv d3 status-chip mt-12">
+              <span class="status-dot"></span>
+              <span data-i18n="hero.available">Disponível para novos projetos</span>
             </div>
 
-            <!-- Scroll hint -->
-            <div class="rv d4 flex items-center gap-2 mt-12 font-mono text-[.63rem]
-                        tracking-[.1em] uppercase text-cream-3 opacity-70">
+            <a href="#sobre" class="rv d4 scroll-hint mt-12">
               <span class="scroll-arrow"></span>
-              role para explorar
-            </div>
+              <span data-i18n="hero.scroll">role para explorar</span>
+            </a>
           </div>
 
-          <!-- Direita — janelas em cascata -->
-          <div class="rv-r d2 hero-windows hidden md:block">
+          <!-- Janelas em cascata -->
+          <div class="rv-r d2 hero-windows hidden lg:block" aria-hidden="true">
 
-            <!-- Janela 1 — Terminal -->
             <div class="win win-1">
               <div class="win-bar">
-                <span class="win-dot wd-r"></span>
-                <span class="win-dot wd-y"></span>
-                <span class="win-dot wd-g"></span>
+                <span class="win-dot wd-r"></span><span class="win-dot wd-y"></span><span class="win-dot wd-g"></span>
                 <span class="win-titlebar">terminal</span>
               </div>
               <div class="win-body">
                 <div class="win-terminal">
                   <span class="t-prompt">~ $</span> <span class="t-cmd">python automate.py</span><br>
-                  <span class="t-out">✓ conectando à planilha...</span><br>
-                  <span class="t-out">✓ importando 347 transações</span><br>
-                  <span class="t-out">✓ projetando parcelas...</span><br>
-                  <span class="t-out">✓ relatório gerado em 2.3s</span><br>
+                  <span class="t-out" data-i18n="win.t1">✓ conectando à planilha...</span><br>
+                  <span class="t-out" data-i18n="win.t2">✓ importando 347 transações</span><br>
+                  <span class="t-out" data-i18n="win.t3">✓ projetando parcelas...</span><br>
+                  <span class="t-out" data-i18n="win.t4">✓ relatório gerado em 2.3s</span><br>
                   <span class="t-prompt">~ $</span> <span class="t-cur"></span>
                 </div>
-                <div class="win-caption">Automação financeira</div>
+                <div class="win-caption" data-i18n="win.cap1">Automação financeira</div>
               </div>
             </div>
 
-            <!-- Janela 2 — Dashboard -->
             <div class="win win-2">
               <div class="win-bar">
-                <span class="win-dot wd-r"></span>
-                <span class="win-dot wd-y"></span>
-                <span class="win-dot wd-g"></span>
+                <span class="win-dot wd-r"></span><span class="win-dot wd-y"></span><span class="win-dot wd-g"></span>
                 <span class="win-titlebar">dashboard.gs</span>
               </div>
               <div class="win-body">
                 <div class="win-dashboard">
                   <div>
-                    <span class="dash-label">Importações / mês</span>
-                    <div class="dash-bar-wrap mt-1"><div class="dash-bar" style="width:82%"></div></div>
-                    <span class="dash-val">347 registros</span>
+                    <span class="dash-label" data-i18n="win.dash1">Importações / mês</span>
+                    <div class="dash-bar-wrap"><div class="dash-bar w-[82%]"></div></div>
+                    <span class="dash-val" data-i18n="win.dash1v">347 registros</span>
                   </div>
                   <div class="dash-divider"></div>
                   <div>
-                    <span class="dash-label">Cartões monitorados</span>
-                    <div class="dash-bar-wrap mt-1"><div class="dash-bar" style="width:60%"></div></div>
-                    <span class="dash-val">6 cartões</span>
+                    <span class="dash-label" data-i18n="win.dash2">Cartões monitorados</span>
+                    <div class="dash-bar-wrap"><div class="dash-bar w-[60%]"></div></div>
+                    <span class="dash-val" data-i18n="win.dash2v">6 cartões</span>
                   </div>
                   <div class="dash-divider"></div>
                   <div>
-                    <span class="dash-label">Alertas esta semana</span>
-                    <div class="dash-bar-wrap mt-1"><div class="dash-bar" style="width:45%"></div></div>
-                    <span class="dash-val">12 alertas</span>
+                    <span class="dash-label" data-i18n="win.dash3">Alertas esta semana</span>
+                    <div class="dash-bar-wrap"><div class="dash-bar w-[45%]"></div></div>
+                    <span class="dash-val" data-i18n="win.dash3v">12 alertas</span>
                   </div>
                 </div>
-                <div class="win-caption">Controle de métricas</div>
+                <div class="win-caption" data-i18n="win.cap2">Controle de métricas</div>
               </div>
             </div>
 
-            <!-- Janela 3 — Planilha -->
             <div class="win win-3">
               <div class="win-bar">
-                <span class="win-dot wd-r"></span>
-                <span class="win-dot wd-y"></span>
-                <span class="win-dot wd-g"></span>
+                <span class="win-dot wd-r"></span><span class="win-dot wd-y"></span><span class="win-dot wd-g"></span>
                 <span class="win-titlebar">estoque.sheets</span>
               </div>
               <div class="win-body">
                 <div class="win-sheet">
                   <div class="sheet-header">
-                    <span>Produto</span><span>Status</span><span class="text-right">Qtd</span>
+                    <span data-i18n="win.colProduct">Produto</span><span>Status</span><span class="sheet-num" data-i18n="win.colQty">Qtd</span>
                   </div>
-                  <div class="sheet-row"><span>Cimento</span><span class="s-green">✓ OK</span><span class="text-right">142</span></div>
-                  <div class="sheet-row"><span>Tijolo</span><span class="s-amber">⚠ Baixo</span><span class="text-right">18</span></div>
-                  <div class="sheet-row"><span>Areia</span><span class="s-green">✓ OK</span><span class="text-right">87</span></div>
-                  <div class="sheet-row"><span>Cal</span><span class="s-dim">— —</span><span class="text-right">0</span></div>
+                  <div class="sheet-row"><span data-i18n="win.cement">Cimento</span><span class="s-green">✓ OK</span><span class="sheet-num">142</span></div>
+                  <div class="sheet-row"><span data-i18n="win.brick">Tijolo</span><span class="s-amber" data-i18n="win.low">⚠ Baixo</span><span class="sheet-num">18</span></div>
+                  <div class="sheet-row"><span data-i18n="win.sand">Areia</span><span class="s-green">✓ OK</span><span class="sheet-num">87</span></div>
+                  <div class="sheet-row"><span data-i18n="win.lime">Cal</span><span class="s-dim">— —</span><span class="sheet-num">0</span></div>
                 </div>
-                <div class="win-caption">Gestão de estoque</div>
+                <div class="win-caption" data-i18n="win.cap3">Gestão de estoque</div>
               </div>
             </div>
 
-            <!-- Janela 4 — Rede -->
             <div class="win win-4">
               <div class="win-bar">
-                <span class="win-dot wd-r"></span>
-                <span class="win-dot wd-y"></span>
-                <span class="win-dot wd-g"></span>
+                <span class="win-dot wd-r"></span><span class="win-dot wd-y"></span><span class="win-dot wd-g"></span>
                 <span class="win-titlebar">microservices</span>
               </div>
               <div class="win-body">
                 <div class="win-network">
                   <canvas id="net-canvas" class="net-canvas"></canvas>
                 </div>
-                <div class="win-caption">Sistemas distribuídos</div>
+                <div class="win-caption" data-i18n="win.cap4">Sistemas distribuídos</div>
               </div>
             </div>
 
-          </div><!-- /hero-windows -->
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ════════════ SLIDE 1 — SOBRE ════════════ -->
-    <section class="fp-slide" id="slide-sobre">
-      <div class="relative z-10 w-full max-w-[1140px] mx-auto px-6 md:px-10 py-12">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
+    <!-- ════════════ SOBRE ════════════ -->
+    <section id="sobre" class="section">
+      <div class="max-w-[1140px] mx-auto px-6 md:px-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-x-20 items-center">
 
-          <!-- Foto + facts -->
-          <div class="rv-l flex flex-col items-start gap-6">
+          <div class="rv-l lg:col-span-5 flex flex-col items-start gap-6">
             <div class="photo-ring">
               <div class="photo-inner">
-                  <img>
-                  <img src="./assets/img/foto.jpg" alt="Gilmar Filho"
-                       class="w-full h-full object-cover">
+                <img src="./assets/img/foto.jpg" alt="Gilmar Filho" width="480" height="640" loading="lazy">
               </div>
             </div>
 
-            <div class="flex flex-col gap-2.5">
-              <div class="flex items-center gap-2.5 font-mono text-[.73rem] text-cream-2">
-                <i class="ph ph-map-pin text-accent text-sm"></i> Lavras, MG
-              </div>
-              <div class="flex items-center gap-2.5 font-mono text-[.73rem] text-cream-2">
-                <i class="ph ph-graduation-cap text-accent text-sm"></i> UFLA · SI · 6º período
-              </div>
-              <div class="flex items-center gap-2.5 font-mono text-[.73rem] text-cream-2">
-                <i class="ph ph-briefcase text-accent text-sm"></i> Freelance disponível
-              </div>
-              <div class="flex items-center gap-2.5 font-mono text-[.73rem] text-cream-2">
-                <i class="ph ph-github-logo text-accent text-sm"></i> github.com/gilmar-filho
-              </div>
+            <div class="flex flex-col gap-4">
+              <div class="fact"><i class="ph ph-map-pin"></i> <span data-i18n="about.place">Lavras, MG</span></div>
+              <div class="fact"><i class="ph ph-graduation-cap"></i> <span data-i18n="about.study">UFLA · SI · 6º período</span></div>
+              <div class="fact"><i class="ph ph-briefcase"></i> <span data-i18n="about.free">Freelance disponível</span></div>
+              <div class="fact"><i class="ph ph-github-logo"></i> github.com/gilmar-filho</div>
             </div>
           </div>
 
-          <!-- Texto -->
-          <div class="rv-r flex flex-col gap-5">
-            <div class="section-kicker">Sobre mim</div>
-            <h2 class="font-sans font-bold text-cream leading-[1.06] tracking-tighter"
-                style="font-size:clamp(1.9rem,3.5vw,2.8rem)">
-              Sistemas simples<br>que funcionam de verdade
-            </h2>
-
-            <div class="flex flex-col gap-3.5 text-cream-2 leading-loose"
-                 style="font-size:.95rem">
-              <p>Olá, sou <strong class="text-cream font-medium">Gilmar Filho</strong>, estudante de Sistemas de Informação na UFLA (6º período). Trabalho construindo automações para quem procura ganhar tempo delegando a um sistema suas tarefas repetitivas.</p>
-              <p>Minha especialidade é transformar processos manuais em fluxos automáticos — usando <strong class="text-cream font-medium">Google Planilhas</strong> com Apps Script, <strong class="text-cream font-medium">Python</strong> e integrações com ferramentas que as pessoas já usam no dia a dia, como o Telegram.</p>
-              <p>O que guia cada projeto é uma escolha deliberada: <strong class="text-cream font-medium">entregar o que resolve com qualidade, não o que impressiona com quantidade</strong>. Um sistema com 3 funcionalidades que o usuário usa todos os dias vale mais do que um sistema "completo" que no fim vira um peso.</p>
+          <div class="rv-r lg:col-span-7 flex flex-col gap-6">
+            <div>
+              <p class="section-kicker" data-i18n="about.kicker">Sobre mim</p>
+              <h2 class="text-h2 font-bold text-cream leading-[1.06] tracking-tighter" data-i18n="about.title">
+                Sistemas simples<br>que funcionam de verdade
+              </h2>
             </div>
 
-            <div class="flex flex-wrap gap-2 mt-1">
+            <div class="rich flex flex-col gap-4 text-copy text-cream-2 leading-loose">
+              <p data-i18n="about.p1">Olá, sou <strong>Gilmar Filho</strong>, estudante de Sistemas de Informação na UFLA (6º período). Trabalho construindo automações para quem procura ganhar tempo delegando a um sistema suas tarefas repetitivas.</p>
+              <p data-i18n="about.p2">Minha especialidade é transformar processos manuais em fluxos automáticos — usando <strong>Google Planilhas</strong> com Apps Script, <strong>Python</strong> e integrações com ferramentas que as pessoas já usam no dia a dia, como o Telegram.</p>
+              <p data-i18n="about.p3">O que guia cada projeto é uma escolha deliberada: <strong>entregar o que resolve com qualidade, não o que impressiona com quantidade</strong>. Um sistema com 3 funcionalidades que o usuário usa todos os dias vale mais do que um sistema "completo" que no fim vira um peso.</p>
+            </div>
+
+            <div class="flex flex-wrap gap-2">
               <span class="pill">Apps Script</span>
               <span class="pill">Python</span>
               <span class="pill">Docker</span>
               <span class="pill">Telegram API</span>
-              <span class="pill">Google Planilhas</span>
+              <span class="pill" data-i18n="pill.sheets">Google Planilhas</span>
               <span class="pill">LangChain</span>
             </div>
           </div>
@@ -272,121 +225,70 @@
       </div>
     </section>
 
-    <!-- ════════════ SLIDE 2 — FREELANCE ════════════ -->
-    <section class="fp-slide" id="slide-freelance">
-      <div class="relative z-10 w-full max-w-[1140px] mx-auto px-6 md:px-10 py-12">
+    <!-- ════════════ FREELANCE ════════════ -->
+    <section id="freelance" class="section">
+      <div class="max-w-[1140px] mx-auto px-6 md:px-10">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
 
-        <div class="grid grid-cols-1 md:grid-cols-[260px_1fr] gap-8 md:gap-14 items-start">
+          <div class="rv-l md:col-span-4 flex flex-col gap-2">
+            <p class="fl-label" data-i18n="fl.label">projetos / cliente</p>
 
-          <!-- Índice / tabs -->
-          <div class="rv-l flex flex-col gap-1">
-            <p class="font-mono text-[.63rem] tracking-[.12em] uppercase text-cream-3 mb-3">
-              projetos / cliente
-            </p>
-
-            <button class="fl-tab flex items-center gap-3 px-4 py-3 rounded-xl
-                           border border-transparent text-left transition-colors duration-200
-                           hover:bg-ink-3">
-              <span class="fl-tab-dot w-1.5 h-1.5 rounded-full bg-cream-3 flex-shrink-0 transition-colors"></span>
-              <span class="fl-tab-name font-mono text-[.72rem] text-cream-2 leading-snug">
-                Consultoria<br>Financeira
-              </span>
-              <span class="ml-auto font-mono text-[.6rem] tracking-wide"
-                    style="color:rgb(var(--accent))">em uso</span>
+            <button type="button" class="fl-tab">
+              <span class="fl-tab-dot"></span>
+              <span class="fl-tab-name" data-i18n="fl.tab0">Consultoria<br>Financeira</span>
+              <span class="fl-tab-status" data-i18n="fl.inUse">em uso</span>
             </button>
 
-            <button class="fl-tab flex items-center gap-3 px-4 py-3 rounded-xl
-                           border border-transparent text-left transition-colors duration-200
-                           hover:bg-ink-3">
-              <span class="fl-tab-dot w-1.5 h-1.5 rounded-full bg-cream-3 flex-shrink-0 transition-colors"></span>
-              <span class="fl-tab-name font-mono text-[.72rem] text-cream-2 leading-snug">
-                Follow-Up<br>Engenheiro Civil
-              </span>
-              <span class="ml-auto font-mono text-[.6rem] tracking-wide"
-                    style="color:rgb(var(--accent))">em uso</span>
+            <button type="button" class="fl-tab">
+              <span class="fl-tab-dot"></span>
+              <span class="fl-tab-name" data-i18n="fl.tab1">Follow-Up<br>Engenheiro Civil</span>
+              <span class="fl-tab-status" data-i18n="fl.inUse">em uso</span>
             </button>
 
-            <button class="fl-tab flex items-center gap-3 px-4 py-3 rounded-xl
-                           border border-transparent text-left transition-colors duration-200
-                           hover:bg-ink-3">
-              <span class="fl-tab-dot w-1.5 h-1.5 rounded-full bg-cream-3 flex-shrink-0 transition-colors"></span>
-              <span class="fl-tab-name font-mono text-[.72rem] text-cream-2 leading-snug">
-                Gestão de Estoque<br>via Telegram
-              </span>
-              <span class="ml-auto font-mono text-[.6rem] tracking-wide text-[#FFB84D]">validação</span>
+            <button type="button" class="fl-tab">
+              <span class="fl-tab-dot"></span>
+              <span class="fl-tab-name" data-i18n="fl.tab2">Gestão de Estoque<br>via Telegram</span>
+              <span class="fl-tab-status is-amber" data-i18n="fl.validation">validação</span>
             </button>
           </div>
 
-          <!-- Painéis -->
-          <div class="rv-r min-w-0">
+          <div class="rv-r md:col-span-8 fl-panels">
 
             <!-- Painel 0 -->
             <div class="fl-panel">
               <div class="flex items-start gap-4 flex-wrap">
-                <div class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 text-xl"
-                     style="background:rgba(var(--accent-rgb),.1);border:1px solid rgba(var(--accent-rgb),.2);color:rgb(var(--accent))">
-                  <i class="ph-fill ph-chart-pie"></i>
+                <div class="icon-tile"><i class="ph-fill ph-chart-pie"></i></div>
+                <div class="grow min-w-0">
+                  <h3 class="text-h3 font-bold text-cream leading-tight tracking-tight" data-i18n="fl.p0.title">Consultoria e Automação Financeira</h3>
+                  <p class="font-mono text-meta text-cream-3 mt-1 tracking-wide" data-i18n="fl.p0.stack">Google Planilhas · Apps Script</p>
                 </div>
-                <div class="flex-1 min-w-0">
-                  <h3 class="font-sans font-bold text-cream text-xl leading-tight tracking-tight">
-                    Consultoria e Automação Financeira
-                  </h3>
-                  <p class="font-mono text-[.68rem] text-cream-3 mt-1 tracking-wide">
-                    Google Planilhas · Apps Script
-                  </p>
-                </div>
-                <span class="badge-green flex-shrink-0">
-                  <i class="ph ph-check-circle"></i> Concluído · Em uso
-                </span>
+                <span class="badge-green"><i class="ph ph-check-circle"></i> <span data-i18n="fl.p0.badge">Concluído · Em uso</span></span>
               </div>
 
-              <p class="text-cream-2 leading-loose" style="font-size:.9rem">
-                Empresa com alto volume de transações bancárias e múltiplos cartões,
-                controlando tudo manualmente em planilha. Quatro automações entregues e em uso ativo.
-              </p>
+              <p class="text-copy text-cream-2 leading-loose" data-i18n="fl.p0.desc">Empresa com alto volume de transações bancárias e múltiplos cartões, controlando tudo manualmente em planilha. Quatro automações entregues e em uso ativo.</p>
 
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                <div class="bg-ink rounded-xl border p-3.5 transition-colors hover:border-accent/30"
-                     style="border-color:var(--border)">
-                  <div class="flex items-center gap-1.5 text-cream font-medium text-sm mb-1.5">
-                    <i class="ph ph-upload-simple text-accent"></i> Importação de Extratos
-                  </div>
-                  <p class="font-mono text-[.72rem] text-cream-3 leading-relaxed">
-                    Dados de <code>.csv</code>, <code>.ofx</code> e <code>.xlsx</code> em segundos.
-                  </p>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="feature-card">
+                  <p class="feature-title"><i class="ph ph-upload-simple"></i> <span data-i18n="fl.p0.f1">Importação de Extratos</span></p>
+                  <p class="feature-text" data-i18n="fl.p0.f1d">Dados de <code>.csv</code>, <code>.ofx</code> e <code>.xlsx</code> em segundos.</p>
                 </div>
-                <div class="bg-ink rounded-xl border p-3.5 transition-colors hover:border-accent/30"
-                     style="border-color:var(--border)">
-                  <div class="flex items-center gap-1.5 text-cream font-medium text-sm mb-1.5">
-                    <i class="ph ph-arrows-split text-accent"></i> Projeção de Parcelas
-                  </div>
-                  <p class="font-mono text-[.72rem] text-cream-3 leading-relaxed">
-                    Reconhece padrão de parcelamento e lança compromissos futuros automaticamente.
-                  </p>
+                <div class="feature-card">
+                  <p class="feature-title"><i class="ph ph-arrows-split"></i> <span data-i18n="fl.p0.f2">Projeção de Parcelas</span></p>
+                  <p class="feature-text" data-i18n="fl.p0.f2d">Reconhece padrão de parcelamento e lança compromissos futuros automaticamente.</p>
                 </div>
-                <div class="bg-ink rounded-xl border p-3.5 transition-colors hover:border-accent/30"
-                     style="border-color:var(--border)">
-                  <div class="flex items-center gap-1.5 text-cream font-medium text-sm mb-1.5">
-                    <i class="ph ph-credit-card text-accent"></i> Resumo por Cartão
-                  </div>
-                  <p class="font-mono text-[.72rem] text-cream-3 leading-relaxed">
-                    Identifica em quais meses cada cartão foi utilizado.
-                  </p>
+                <div class="feature-card">
+                  <p class="feature-title"><i class="ph ph-credit-card"></i> <span data-i18n="fl.p0.f3">Resumo por Cartão</span></p>
+                  <p class="feature-text" data-i18n="fl.p0.f3d">Identifica em quais meses cada cartão foi utilizado.</p>
                 </div>
-                <div class="bg-ink rounded-xl border p-3.5 transition-colors hover:border-accent/30"
-                     style="border-color:var(--border)">
-                  <div class="flex items-center gap-1.5 text-cream font-medium text-sm mb-1.5">
-                    <i class="ph ph-translate text-accent"></i> Tradução do Template
-                  </div>
-                  <p class="font-mono text-[.72rem] text-cream-3 leading-relaxed">
-                    Template financeiro para inglês norte-americano para venda internacional.
-                  </p>
+                <div class="feature-card">
+                  <p class="feature-title"><i class="ph ph-translate"></i> <span data-i18n="fl.p0.f4">Tradução do Template</span></p>
+                  <p class="feature-text" data-i18n="fl.p0.f4d">Template financeiro para inglês norte-americano para venda internacional.</p>
                 </div>
               </div>
 
               <div class="flex flex-wrap gap-2">
                 <span class="pill">Apps Script</span>
-                <span class="pill">Google Planilhas</span>
+                <span class="pill" data-i18n="pill.sheets">Google Planilhas</span>
                 <span class="pill">OFX · CSV · XLSX</span>
               </div>
             </div>
@@ -394,49 +296,29 @@
             <!-- Painel 1 -->
             <div class="fl-panel">
               <div class="flex items-start gap-4 flex-wrap">
-                <div class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 text-xl"
-                     style="background:rgba(var(--accent-rgb),.1);border:1px solid rgba(var(--accent-rgb),.2);color:rgb(var(--accent))">
-                  <i class="ph-fill ph-bell-ringing"></i>
+                <div class="icon-tile"><i class="ph-fill ph-bell-ringing"></i></div>
+                <div class="grow min-w-0">
+                  <h3 class="text-h3 font-bold text-cream leading-tight tracking-tight" data-i18n="fl.p1.title">Sistema de Follow-Up para Engenheiro Civil</h3>
+                  <p class="font-mono text-meta text-cream-3 mt-1 tracking-wide" data-i18n="fl.p1.stack">Google Planilhas · Telegram Bot API</p>
                 </div>
-                <div class="flex-1 min-w-0">
-                  <h3 class="font-sans font-bold text-cream text-xl leading-tight tracking-tight">
-                    Sistema de Follow-Up para Engenheiro Civil
-                  </h3>
-                  <p class="font-mono text-[.68rem] text-cream-3 mt-1 tracking-wide">
-                    Google Planilhas · Telegram Bot API
-                  </p>
-                </div>
-                <span class="badge-green flex-shrink-0">
-                  <i class="ph ph-check-circle"></i> Em uso · Evoluindo
-                </span>
+                <span class="badge-green"><i class="ph ph-check-circle"></i> <span data-i18n="fl.p1.badge">Em uso · Evoluindo</span></span>
               </div>
 
-              <p class="text-cream-2 leading-loose" style="font-size:.9rem">
-                Engenheiro com dificuldade em controlar prazos de serviços e lembretes para verificar
-                processos no TRE — tarefa recorrente que ficava perdida na rotina.
-              </p>
+              <p class="text-copy text-cream-2 leading-loose" data-i18n="fl.p1.desc">Engenheiro com dificuldade em controlar prazos de serviços e lembretes para verificar processos no TRE — tarefa recorrente que ficava perdida na rotina.</p>
 
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                <div class="bg-ink rounded-xl border p-3.5" style="border-color:var(--border)">
-                  <div class="flex items-center gap-1.5 text-cream font-medium text-sm mb-1.5">
-                    <i class="ph ph-clock-countdown text-accent"></i> Alertas de prazo
-                  </div>
-                  <p class="font-mono text-[.72rem] text-cream-3 leading-relaxed">
-                    Notificação automática quando um serviço está próximo da data de entrega.
-                  </p>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="feature-card">
+                  <p class="feature-title"><i class="ph ph-clock-countdown"></i> <span data-i18n="fl.p1.f1">Alertas de prazo</span></p>
+                  <p class="feature-text" data-i18n="fl.p1.f1d">Notificação automática quando um serviço está próximo da data de entrega.</p>
                 </div>
-                <div class="bg-ink rounded-xl border p-3.5" style="border-color:var(--border)">
-                  <div class="flex items-center gap-1.5 text-cream font-medium text-sm mb-1.5">
-                    <i class="ph ph-arrows-clockwise text-accent"></i> Lembretes de revisão
-                  </div>
-                  <p class="font-mono text-[.72rem] text-cream-3 leading-relaxed">
-                    Aviso quando um processo no TRE não foi verificado há tempo demais.
-                  </p>
+                <div class="feature-card">
+                  <p class="feature-title"><i class="ph ph-arrows-clockwise"></i> <span data-i18n="fl.p1.f2">Lembretes de revisão</span></p>
+                  <p class="feature-text" data-i18n="fl.p1.f2d">Aviso quando um processo no TRE não foi verificado há tempo demais.</p>
                 </div>
               </div>
 
               <div class="flex flex-wrap gap-2">
-                <span class="pill">Google Planilhas</span>
+                <span class="pill" data-i18n="pill.sheets">Google Planilhas</span>
                 <span class="pill">Apps Script</span>
                 <span class="pill">Telegram Bot API</span>
               </div>
@@ -445,324 +327,208 @@
             <!-- Painel 2 -->
             <div class="fl-panel">
               <div class="flex items-start gap-4 flex-wrap">
-                <div class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 text-xl"
-                     style="background:rgba(var(--accent-rgb),.1);border:1px solid rgba(var(--accent-rgb),.2);color:rgb(var(--accent))">
-                  <i class="ph-fill ph-package"></i>
+                <div class="icon-tile"><i class="ph-fill ph-package"></i></div>
+                <div class="grow min-w-0">
+                  <h3 class="text-h3 font-bold text-cream leading-tight tracking-tight" data-i18n="fl.p2.title">Gestão de Estoque via Telegram</h3>
+                  <p class="font-mono text-meta text-cream-3 mt-1 tracking-wide" data-i18n="fl.p2.stack">Google Planilhas · Webhook · Telegram Bot</p>
                 </div>
-                <div class="flex-1 min-w-0">
-                  <h3 class="font-sans font-bold text-cream text-xl leading-tight tracking-tight">
-                    Gestão de Estoque via Telegram
-                  </h3>
-                  <p class="font-mono text-[.68rem] text-cream-3 mt-1 tracking-wide">
-                    Google Planilhas · Webhook · Telegram Bot
-                  </p>
-                </div>
-                <span class="badge-amber flex-shrink-0">
-                  <i class="ph ph-hourglass"></i> Aguardando validação
-                </span>
+                <span class="badge-amber"><i class="ph ph-hourglass"></i> <span data-i18n="fl.p2.badge">Aguardando validação</span></span>
               </div>
 
-              <p class="text-cream-2 leading-loose" style="font-size:.9rem">
-                Loja de materiais de construção gerenciada "de cabeça". A gerente tem pouco tempo
-                e baixa tolerância para sistemas com fluxos longos.
-              </p>
+              <p class="text-copy text-cream-2 leading-loose" data-i18n="fl.p2.desc">Loja de materiais de construção gerenciada "de cabeça". A gerente tem pouco tempo e baixa tolerância para sistemas com fluxos longos.</p>
 
-              <div class="flex gap-3 items-start rounded-xl p-4"
-                   style="background:rgba(var(--accent-rgb),.08);border:1px solid rgba(var(--accent-rgb),.18)">
-                <i class="ph ph-lightbulb flex-shrink-0 mt-0.5" style="color:rgb(var(--accent))"></i>
-                <p class="text-cream-2 text-sm leading-relaxed">
-                  <strong class="text-cream">Solução sem interface:</strong> Google Planilhas como
-                  base de dados invisível ao usuário — integrada a um bot no Telegram. Cadastro,
-                  entradas, saídas e alertas de reposição pelo app que a cliente já usa.
-                  Zero tela de sistema, zero treinamento.
-                  Tudo adaptado ao fluxo diário da cliente.
-                </p>
+              <div class="callout">
+                <i class="ph ph-lightbulb"></i>
+                <p data-i18n="fl.p2.callout"><strong>Solução sem interface:</strong> Google Planilhas como base de dados invisível ao usuário — integrada a um bot no Telegram. Cadastro, entradas, saídas e alertas de reposição pelo app que a cliente já usa. Zero tela de sistema, zero treinamento. Tudo adaptado ao fluxo diário da cliente.</p>
               </div>
 
               <div class="flex flex-wrap gap-2">
-                <span class="pill">Google Planilhas</span>
+                <span class="pill" data-i18n="pill.sheets">Google Planilhas</span>
                 <span class="pill">Apps Script</span>
                 <span class="pill">Telegram Bot API</span>
                 <span class="pill">Webhook</span>
               </div>
             </div>
 
-          </div><!-- /painéis -->
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ════════════ SLIDE 3 — PROJETOS ════════════ -->
-    <section class="fp-slide" id="slide-projetos">
-      <div class="relative z-10 w-full max-w-[1140px] mx-auto px-6 md:px-10 py-12">
+    <!-- ════════════ PROJETOS ════════════ -->
+    <section id="projetos" class="section">
+      <div class="max-w-[1140px] mx-auto px-6 md:px-10">
 
-        <div class="flex justify-between items-end mb-9 flex-wrap gap-4">
+        <div class="flex justify-between items-end mb-12 flex-wrap gap-4">
           <div>
-            <div class="rv section-kicker">Projetos Técnicos</div>
-            <h2 class="rv d1 font-sans font-bold text-cream tracking-tighter leading-tight"
-                style="font-size:clamp(1.9rem,3.5vw,2.6rem)">
+            <p class="rv section-kicker" data-i18n="proj.kicker">Projetos Técnicos</p>
+            <h2 class="rv d1 text-h2 font-bold text-cream tracking-tighter leading-tight" data-i18n="proj.title">
               Capacidade técnica na prática
             </h2>
           </div>
-          <p class="rv d2 font-mono text-[.7rem] text-cream-3 leading-loose text-right max-w-xs">
+          <p class="rv d2 font-mono text-meta text-cream-3 leading-loose md:text-right" data-i18n="proj.aside">
             Projetos acadêmicos que demonstram<br>o que está por baixo das soluções.
           </p>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
 
-          <!-- NiadAgent -->
-          <div class="rv d1 card-glow bg-ink-3 border rounded-2xl p-5 flex flex-col gap-3"
-               style="border-color:var(--border)">
+          <article class="rv d1 project-card card-glow">
             <div class="flex justify-between items-start">
-              <div class="w-9 h-9 rounded-lg flex items-center justify-center text-lg"
-                   style="background:rgba(var(--accent-rgb),.1);border:1px solid rgba(var(--accent-rgb),.18);color:rgb(var(--accent))">
-                <i class="ph ph-robot"></i>
-              </div>
-              <span class="badge-green"><i class="ph ph-check-circle"></i> Concluído</span>
+              <div class="icon-tile icon-tile-sm"><i class="ph ph-robot"></i></div>
+              <span class="badge-green"><i class="ph ph-check-circle"></i> <span data-i18n="proj.done">Concluído</span></span>
             </div>
             <div>
-              <p class="font-sans font-semibold text-cream text-[.98rem] leading-snug tracking-tight">NiadAgent</p>
-              <p class="font-mono text-[.62rem] text-cream-3 mt-0.5">Sistemas Distribuídos · UFLA</p>
+              <h3 class="project-title">NiadAgent</h3>
+              <p class="project-meta" data-i18n="proj.niad.meta">Sistemas Distribuídos · UFLA</p>
             </div>
-            <p class="text-cream-2 text-[.83rem] leading-relaxed flex-1">
-              Áudios de reuniões via Telegram → Whisper (Docker) → sumarização com Gemini API via LangChain. API Gateway em Express.js orquestra microserviços isolados em containers.
-            </p>
-            <div class="flex flex-wrap gap-1.5">
+            <p class="project-text" data-i18n="proj.niad.desc">Áudios de reuniões via Telegram → Whisper (Docker) → sumarização com Gemini API via LangChain. API Gateway em Express.js orquestra microserviços isolados em containers.</p>
+            <div class="flex flex-wrap gap-2">
               <span class="pill">Python</span><span class="pill">Docker</span>
               <span class="pill">LangChain</span><span class="pill">Whisper</span>
             </div>
-            <div class="pt-2 border-t mt-auto" style="border-color:var(--border)">
-              <a href="https://github.com/gilmar-filho/NiadAgent" target="_blank"
-                 class="flex items-center justify-center gap-1.5 w-full py-2 rounded-lg
-                        font-mono text-[.7rem] text-cream-2 border transition-colors
-                        hover:border-accent/50 hover:text-accent"
-                 style="border-color:var(--border-2);background:rgb(var(--ink-2))">
-                <i class="ph ph-github-logo"></i> Repositório
+            <div class="project-actions">
+              <a href="https://github.com/gilmar-filho/NiadAgent" target="_blank" rel="noopener" class="btn-repo">
+                <i class="ph ph-github-logo"></i> <span data-i18n="proj.repo">Repositório</span>
               </a>
             </div>
-          </div>
+          </article>
 
-          <!-- IA -->
-          <div class="rv d2 card-glow bg-ink-3 border rounded-2xl p-5 flex flex-col gap-3"
-               style="border-color:var(--border)">
+          <article class="rv d2 project-card card-glow">
             <div class="flex justify-between items-start">
-              <div class="w-9 h-9 rounded-lg flex items-center justify-center text-lg"
-                   style="background:rgba(var(--accent-rgb),.1);border:1px solid rgba(var(--accent-rgb),.18);color:rgb(var(--accent))">
-                <i class="ph ph-brain"></i>
-              </div>
-              <span class="badge-green"><i class="ph ph-check-circle"></i> Concluído</span>
+              <div class="icon-tile icon-tile-sm"><i class="ph ph-brain"></i></div>
+              <span class="badge-green"><i class="ph ph-check-circle"></i> <span data-i18n="proj.done">Concluído</span></span>
             </div>
             <div>
-              <p class="font-sans font-semibold text-cream text-[.98rem] leading-snug tracking-tight">Algoritmos de IA</p>
-              <p class="font-mono text-[.62rem] text-cream-3 mt-0.5">Inteligência Artificial · UFLA</p>
+              <h3 class="project-title" data-i18n="proj.ai.title">Algoritmos de IA</h3>
+              <p class="project-meta" data-i18n="proj.ai.meta">Inteligência Artificial · UFLA</p>
             </div>
-            <p class="text-cream-2 text-[.83rem] leading-relaxed flex-1">
-              KNN, K-Means e MLP implementados do zero e com Scikit-learn para comparação direta. Métricas: acurácia, precisão, revocação, silhouette score, matrizes de confusão.
-            </p>
-            <div class="flex flex-wrap gap-1.5">
+            <p class="project-text" data-i18n="proj.ai.desc">KNN, K-Means e MLP implementados do zero e com Scikit-learn para comparação direta. Métricas: acurácia, precisão, revocação, silhouette score, matrizes de confusão.</p>
+            <div class="flex flex-wrap gap-2">
               <span class="pill">Python</span><span class="pill">Scikit-learn</span><span class="pill">Jupyter</span>
             </div>
-            <div class="pt-2 border-t mt-auto" style="border-color:var(--border)">
-              <a href="https://github.com/gilmar-filho/GCC128-Inteligencia_Artificial" target="_blank"
-                 class="flex items-center justify-center gap-1.5 w-full py-2 rounded-lg
-                        font-mono text-[.7rem] text-cream-2 border transition-colors
-                        hover:border-accent/50 hover:text-accent"
-                 style="border-color:var(--border-2);background:rgb(var(--ink-2))">
-                <i class="ph ph-github-logo"></i> Repositório
+            <div class="project-actions">
+              <a href="https://github.com/gilmar-filho/GCC128-Inteligencia_Artificial" target="_blank" rel="noopener" class="btn-repo">
+                <i class="ph ph-github-logo"></i> <span data-i18n="proj.repo">Repositório</span>
               </a>
             </div>
-          </div>
+          </article>
 
-          <!-- BD RPG -->
-          <div class="rv d3 card-glow bg-ink-3 border rounded-2xl p-5 flex flex-col gap-3"
-               style="border-color:var(--border)">
+          <article class="rv d3 project-card card-glow">
             <div class="flex justify-between items-start">
-              <div class="w-9 h-9 rounded-lg flex items-center justify-center text-lg"
-                   style="background:rgba(var(--accent-rgb),.1);border:1px solid rgba(var(--accent-rgb),.18);color:rgb(var(--accent))">
-                <i class="ph ph-database"></i>
-              </div>
-              <span class="badge-green"><i class="ph ph-check-circle"></i> Concluído</span>
+              <div class="icon-tile icon-tile-sm"><i class="ph ph-database"></i></div>
+              <span class="badge-green"><i class="ph ph-check-circle"></i> <span data-i18n="proj.done">Concluído</span></span>
             </div>
             <div>
-              <p class="font-sans font-semibold text-cream text-[.98rem] leading-snug tracking-tight">Banco de Dados — RPG</p>
-              <p class="font-mono text-[.62rem] text-cream-3 mt-0.5">Sistemas de BD · UFLA</p>
+              <h3 class="project-title" data-i18n="proj.db.title">Banco de Dados — RPG</h3>
+              <p class="project-meta" data-i18n="proj.db.meta">Sistemas de BD · UFLA</p>
             </div>
-            <p class="text-cream-2 text-[.83rem] leading-relaxed flex-1">
-              BD relacional completo com herança, triggers, views e stored procedures. Interface em PHP. Consultas avançadas: JOINs, subqueries, UNION, EXISTS.
-            </p>
-            <div class="flex flex-wrap gap-1.5">
+            <p class="project-text" data-i18n="proj.db.desc">BD relacional completo com herança, triggers, views e stored procedures. Interface em PHP. Consultas avançadas: JOINs, subqueries, UNION, EXISTS.</p>
+            <div class="flex flex-wrap gap-2">
               <span class="pill">MySQL</span><span class="pill">Triggers</span><span class="pill">PHP</span>
             </div>
-            <div class="pt-2 border-t mt-auto" style="border-color:var(--border)">
-              <a href="https://github.com/gilmar-filho/Projeto-IntroSistemasBD" target="_blank"
-                 class="flex items-center justify-center gap-1.5 w-full py-2 rounded-lg
-                        font-mono text-[.7rem] text-cream-2 border transition-colors
-                        hover:border-accent/50 hover:text-accent"
-                 style="border-color:var(--border-2);background:rgb(var(--ink-2))">
-                <i class="ph ph-github-logo"></i> Repositório
+            <div class="project-actions">
+              <a href="https://github.com/gilmar-filho/Projeto-IntroSistemasBD" target="_blank" rel="noopener" class="btn-repo">
+                <i class="ph ph-github-logo"></i> <span data-i18n="proj.repo">Repositório</span>
               </a>
             </div>
-          </div>
+          </article>
 
-          <!-- Jogo -->
-          <div class="rv d4 card-glow bg-ink-3 border rounded-2xl p-5 flex flex-col gap-3"
-               style="border-color:var(--border)">
+          <article class="rv d4 project-card card-glow">
             <div class="flex justify-between items-start">
-              <div class="w-9 h-9 rounded-lg flex items-center justify-center text-lg"
-                   style="background:rgba(var(--accent-rgb),.1);border:1px solid rgba(var(--accent-rgb),.18);color:rgb(var(--accent))">
-                <i class="ph ph-game-controller"></i>
-              </div>
+              <div class="icon-tile icon-tile-sm"><i class="ph ph-game-controller"></i></div>
               <span class="badge-green"><i class="ph ph-wifi-high"></i> Online</span>
             </div>
             <div>
-              <p class="font-sans font-semibold text-cream text-[.98rem] leading-snug tracking-tight">Jogo da Memória</p>
-              <p class="font-mono text-[.62rem] text-cream-3 mt-0.5">Programação Web · UFLA</p>
+              <h3 class="project-title" data-i18n="proj.game.title">Jogo da Memória</h3>
+              <p class="project-meta" data-i18n="proj.game.meta">Programação Web · UFLA</p>
             </div>
-            <p class="text-cream-2 text-[.83rem] leading-relaxed flex-1">
-              4×4 a 10×10, flip 3D em CSS puro, ranking persistente, responsivo. Zero dependências. Estado global, DOM cacheado, responsabilidade única.
-            </p>
-            <div class="flex flex-wrap gap-1.5">
+            <p class="project-text" data-i18n="proj.game.desc">4×4 a 10×10, flip 3D em CSS puro, ranking persistente, responsivo. Zero dependências. Estado global, DOM cacheado, responsabilidade única.</p>
+            <div class="flex flex-wrap gap-2">
               <span class="pill">HTML</span><span class="pill">CSS</span><span class="pill">JavaScript</span>
             </div>
-            <div class="pt-2 border-t mt-auto flex gap-2" style="border-color:var(--border)">
-              <a href="https://gilmar-filho.github.io/GAC116-Jogo_da_Memoria/page" target="_blank"
-                 class="flex-1 flex items-center justify-center gap-1.5 py-2 rounded-lg
-                        font-mono text-[.7rem] font-semibold transition-opacity"
-                 style="background:rgb(var(--accent));color:rgb(var(--ink))">
-                <i class="ph ph-play"></i> Jogar
+            <div class="project-actions">
+              <a href="https://gilmar-filho.github.io/GAC116-Jogo_da_Memoria/page" target="_blank" rel="noopener" class="btn-play">
+                <i class="ph ph-play"></i> <span data-i18n="proj.play">Jogar</span>
               </a>
-              <a href="https://github.com/gilmar-filho/GAC116-Jogo_da_Memoria" target="_blank"
-                 class="flex-1 flex items-center justify-center gap-1.5 py-2 rounded-lg
-                        font-mono text-[.7rem] text-cream-2 border transition-colors
-                        hover:border-accent/50 hover:text-accent"
-                 style="border-color:var(--border-2);background:rgb(var(--ink-2))">
-                <i class="ph ph-github-logo"></i> Código
+              <a href="https://github.com/gilmar-filho/GAC116-Jogo_da_Memoria" target="_blank" rel="noopener" class="btn-repo">
+                <i class="ph ph-github-logo"></i> <span data-i18n="proj.code">Código</span>
               </a>
             </div>
-          </div>
+          </article>
 
         </div>
       </div>
     </section>
 
-    <!-- ════════════ SLIDE 4 — CONTATO ════════════ -->
-    <section class="fp-slide" id="slide-contato">
-      <div class="relative z-10 w-full max-w-[1140px] mx-auto px-6 md:px-10 py-12 flex flex-col min-h-[calc(100vh-24px)] md:min-h-screen">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center flex-1">
+    <!-- ════════════ CONTATO ════════════ -->
+    <section id="contato" class="section">
+      <div class="max-w-[1140px] mx-auto px-6 md:px-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-x-20 items-center">
 
-          <!-- Esquerda -->
           <div>
-            <div class="rv section-kicker">Contato</div>
-            <h2 class="rv d1 font-sans font-bold text-cream tracking-tighter leading-[1.05] mt-3 mb-4 glow-text"
-                style="font-size:clamp(2.2rem,4vw,3.4rem)">
-              Vamos<br>
-              <span class="glow-accent" style="color:rgb(var(--accent))">conversar!</span>
+            <p class="rv section-kicker" data-i18n="contact.kicker">Contato</p>
+            <h2 class="rv d1 text-h2-lg font-bold text-cream tracking-tighter leading-[1.05] mb-6 glow-text" data-i18n="contact.title">
+              Vamos<br><span class="title-accent">conversar!</span>
             </h2>
-            <p class="rv d2 text-cream-2 leading-loose max-w-sm" style="font-size:.95rem">
+            <p class="rv d2 text-copy text-cream-2 leading-loose max-w-md" data-i18n="contact.lede">
               Sem compromisso. Me conta o que está travando no seu trabalho e vejo se consigo ajudar.
             </p>
           </div>
 
-          <!-- Direita -->
-          <div class="rv-r d1 flex flex-col gap-3">
-
-            <a href="https://wa.me/5535997304374" target="_blank"
-               class="cta-btn flex items-center gap-4 px-5 py-4 rounded-2xl border"
-               style="background:rgb(var(--ink-3));border-color:var(--border-2)">
-              <div class="w-11 h-11 rounded-xl flex items-center justify-center text-xl flex-shrink-0"
-                   style="background:rgba(37,211,102,.15);color:#25D366">
-                <i class="ph ph-whatsapp-logo"></i>
-              </div>
+          <div class="rv-r d1 flex flex-col gap-4">
+            <a href="https://wa.me/5535997304374" target="_blank" rel="noopener" class="cta-btn">
+              <div class="cta-icon bg-[rgba(37,211,102,.15)] text-[#25D366]"><i class="ph ph-whatsapp-logo"></i></div>
               <div>
-                <p class="font-mono text-[.63rem] tracking-[.1em] uppercase text-cream-3">WhatsApp</p>
-                <p class="text-cream font-medium text-[.9rem] mt-0.5">+55 35 99730-4374</p>
+                <p class="cta-label">WhatsApp</p>
+                <p class="cta-value">+55 35 99730-4374</p>
               </div>
-              <i class="ph ph-arrow-right cta-arrow ml-auto text-cream-3"></i>
+              <i class="ph ph-arrow-right cta-arrow"></i>
             </a>
 
-            <a href="https://www.linkedin.com/in/gilmarfilh/" target="_blank"
-               class="cta-btn flex items-center gap-4 px-5 py-4 rounded-2xl border"
-               style="background:rgb(var(--ink-3));border-color:var(--border-2)">
-              <div class="w-11 h-11 rounded-xl flex items-center justify-center text-xl flex-shrink-0"
-                   style="background:rgba(10,102,194,.15);color:#0A66C2">
-                <i class="ph ph-linkedin-logo"></i>
-              </div>
+            <a href="https://www.linkedin.com/in/gilmarfilh/" target="_blank" rel="noopener" class="cta-btn">
+              <div class="cta-icon bg-[rgba(10,102,194,.15)] text-[#0A66C2]"><i class="ph ph-linkedin-logo"></i></div>
               <div>
-                <p class="font-mono text-[.63rem] tracking-[.1em] uppercase text-cream-3">LinkedIn</p>
-                <p class="text-cream font-medium text-[.9rem] mt-0.5">linkedin.com/in/gilmarfilh</p>
+                <p class="cta-label">LinkedIn</p>
+                <p class="cta-value">linkedin.com/in/gilmarfilh</p>
               </div>
-              <i class="ph ph-arrow-right cta-arrow ml-auto text-cream-3"></i>
+              <i class="ph ph-arrow-right cta-arrow"></i>
             </a>
 
-            <a href="mailto:gfilho416@gmail.com"
-               class="cta-btn flex items-center gap-4 px-5 py-4 rounded-2xl border"
-               style="background:rgb(var(--ink-3));border-color:var(--border-2)">
-              <div class="w-11 h-11 rounded-xl flex items-center justify-center text-xl flex-shrink-0"
-                   style="background:rgba(var(--accent-rgb),.12);color:rgb(var(--accent))">
-                <i class="ph ph-envelope-simple"></i>
-              </div>
+            <a href="mailto:gfilho416@gmail.com" class="cta-btn">
+              <div class="cta-icon bg-accent/10 text-accent"><i class="ph ph-envelope-simple"></i></div>
               <div>
-                <p class="font-mono text-[.63rem] tracking-[.1em] uppercase text-cream-3">E-mail</p>
-                <p class="text-cream font-medium text-[.9rem] mt-0.5">gfilho416@gmail.com</p>
+                <p class="cta-label" data-i18n="contact.email">E-mail</p>
+                <p class="cta-value">gfilho416@gmail.com</p>
               </div>
-              <i class="ph ph-arrow-right cta-arrow ml-auto text-cream-3"></i>
+              <i class="ph ph-arrow-right cta-arrow"></i>
             </a>
 
-            <a href="https://github.com/gilmar-filho" target="_blank"
-               class="cta-btn flex items-center gap-4 px-5 py-4 rounded-2xl border"
-               style="background:rgb(var(--ink-3));border-color:var(--border-2)">
-              <div class="w-11 h-11 rounded-xl flex items-center justify-center text-xl flex-shrink-0"
-                   style="background:rgba(237,232,220,.08);color:rgb(var(--cream-2))">
-                <i class="ph ph-github-logo"></i>
-              </div>
+            <a href="https://github.com/gilmar-filho" target="_blank" rel="noopener" class="cta-btn">
+              <div class="cta-icon bg-cream/10 text-cream-2"><i class="ph ph-github-logo"></i></div>
               <div>
-                <p class="font-mono text-[.63rem] tracking-[.1em] uppercase text-cream-3">GitHub</p>
-                <p class="text-cream font-medium text-[.9rem] mt-0.5">github.com/gilmar-filho</p>
+                <p class="cta-label">GitHub</p>
+                <p class="cta-value">github.com/gilmar-filho</p>
               </div>
-              <i class="ph ph-arrow-right cta-arrow ml-auto text-cream-3"></i>
+              <i class="ph ph-arrow-right cta-arrow"></i>
             </a>
-
-            <!-- Link versão acadêmica -->
-            <a href="./bootstrap-version/index.html"
-               class="mt-1 text-center font-mono text-[.65rem] tracking-wider uppercase transition-colors"
-               style="color:rgb(var(--cream-3))">
-              <span class="hover:underline" style="color:rgb(var(--accent))">
-                Versão Acadêmica (Bootstrap) →
-              </span>
-            </a>
-
           </div>
+
         </div>
-        
-        <div class="mt-16 md:mt-auto pt-8 text-center font-mono text-[.6rem] text-cream-3 tracking-widest uppercase opacity-50 select-none">
-          &copy; 2026 Gilmar Filho. Todos os direitos reservados.
+
+        <div class="mt-12 flex flex-col items-center gap-4 text-center">
+          <a href="./bootstrap-version/index.html" class="version-link" data-i18n="contact.toBs">Versão acadêmica (Bootstrap) →</a>
+          <p class="site-footer" data-i18n="footer">&copy; 2026 Gilmar Filho. Todos os direitos reservados.</p>
         </div>
       </div>
     </section>
 
-  </div><!-- /fp-container -->
+  </main>
 
-  <!-- JS -->
+  <script src="./assets/js/i18n.js"></script>
   <script src="./assets/js/hero.js"></script>
   <script src="./assets/js/scroll.js"></script>
   <script src="./assets/js/reveal.js"></script>
-  <script src="./assets/js/theme-toggle-tailwind.js"></script>
-
-  <!-- Tabs: active state via CSS puro —
-       hero.js já chama initTabs(), mas o estilo active precisa de inline
-       porque usa var(--accent) que o Tailwind não sabe em tempo de build. -->
-  <style>
-    .fl-tab.active {
-      background: rgb(var(--ink-3));
-      border-color: var(--border-2) !important;
-    }
-    .fl-tab.active .fl-tab-dot {
-      background: rgb(var(--accent));
-      box-shadow: 0 0 7px rgba(var(--accent-rgb),.4);
-    }
-    .fl-tab.active .fl-tab-name { color: rgb(var(--cream)); }
-  </style>
 
 </body>
 </html>

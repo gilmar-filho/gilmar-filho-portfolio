@@ -1,12 +1,8 @@
 /* ═══════════════════════════════════════════════════
-   reveal.js — IntersectionObserver para mobile
-   No desktop, as animações são disparadas pelo scroll.js
-   quando o slide entra em cena.
+   reveal.js — elementos aparecem conforme a rolagem
 ═══════════════════════════════════════════════════ */
 
 document.addEventListener('DOMContentLoaded', () => {
-  if (window.innerWidth > 768) return;
-
   const io = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) {
@@ -14,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
         io.unobserve(e.target);
       }
     });
-  }, { threshold: 0.08 });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
   document.querySelectorAll('.rv, .rv-l, .rv-r').forEach(el => io.observe(el));
 });
