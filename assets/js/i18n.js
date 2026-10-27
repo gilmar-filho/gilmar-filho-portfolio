@@ -14,6 +14,7 @@ const I18N = {
     'ui.nav':   'Navegação principal',
     'ui.lang':  'Mudar idioma para inglês',
     'ui.theme': 'Alternar tema',
+    'ui.menu':  'Menu de navegação',
 
     'nav.about':     'Sobre',
     'nav.freelance': 'Freelance',
@@ -50,18 +51,20 @@ const I18N = {
     'about.kicker': 'Sobre mim',
     'about.title':  'Sistemas simples<br>que funcionam de verdade',
     'about.place':  'Lavras, MG',
-    'about.study':  'UFLA · SI · 6º período',
+    'about.study':  'UFLA · SI · 7º período',
     'about.free':   'Freelance disponível',
-    'about.p1': 'Olá, sou <strong>Gilmar Filho</strong>, estudante de Sistemas de Informação na UFLA (6º período). Trabalho construindo automações para quem procura ganhar tempo delegando a um sistema suas tarefas repetitivas.',
+    'about.p1': 'Olá, sou <strong>Gilmar Filho</strong>, estudante de Sistemas de Informação na UFLA (7º período). Trabalho construindo automações para quem procura ganhar tempo delegando a um sistema suas tarefas repetitivas.',
     'about.p2': 'Minha especialidade é transformar processos manuais em fluxos automáticos — usando <strong>Google Planilhas</strong> com Apps Script, <strong>Python</strong> e integrações com ferramentas que as pessoas já usam no dia a dia, como o Telegram.',
     'about.p3': 'O que guia cada projeto é uma escolha deliberada: <strong>entregar o que resolve com qualidade, não o que impressiona com quantidade</strong>. Um sistema com 3 funcionalidades que o usuário usa todos os dias vale mais do que um sistema "completo" que no fim vira um peso.',
 
     'pill.sheets': 'Google Planilhas',
 
+    'fl.kicker':     'Freelance',
+    'fl.title':      'Automações feitas para clientes reais',
     'fl.label':      'projetos / cliente',
-    'fl.tab0':       'Consultoria<br>Financeira',
-    'fl.tab1':       'Follow-Up<br>Engenheiro Civil',
-    'fl.tab2':       'Gestão de Estoque<br>via Telegram',
+    'fl.tab0':       'Consultoria <br>Financeira',
+    'fl.tab1':       'Follow-Up <br>Engenheiro Civil',
+    'fl.tab2':       'Gestão de Estoque <br>via Telegram',
     'fl.inUse':      'em uso',
     'fl.validation': 'validação',
 
@@ -130,6 +133,7 @@ const I18N = {
     'ui.nav':   'Main navigation',
     'ui.lang':  'Switch language to Portuguese',
     'ui.theme': 'Toggle theme',
+    'ui.menu':  'Navigation menu',
 
     'nav.about':     'About',
     'nav.freelance': 'Freelance',
@@ -174,10 +178,12 @@ const I18N = {
 
     'pill.sheets': 'Google Sheets',
 
+    'fl.kicker':     'Freelance',
+    'fl.title':      'Automations built for real clients',
     'fl.label':      'client projects',
-    'fl.tab0':       'Financial<br>Consulting',
-    'fl.tab1':       'Civil Engineer<br>Follow-Up',
-    'fl.tab2':       'Inventory Management<br>via Telegram',
+    'fl.tab0':       'Financial <br>Consulting',
+    'fl.tab1':       'Civil Engineer <br>Follow-Up',
+    'fl.tab2':       'Inventory Management <br>via Telegram',
     'fl.inUse':      'in use',
     'fl.validation': 'in review',
 

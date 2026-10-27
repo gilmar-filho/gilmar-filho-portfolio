@@ -115,7 +115,7 @@ function initCursor() {
     requestAnimationFrame(animRing);
   })();
 
-  document.querySelectorAll('a, button, .win, .fl-tab, .sn-item, .card-glow')
+  document.querySelectorAll('a, button, .fl-tab, .card-glow')
     .forEach(el => {
       el.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
       el.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
@@ -148,35 +148,40 @@ function initDashBars() {
 
 /* ─── FREELANCE TABS ─────────────────────────────── */
 function initTabs() {
-  const tabs   = document.querySelectorAll('.fl-tab');
+  const tabs   = Array.from(document.querySelectorAll('.fl-tab'));
   const panels = document.querySelectorAll('.fl-panel');
-  let hoverTimer; // Guarda a referência do timer
+  const step   = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 };
 
-  function activate(i) {
-    tabs.forEach((t, j)   => t.classList.toggle('active', j === i));
+  function activate(i, focus) {
+    tabs.forEach((t, j) => {
+      t.classList.toggle('active', j === i);
+      t.setAttribute('aria-selected', j === i);
+      t.tabIndex = j === i ? 0 : -1;
+    });
     panels.forEach((p, j) => p.classList.toggle('active', j === i));
+    if (focus) tabs[i].focus();
   }
 
   tabs.forEach((tab, i) => {
-    // Inicia um timer ao entrar na aba
-    tab.addEventListener('mouseenter', () => {
-      hoverTimer = setTimeout(() => {
-        activate(i);
-      }, 150); // 150ms: tempo suficiente para ignorar passagens rápidas
+    tab.addEventListener('click', () => {
+      activate(i);
+      // no celular as abas rolam na horizontal: centraliza a escolhida
+      const list = tab.parentElement;
+      list.scrollTo({ left: tab.offsetLeft - list.offsetLeft - (list.clientWidth - tab.offsetWidth) / 2, behavior: 'smooth' });
     });
 
-    // Cancela a troca se o mouse sair antes dos 150ms
-    tab.addEventListener('mouseleave', () => {
-      clearTimeout(hoverTimer);
-    });
-    
-    // Mantém o clique instantâneo (ignora o timer) para mobile
-    tab.addEventListener('click', () => {
-      clearTimeout(hoverTimer);
-      activate(i);
+    tab.addEventListener('keydown', e => {
+      const n = tabs.length;
+      const next = e.key in step ? (i + step[e.key] + n) % n
+                 : e.key === 'Home' ? 0
+                 : e.key === 'End'  ? n - 1
+                 : -1;
+      if (next < 0) return;
+      e.preventDefault();
+      activate(next, true);
     });
   });
-  
+
   activate(0);
 }
 

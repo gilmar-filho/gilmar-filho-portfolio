@@ -29,13 +29,13 @@
 
   <!-- ════════════ CABEÇALHO ════════════ -->
   <header id="site-header" class="site-header">
-    <div class="page-container h-100 d-flex align-items-center justify-content-between gap-4">
+    <div class="page-container h-100 d-flex align-items-center justify-content-between gap-2 gap-md-4">
       <a href="#inicio" class="brand">
         <i class="ph-fill ph-terminal-window"></i> Gilmar Filho
       </a>
 
-      <div class="d-flex align-items-center gap-3 gap-md-4">
-        <nav class="d-none d-md-flex align-items-center gap-4"
+      <div class="d-flex align-items-center gap-2 gap-md-4">
+        <nav id="site-nav" class="site-nav"
              aria-label="Navegação principal" data-i18n-attr="aria-label:ui.nav">
           <a href="#sobre" class="site-nav-link" data-i18n="nav.about">Sobre</a>
           <a href="#freelance" class="site-nav-link" data-i18n="nav.freelance">Freelance</a>
@@ -52,6 +52,10 @@
         <button type="button" id="theme-btn" class="theme-btn"
                 aria-label="Alternar tema" data-i18n-attr="aria-label:ui.theme">
           <i class="ph ph-circle-half"></i>
+        </button>
+        <button type="button" class="menu-btn" aria-expanded="false" aria-controls="site-nav"
+                aria-label="Menu de navegação" data-i18n-attr="aria-label:ui.menu">
+          <i class="ph ph-list"></i><i class="ph ph-x"></i>
         </button>
       </div>
     </div>
@@ -75,10 +79,10 @@
               <em>Automação de processos</em> e sistemas inteligentes.<br>Transformo tarefas manuais em fluxos automáticos integrados com ferramentas que as pessoas já usam.
             </p>
 
-            <div class="rv d3 status-chip mt-5">
+            <a href="#contato" class="rv d3 status-chip mt-5">
               <span class="status-dot"></span>
               <span data-i18n="hero.available">Disponível para novos projetos</span>
-            </div>
+            </a>
 
             <a href="#sobre" class="rv d4 scroll-hint mt-5">
               <span class="scroll-arrow"></span>
@@ -190,9 +194,9 @@
 
               <div class="d-flex flex-column gap-3">
                 <div class="fact"><i class="ph ph-map-pin"></i> <span data-i18n="about.place">Lavras, MG</span></div>
-                <div class="fact"><i class="ph ph-graduation-cap"></i> <span data-i18n="about.study">UFLA · SI · 6º período</span></div>
+                <div class="fact"><i class="ph ph-graduation-cap"></i> <span data-i18n="about.study">UFLA · SI · 7º período</span></div>
                 <div class="fact"><i class="ph ph-briefcase"></i> <span data-i18n="about.free">Freelance disponível</span></div>
-                <div class="fact"><i class="ph ph-github-logo"></i> github.com/gilmar-filho</div>
+                <a class="fact" href="https://github.com/gilmar-filho" target="_blank" rel="noopener"><i class="ph ph-github-logo"></i> github.com/gilmar-filho</a>
               </div>
             </div>
           </div>
@@ -207,7 +211,7 @@
               </div>
 
               <div class="rich d-flex flex-column gap-3 fs-copy text-cream-2 lh-lg">
-                <p class="rv mb-0" data-i18n="about.p1">Olá, sou <strong>Gilmar Filho</strong>, estudante de Sistemas de Informação na UFLA (6º período). Trabalho construindo automações para quem procura ganhar tempo delegando a um sistema suas tarefas repetitivas.</p>
+                <p class="rv mb-0" data-i18n="about.p1">Olá, sou <strong>Gilmar Filho</strong>, estudante de Sistemas de Informação na UFLA (7º período). Trabalho construindo automações para quem procura ganhar tempo delegando a um sistema suas tarefas repetitivas.</p>
                 <p class="rv mb-0" data-i18n="about.p2">Minha especialidade é transformar processos manuais em fluxos automáticos — usando <strong>Google Planilhas</strong> com Apps Script, <strong>Python</strong> e integrações com ferramentas que as pessoas já usam no dia a dia, como o Telegram.</p>
                 <p class="rv mb-0" data-i18n="about.p3">O que guia cada projeto é uma escolha deliberada: <strong>entregar o que resolve com qualidade, não o que impressiona com quantidade</strong>. Um sistema com 3 funcionalidades que o usuário usa todos os dias vale mais do que um sistema "completo" que no fim vira um peso.</p>
               </div>
@@ -230,29 +234,36 @@
     <!-- ════════════ FREELANCE ════════════ -->
     <section id="freelance" class="section">
       <div class="page-container">
+        <div class="mb-5">
+          <p class="rv section-kicker" data-i18n="fl.kicker">Freelance</p>
+          <h2 class="rv d1 fs-h2 fw-bold text-cream tracking-tighter lh-tight mb-0" data-i18n="fl.title">
+            Automações feitas para clientes reais
+          </h2>
+        </div>
+
         <div class="row g-5 align-items-start">
 
           <div class="col-md-4">
-            <div class="rv-l d-flex flex-column gap-2">
-              <p class="fl-label" data-i18n="fl.label">projetos / cliente</p>
+            <div class="rv-l">
+              <p class="fl-label" id="fl-label" data-i18n="fl.label">projetos / cliente</p>
 
-              <button type="button" class="fl-tab">
-                <span class="fl-tab-dot"></span>
-                <span class="fl-tab-name" data-i18n="fl.tab0">Consultoria<br>Financeira</span>
-                <span class="fl-tab-status" data-i18n="fl.inUse">em uso</span>
-              </button>
-
-              <button type="button" class="fl-tab">
-                <span class="fl-tab-dot"></span>
-                <span class="fl-tab-name" data-i18n="fl.tab1">Follow-Up<br>Engenheiro Civil</span>
-                <span class="fl-tab-status" data-i18n="fl.inUse">em uso</span>
-              </button>
-
-              <button type="button" class="fl-tab">
-                <span class="fl-tab-dot"></span>
-                <span class="fl-tab-name" data-i18n="fl.tab2">Gestão de Estoque<br>via Telegram</span>
-                <span class="fl-tab-status is-amber" data-i18n="fl.validation">validação</span>
-              </button>
+              <div class="fl-tabs" role="tablist" aria-labelledby="fl-label">
+                <button type="button" class="fl-tab" role="tab" id="fl-tab-0" aria-controls="fl-panel-0">
+                  <span class="fl-tab-dot"></span>
+                  <span class="fl-tab-name" data-i18n="fl.tab0">Consultoria <br>Financeira</span>
+                  <span class="fl-tab-status" data-i18n="fl.inUse">em uso</span>
+                </button>
+                <button type="button" class="fl-tab" role="tab" id="fl-tab-1" aria-controls="fl-panel-1">
+                  <span class="fl-tab-dot"></span>
+                  <span class="fl-tab-name" data-i18n="fl.tab1">Follow-Up <br>Engenheiro Civil</span>
+                  <span class="fl-tab-status" data-i18n="fl.inUse">em uso</span>
+                </button>
+                <button type="button" class="fl-tab" role="tab" id="fl-tab-2" aria-controls="fl-panel-2">
+                  <span class="fl-tab-dot"></span>
+                  <span class="fl-tab-name" data-i18n="fl.tab2">Gestão de Estoque <br>via Telegram</span>
+                  <span class="fl-tab-status is-amber" data-i18n="fl.validation">validação</span>
+                </button>
+              </div>
             </div>
           </div>
 
@@ -260,7 +271,7 @@
             <div class="rv-r fl-panels">
 
               <!-- Painel 0 -->
-              <div class="fl-panel">
+              <div class="fl-panel" role="tabpanel" id="fl-panel-0" aria-labelledby="fl-tab-0" tabindex="0">
                 <div class="d-flex align-items-start gap-3 flex-wrap">
                   <div class="icon-tile"><i class="ph-fill ph-chart-pie"></i></div>
                   <div class="flex-grow-1" style="min-width:0">
@@ -307,7 +318,7 @@
               </div>
 
               <!-- Painel 1 -->
-              <div class="fl-panel">
+              <div class="fl-panel" role="tabpanel" id="fl-panel-1" aria-labelledby="fl-tab-1" tabindex="0">
                 <div class="d-flex align-items-start gap-3 flex-wrap">
                   <div class="icon-tile"><i class="ph-fill ph-bell-ringing"></i></div>
                   <div class="flex-grow-1" style="min-width:0">
@@ -342,7 +353,7 @@
               </div>
 
               <!-- Painel 2 -->
-              <div class="fl-panel">
+              <div class="fl-panel" role="tabpanel" id="fl-panel-2" aria-labelledby="fl-tab-2" tabindex="0">
                 <div class="d-flex align-items-start gap-3 flex-wrap">
                   <div class="icon-tile"><i class="ph-fill ph-package"></i></div>
                   <div class="flex-grow-1" style="min-width:0">
@@ -391,7 +402,7 @@
 
         <div class="row g-3">
 
-          <div class="col-md-6 col-lg-3">
+          <div class="col-md-6">
             <article class="rv d1 project-card card-glow">
               <div class="d-flex justify-content-between align-items-start">
                 <div class="icon-tile icon-tile-sm"><i class="ph ph-robot"></i></div>
@@ -414,7 +425,7 @@
             </article>
           </div>
 
-          <div class="col-md-6 col-lg-3">
+          <div class="col-md-6">
             <article class="rv d2 project-card card-glow">
               <div class="d-flex justify-content-between align-items-start">
                 <div class="icon-tile icon-tile-sm"><i class="ph ph-brain"></i></div>
@@ -436,7 +447,7 @@
             </article>
           </div>
 
-          <div class="col-md-6 col-lg-3">
+          <div class="col-md-6">
             <article class="rv d3 project-card card-glow">
               <div class="d-flex justify-content-between align-items-start">
                 <div class="icon-tile icon-tile-sm"><i class="ph ph-database"></i></div>
@@ -458,7 +469,7 @@
             </article>
           </div>
 
-          <div class="col-md-6 col-lg-3">
+          <div class="col-md-6">
             <article class="rv d4 project-card card-glow">
               <div class="d-flex justify-content-between align-items-start">
                 <div class="icon-tile icon-tile-sm"><i class="ph ph-game-controller"></i></div>

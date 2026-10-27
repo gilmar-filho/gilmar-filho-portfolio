@@ -2,35 +2,5 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Tokens, pills, badges e kicker ficam em portfolio.css,
+/* Tokens, componentes e efeitos ficam em portfolio.css,
    compartilhado com a versão Bootstrap. */
-
-@layer components {
-  /* Botão primário */
-  .btn-primary {
-    @apply inline-flex items-center gap-2 px-6 py-3 rounded-xl
-           font-medium text-[.95rem] transition-all duration-200;
-    background: rgb(var(--accent));
-    color: rgb(var(--ink));
-    box-shadow: 0 0 28px rgba(var(--accent-rgb), .22);
-  }
-
-  .btn-primary:hover {
-    @apply opacity-85 -translate-y-px;
-  }
-
-  /* Botão ghost */
-  .btn-ghost {
-    @apply inline-flex items-center gap-2 px-6 py-3 rounded-xl
-           font-medium text-[.95rem] transition-all duration-200;
-    background: transparent;
-    color: rgb(var(--cream-2));
-    border: 1px solid var(--border-2);
-  }
-
-  .btn-ghost:hover {
-    border-color: rgba(var(--accent-rgb), .5);
-    color: rgb(var(--cream));
-    background: rgba(var(--accent-rgb), .06);
-  }
-}
