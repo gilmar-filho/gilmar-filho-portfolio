@@ -7,9 +7,9 @@
 
 const I18N = {
   pt: {
-    'meta.title':       'Gilmar Filho · Automação & Sistemas',
+    'meta.title':       'Gilmar Filho | Desenvolvedor e Automação',
     'meta.titleBs':     'Gilmar Filho · Automação & Sistemas (Bootstrap)',
-    'meta.description': 'Gilmar Filho — automação de processos e sistemas inteligentes com Google Planilhas, Apps Script, Python e Telegram.',
+    'meta.description': 'Gilmar Silva de Medeiros Filho, estudante de Sistemas de Informação na UFLA. Automação de processos, Python, bots e infraestrutura para negócios reais.',
 
     'ui.nav':   'Navegação principal',
     'ui.lang':  'Mudar idioma para inglês',
@@ -126,9 +126,9 @@ const I18N = {
   },
 
   en: {
-    'meta.title':       'Gilmar Filho · Automation & Systems',
+    'meta.title':       'Gilmar Filho | Developer & Automation',
     'meta.titleBs':     'Gilmar Filho · Automation & Systems (Bootstrap)',
-    'meta.description': 'Gilmar Filho — process automation and intelligent systems with Google Sheets, Apps Script, Python and Telegram.',
+    'meta.description': 'Gilmar Silva de Medeiros Filho, Information Systems student at UFLA. Process automation, Python, bots and infrastructure for real businesses.',
 
     'ui.nav':   'Main navigation',
     'ui.lang':  'Switch language to Portuguese',
