@@ -4,6 +4,7 @@
   "description": "Portfólio pessoal desenvolvido com HTML, CSS, JavaScript, Bootstrap e outro framework CSS, com foco em responsividade e boas práticas de desenvolvimento.",
   "main": "tailwind.config.js",
   "scripts": {
+    "build:en": "node scripts/build-en.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

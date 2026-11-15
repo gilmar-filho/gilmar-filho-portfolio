@@ -39,7 +39,7 @@ As duas versões compartilham a identidade visual e o comportamento: tokens de c
 
 ## ✨ Funcionalidades
 
-* **Alternância PT-BR / EN:** switch no cabeçalho. Na primeira visita usa o idioma do navegador; a escolha fica salva no `localStorage`. Os textos ficam em `assets/js/i18n.js` e são aplicados nos elementos com `data-i18n`.
+* **Português e inglês em URLs separadas:** `/` (PT-BR) e `/en/` (EN), ligadas por `hreflang` para o Google mostrar a versão do idioma de quem pesquisa. O switch do cabeçalho navega entre as duas e guarda a escolha no `localStorage`. Os textos ficam em `assets/js/i18n.js`; `en/index.html` é gerado a partir do `index.html` com `npm run build:en`. Na versão Bootstrap a troca continua acontecendo na própria página.
 * **Tema claro/escuro:** respeita a preferência do sistema e guarda a escolha no `localStorage`.
 * **Rolagem nativa com esmaecimento:** a opacidade acompanha a posição na tela. O conteúdo surge esmaecido pela borda inferior e esmaece de novo ao se aproximar do topo, nos dois sentidos da rolagem. O cabeçalho destaca a seção atual e, no celular, vira um menu compacto.
 * **Efeitos visuais:** janelas em cascata no hero, rede animada em canvas, cursor personalizado e brilho que segue o mouse nos cards.
@@ -61,6 +61,12 @@ Depois de alterar classes no `index.html`, recompile o CSS do Tailwind:
 ```bash
 npm install
 npx tailwindcss -i assets/css/global.css -o assets/css/tailwind-out.css --watch
+```
+
+Depois de alterar o `index.html` ou os textos em `assets/js/i18n.js`, regenere a versão em inglês:
+
+```bash
+npm run build:en
 ```
 
 ## 💼 Projetos Destacados no Portfólio

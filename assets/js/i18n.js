@@ -122,7 +122,7 @@ const I18N = {
     'contact.email':  'E-mail',
     'contact.toBs':   'Versão acadêmica (Bootstrap) →',
     'contact.toTw':   '← Versão principal (Tailwind)',
-    'footer':         '&copy; 2026 Gilmar Filho. Todos os direitos reservados.',
+    'footer':         '&copy; 2026 Gilmar Silva de Medeiros Filho. Todos os direitos reservados.',
   },
 
   en: {
@@ -241,7 +241,7 @@ const I18N = {
     'contact.email':  'Email',
     'contact.toBs':   'Academic version (Bootstrap) →',
     'contact.toTw':   '← Main version (Tailwind)',
-    'footer':         '&copy; 2026 Gilmar Filho. All rights reserved.',
+    'footer':         '&copy; 2026 Gilmar Silva de Medeiros Filho. All rights reserved.',
   },
 };
 
@@ -265,6 +265,23 @@ const I18N = {
 
     html.lang = lang === 'pt' ? 'pt-BR' : 'en';
     html.dataset.lang = lang;
+  }
+
+  const current = html.dataset.lang;
+  const other   = current === 'pt' ? 'en' : 'pt';
+  const altLink = document.querySelector(`link[rel="alternate"][hreflang="${other === 'pt' ? 'pt-BR' : 'en'}"]`);
+
+  // Páginas com hreflang têm uma URL por idioma (/ e /en/); sem redirecionar
+  // pelo idioma do navegador, para o Googlebot (en-US) indexar cada versão.
+  if (altLink) {
+    const altPath = new URL(altLink.href).pathname;
+    if (localStorage.getItem(KEY) === other) location.replace(altPath);
+
+    document.querySelector('.lang-switch')?.addEventListener('click', () => {
+      localStorage.setItem(KEY, other);
+      location.href = altPath;
+    });
+    return;
   }
 
   const preferred = localStorage.getItem(KEY)

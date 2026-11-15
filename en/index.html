@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<!-- Gerado por scripts/build-en.js a partir de index.html. Não edite à mão. -->
+<html lang="en" data-theme="dark" data-lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" data-i18n-attr="content:meta.description"
+        content="Gilmar Silva de Medeiros Filho, Information Systems student at UFLA. Process automation, Python, bots and infrastructure for real businesses.">
+  <meta name="robots" content="max-image-preview:large">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/png" sizes="48x48" href="../assets/img/favicon-48.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="../assets/img/favicon-96.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../assets/img/favicon-192.png">
+  <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+  <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+  <title data-i18n="meta.title">Gilmar Filho | Developer & Automation</title>
+  <link rel="canonical" href="https://gilmarfilho.com/en/">
+  <link rel="alternate" hreflang="pt-BR" href="https://gilmarfilho.com/">
+  <link rel="alternate" hreflang="en" href="https://gilmarfilho.com/en/">
+  <link rel="alternate" hreflang="x-default" href="https://gilmarfilho.com/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Gilmar Filho">
+  <meta property="og:url" content="https://gilmarfilho.com/en/">
+  <meta property="og:title" data-i18n-attr="content:meta.title" content="Gilmar Filho | Developer & Automation">
+  <meta property="og:description" data-i18n-attr="content:meta.description" content="Gilmar Silva de Medeiros Filho, Information Systems student at UFLA. Process automation, Python, bots and infrastructure for real businesses.">
+  <meta property="og:image" content="https://gilmarfilho.com/assets/img/foto.jpg">
+  <meta property="og:image:width" content="480">
+  <meta property="og:image:height" content="640">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="pt_BR">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://gilmarfilho.com/#person",
+        "name": "Gilmar Filho",
+        "alternateName": "Gilmar Silva de Medeiros Filho",
+        "url": "https://gilmarfilho.com/",
+        "image": "https://gilmarfilho.com/assets/img/foto.jpg",
+        "jobTitle": "Desenvolvedor de automação",
+        "description": "Estudante de Sistemas de Informação na UFLA. Automação de processos, Python, bots e infraestrutura para negócios reais.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Lavras",
+          "addressRegion": "MG",
+          "addressCountry": "BR"
+        },
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "Universidade Federal de Lavras",
+          "alternateName": "UFLA",
+          "url": "https://ufla.br/"
+        },
+        "knowsAbout": ["Automação de processos", "Python", "Bots", "Google Apps Script", "Docker", "Django"],
+        "sameAs": [
+          "https://www.linkedin.com/in/gilmarfilh/",
+          "https://github.com/gilmar-filho"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://gilmarfilho.com/#website",
+        "name": "Gilmar Filho",
+        "url": "https://gilmarfilho.com/",
+        "inLanguage": ["pt-BR", "en"],
+        "publisher": { "@id": "https://gilmarfilho.com/#person" }
+      },
+      {
+        "@type": "ProfilePage",
+        "@id": "https://gilmarfilho.com/#profilepage",
+        "url": "https://gilmarfilho.com/",
+        "name": "Gilmar Filho | Desenvolvedor e Automação",
+        "mainEntity": { "@id": "https://gilmarfilho.com/#person" }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Tailwind (compilado) -->
+  <link rel="stylesheet" href="../assets/css/tailwind-out.css">
+  <!-- CSS puro compartilhado com a versão Bootstrap -->
+  <link rel="stylesheet" href="../assets/css/portfolio.css">
+
+  <!-- Fontes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <script src="../assets/js/theme.js"></script>
+
+  <!-- Ícones -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body class="bg-ink text-cream font-sans antialiased transition-colors duration-300">
+
+  <div class="mesh-bg"></div>
+
+  <div id="cursor"></div>
+  <div id="cursor-ring"></div>
+
+  <!-- ════════════ CABEÇALHO ════════════ -->
+  <header id="site-header" class="site-header">
+    <div class="h-full max-w-[1140px] mx-auto px-6 md:px-10 flex items-center justify-between gap-2 md:gap-6">
+      <a href="#inicio" class="brand">
+        <i class="ph-fill ph-terminal-window"></i> Gilmar Filho
+      </a>
+
+      <div class="flex items-center gap-2 md:gap-6">
+        <nav id="site-nav" class="site-nav"
+             aria-label="Main navigation" data-i18n-attr="aria-label:ui.nav">
+          <a href="#sobre" class="site-nav-link" data-i18n="nav.about">About</a>
+          <a href="#freelance" class="site-nav-link" data-i18n="nav.freelance">Freelance</a>
+          <a href="#projetos" class="site-nav-link" data-i18n="nav.projects">Projects</a>
+          <a href="#contato" class="site-nav-link" data-i18n="nav.contact">Contact</a>
+        </nav>
+
+        <button type="button" class="lang-switch"
+                aria-label="Switch language to Portuguese" data-i18n-attr="aria-label:ui.lang">
+          <span class="lang-opt" data-lang="pt">PT</span>
+          <span class="lang-opt" data-lang="en">EN</span>
+        </button>
+
+        <button type="button" id="theme-btn" class="theme-btn"
+                aria-label="Toggle theme" data-i18n-attr="aria-label:ui.theme">
+          <i class="ph ph-circle-half"></i>
+        </button>
+        <button type="button" class="menu-btn" aria-expanded="false" aria-controls="site-nav"
+                aria-label="Navigation menu" data-i18n-attr="aria-label:ui.menu">
+          <i class="ph ph-list"></i><i class="ph ph-x"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="page">
+
+    <!-- ════════════ HERO ════════════ -->
+    <section id="inicio" class="hero">
+      <div class="w-full max-w-[1140px] mx-auto px-6 md:px-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-x-20 items-center">
+
+          <div class="flex flex-col">
+            <p class="rv section-kicker" data-i18n="hero.kicker">Developer · Lavras, Brazil</p>
+
+            <h1 class="rv d1 text-display font-light text-cream leading-none tracking-tighter mt-2 mb-6 glow-text">
+              Gilmar<br><strong class="font-bold">Filho</strong>
+            </h1>
+
+            <p class="rv d2 rich font-mono text-lede text-cream-3 leading-loose max-w-lg" data-i18n="hero.lede"><em>Process automation</em> and intelligent systems.<br>I turn manual tasks into automated workflows built on the tools people already use.</p>
+
+            <a href="#contato" class="rv d3 status-chip mt-12">
+              <span class="status-dot"></span>
+              <span data-i18n="hero.available">Available for new projects</span>
+            </a>
+
+            <a href="#sobre" class="rv d4 scroll-hint mt-12">
+              <span class="scroll-arrow"></span>
+              <span data-i18n="hero.scroll">scroll to explore</span>
+            </a>
+          </div>
+
+          <!-- Janelas em cascata -->
+          <div class="rv-r d2 hero-windows hidden lg:block" aria-hidden="true">
+
+            <div class="win win-1">
+              <div class="win-bar">
+                <span class="win-dot wd-r"></span><span class="win-dot wd-y"></span><span class="win-dot wd-g"></span>
+                <span class="win-titlebar">terminal</span>
+              </div>
+              <div class="win-body">
+                <div class="win-terminal">
+                  <span class="t-prompt">~ $</span> <span class="t-cmd">python automate.py</span><br>
+                  <span class="t-out" data-i18n="win.t1">✓ connecting to spreadsheet...</span><br>
+                  <span class="t-out" data-i18n="win.t2">✓ importing 347 transactions</span><br>
+                  <span class="t-out" data-i18n="win.t3">✓ projecting installments...</span><br>
+                  <span class="t-out" data-i18n="win.t4">✓ report generated in 2.3s</span><br>
+                  <span class="t-prompt">~ $</span> <span class="t-cur"></span>
+                </div>
+                <div class="win-caption" data-i18n="win.cap1">Financial automation</div>
+              </div>
+            </div>
+
+            <div class="win win-2">
+              <div class="win-bar">
+                <span class="win-dot wd-r"></span><span class="win-dot wd-y"></span><span class="win-dot wd-g"></span>
+                <span class="win-titlebar">dashboard.gs</span>
+              </div>
+              <div class="win-body">
+                <div class="win-dashboard">
+                  <div>
+                    <span class="dash-label" data-i18n="win.dash1">Imports / month</span>
+                    <div class="dash-bar-wrap"><div class="dash-bar w-[82%]"></div></div>
+                    <span class="dash-val" data-i18n="win.dash1v">347 records</span>
+                  </div>
+                  <div class="dash-divider"></div>
+                  <div>
+                    <span class="dash-label" data-i18n="win.dash2">Cards monitored</span>
+                    <div class="dash-bar-wrap"><div class="dash-bar w-[60%]"></div></div>
+                    <span class="dash-val" data-i18n="win.dash2v">6 cards</span>
+                  </div>
+                  <div class="dash-divider"></div>
+                  <div>
+                    <span class="dash-label" data-i18n="win.dash3">Alerts this week</span>
+                    <div class="dash-bar-wrap"><div class="dash-bar w-[45%]"></div></div>
+                    <span class="dash-val" data-i18n="win.dash3v">12 alerts</span>
+                  </div>
+                </div>
+                <div class="win-caption" data-i18n="win.cap2">Metrics tracking</div>
+              </div>
+            </div>
+
+            <div class="win win-3">
+              <div class="win-bar">
+                <span class="win-dot wd-r"></span><span class="win-dot wd-y"></span><span class="win-dot wd-g"></span>
+                <span class="win-titlebar">estoque.sheets</span>
+              </div>
+              <div class="win-body">
+                <div class="win-sheet">
+                  <div class="sheet-header">
+                    <span data-i18n="win.colProduct">Product</span><span>Status</span><span class="sheet-num" data-i18n="win.colQty">Qty</span>
+                  </div>
+                  <div class="sheet-row"><span data-i18n="win.cement">Cement</span><span class="s-green">✓ OK</span><span class="sheet-num">142</span></div>
+                  <div class="sheet-row"><span data-i18n="win.brick">Brick</span><span class="s-amber" data-i18n="win.low">⚠ Low</span><span class="sheet-num">18</span></div>
+                  <div class="sheet-row"><span data-i18n="win.sand">Sand</span><span class="s-green">✓ OK</span><span class="sheet-num">87</span></div>
+                  <div class="sheet-row"><span data-i18n="win.lime">Lime</span><span class="s-dim">— —</span><span class="sheet-num">0</span></div>
+                </div>
+                <div class="win-caption" data-i18n="win.cap3">Inventory management</div>
+              </div>
+            </div>
+
+            <div class="win win-4">
+              <div class="win-bar">
+                <span class="win-dot wd-r"></span><span class="win-dot wd-y"></span><span class="win-dot wd-g"></span>
+                <span class="win-titlebar">microservices</span>
+              </div>
+              <div class="win-body">
+                <div class="win-network">
+                  <canvas id="net-canvas" class="net-canvas"></canvas>
+                </div>
+                <div class="win-caption" data-i18n="win.cap4">Distributed systems</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════ SOBRE ════════════ -->
+    <section id="sobre" class="section">
+      <div class="max-w-[1140px] mx-auto px-6 md:px-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-x-20 items-center">
+
+          <div class="rv-l lg:col-span-5 flex flex-col items-start gap-6">
+            <div class="photo-ring">
+              <div class="photo-inner">
+                <img src="../assets/img/foto.jpg" alt="Gilmar Filho" width="480" height="640" loading="lazy">
+              </div>
+            </div>
+
+            <div class="flex flex-col gap-4">
+              <div class="fact"><i class="ph ph-map-pin"></i> <span data-i18n="about.place">Lavras, MG, Brazil</span></div>
+              <div class="fact"><i class="ph ph-graduation-cap"></i> <span data-i18n="about.study">UFLA · Information Systems · 6th semester</span></div>
+              <div class="fact"><i class="ph ph-briefcase"></i> <span data-i18n="about.free">Open to freelance work</span></div>
+              <a class="fact" href="https://github.com/gilmar-filho" target="_blank" rel="noopener"><i class="ph ph-github-logo"></i> github.com/gilmar-filho</a>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7 flex flex-col gap-6">
+            <div class="rv">
+              <p class="section-kicker" data-i18n="about.kicker">About me</p>
+              <h2 class="text-h2 font-bold text-cream leading-[1.06] tracking-tighter" data-i18n="about.title">Simple systems<br>that actually work</h2>
+            </div>
+
+            <div class="rich flex flex-col gap-4 text-copy text-cream-2 leading-loose">
+              <p class="rv" data-i18n="about.p1">Hi, I'm <strong>Gilmar Filho</strong>, an Information Systems student at UFLA (Federal University of Lavras), now in my 6th semester. I build automations for people who want their time back by handing repetitive tasks over to a system.</p>
+              <p class="rv" data-i18n="about.p2">My specialty is turning manual processes into automated workflows — using <strong>Google Sheets</strong> with Apps Script, <strong>Python</strong>, and integrations with tools people already use every day, like Telegram.</p>
+              <p class="rv" data-i18n="about.p3">Every project follows a deliberate choice: <strong>deliver what solves the problem well, not what impresses through volume</strong>. A system with 3 features the user relies on every day is worth more than a "complete" system that ends up as dead weight.</p>
+            </div>
+
+            <div class="rv flex flex-wrap gap-2">
+              <span class="pill">Apps Script</span>
+              <span class="pill">Python</span>
+              <span class="pill">Docker</span>
+              <span class="pill">Telegram API</span>
+              <span class="pill" data-i18n="pill.sheets">Google Sheets</span>
+              <span class="pill">LangChain</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════ FREELANCE ════════════ -->
+    <section id="freelance" class="section">
+      <div class="max-w-[1140px] mx-auto px-6 md:px-10">
+        <div class="mb-12">
+          <p class="rv section-kicker" data-i18n="fl.kicker">Freelance</p>
+          <h2 class="rv d1 text-h2 font-bold text-cream tracking-tighter leading-tight" data-i18n="fl.title">Automations built for real clients</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
+
+          <div class="rv-l md:col-span-4 min-w-0">
+            <p class="fl-label" id="fl-label" data-i18n="fl.label">client projects</p>
+
+            <div class="fl-tabs" role="tablist" aria-labelledby="fl-label">
+              <button type="button" class="fl-tab" role="tab" id="fl-tab-0" aria-controls="fl-panel-0">
+                <span class="fl-tab-dot"></span>
+                <span class="fl-tab-name" data-i18n="fl.tab0">Financial <br>Consulting</span>
+                <span class="fl-tab-status" data-i18n="fl.inUse">in use</span>
+              </button>
+              <button type="button" class="fl-tab" role="tab" id="fl-tab-1" aria-controls="fl-panel-1">
+                <span class="fl-tab-dot"></span>
+                <span class="fl-tab-name" data-i18n="fl.tab1">Civil Engineer <br>Follow-Up</span>
+                <span class="fl-tab-status" data-i18n="fl.inUse">in use</span>
+              </button>
+              <button type="button" class="fl-tab" role="tab" id="fl-tab-2" aria-controls="fl-panel-2">
+                <span class="fl-tab-dot"></span>
+                <span class="fl-tab-name" data-i18n="fl.tab2">Inventory Management <br>via Telegram</span>
+                <span class="fl-tab-status is-amber" data-i18n="fl.validation">in review</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="rv-r md:col-span-8 fl-panels">
+
+            <!-- Painel 0 -->
+            <div class="fl-panel" role="tabpanel" id="fl-panel-0" aria-labelledby="fl-tab-0" tabindex="0">
+              <div class="flex items-start gap-4 flex-wrap">
+                <div class="icon-tile"><i class="ph-fill ph-chart-pie"></i></div>
+                <div class="grow min-w-0">
+                  <h3 class="text-h3 font-bold text-cream leading-tight tracking-tight" data-i18n="fl.p0.title">Financial Consulting & Automation</h3>
+                  <p class="font-mono text-meta text-cream-3 mt-1 tracking-wide" data-i18n="fl.p0.stack">Google Sheets · Apps Script</p>
+                </div>
+                <span class="badge-green"><i class="ph ph-check-circle"></i> <span data-i18n="fl.p0.badge">Completed · In use</span></span>
+              </div>
+
+              <p class="text-copy text-cream-2 leading-loose" data-i18n="fl.p0.desc">A company with a high volume of bank transactions and multiple credit cards, tracking everything by hand in a spreadsheet. Four automations delivered and in active use.</p>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="feature-card">
+                  <p class="feature-title"><i class="ph ph-upload-simple"></i> <span data-i18n="fl.p0.f1">Statement Import</span></p>
+                  <p class="feature-text" data-i18n="fl.p0.f1d">Data from <code>.csv</code>, <code>.ofx</code> and <code>.xlsx</code> files in seconds.</p>
+                </div>
+                <div class="feature-card">
+                  <p class="feature-title"><i class="ph ph-arrows-split"></i> <span data-i18n="fl.p0.f2">Installment Projection</span></p>
+                  <p class="feature-text" data-i18n="fl.p0.f2d">Detects installment patterns and books future payments automatically.</p>
+                </div>
+                <div class="feature-card">
+                  <p class="feature-title"><i class="ph ph-credit-card"></i> <span data-i18n="fl.p0.f3">Per-Card Summary</span></p>
+                  <p class="feature-text" data-i18n="fl.p0.f3d">Shows which months each card was used in.</p>
+                </div>
+                <div class="feature-card">
+                  <p class="feature-title"><i class="ph ph-translate"></i> <span data-i18n="fl.p0.f4">Template Translation</span></p>
+                  <p class="feature-text" data-i18n="fl.p0.f4d">Financial template translated into US English for international sale.</p>
+                </div>
+              </div>
+
+              <div class="flex flex-wrap gap-2">
+                <span class="pill">Apps Script</span>
+                <span class="pill" data-i18n="pill.sheets">Google Sheets</span>
+                <span class="pill">OFX · CSV · XLSX</span>
+              </div>
+            </div>
+
+            <!-- Painel 1 -->
+            <div class="fl-panel" role="tabpanel" id="fl-panel-1" aria-labelledby="fl-tab-1" tabindex="0">
+              <div class="flex items-start gap-4 flex-wrap">
+                <div class="icon-tile"><i class="ph-fill ph-bell-ringing"></i></div>
+                <div class="grow min-w-0">
+                  <h3 class="text-h3 font-bold text-cream leading-tight tracking-tight" data-i18n="fl.p1.title">Follow-Up System for a Civil Engineer</h3>
+                  <p class="font-mono text-meta text-cream-3 mt-1 tracking-wide" data-i18n="fl.p1.stack">Google Sheets · Telegram Bot API</p>
+                </div>
+                <span class="badge-green"><i class="ph ph-check-circle"></i> <span data-i18n="fl.p1.badge">In use · Evolving</span></span>
+              </div>
+
+              <p class="text-copy text-cream-2 leading-loose" data-i18n="fl.p1.desc">An engineer struggling to keep track of service deadlines and reminders to check cases at the TRE (Regional Electoral Court) — a recurring task that kept getting lost in the routine.</p>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="feature-card">
+                  <p class="feature-title"><i class="ph ph-clock-countdown"></i> <span data-i18n="fl.p1.f1">Deadline alerts</span></p>
+                  <p class="feature-text" data-i18n="fl.p1.f1d">Automatic notification when a service is close to its due date.</p>
+                </div>
+                <div class="feature-card">
+                  <p class="feature-title"><i class="ph ph-arrows-clockwise"></i> <span data-i18n="fl.p1.f2">Review reminders</span></p>
+                  <p class="feature-text" data-i18n="fl.p1.f2d">A heads-up when a TRE case hasn't been checked in too long.</p>
+                </div>
+              </div>
+
+              <div class="flex flex-wrap gap-2">
+                <span class="pill" data-i18n="pill.sheets">Google Sheets</span>
+                <span class="pill">Apps Script</span>
+                <span class="pill">Telegram Bot API</span>
+              </div>
+            </div>
+
+            <!-- Painel 2 -->
+            <div class="fl-panel" role="tabpanel" id="fl-panel-2" aria-labelledby="fl-tab-2" tabindex="0">
+              <div class="flex items-start gap-4 flex-wrap">
+                <div class="icon-tile"><i class="ph-fill ph-package"></i></div>
+                <div class="grow min-w-0">
+                  <h3 class="text-h3 font-bold text-cream leading-tight tracking-tight" data-i18n="fl.p2.title">Inventory Management via Telegram</h3>
+                  <p class="font-mono text-meta text-cream-3 mt-1 tracking-wide" data-i18n="fl.p2.stack">Google Sheets · Webhook · Telegram Bot</p>
+                </div>
+                <span class="badge-amber"><i class="ph ph-hourglass"></i> <span data-i18n="fl.p2.badge">Awaiting validation</span></span>
+              </div>
+
+              <p class="text-copy text-cream-2 leading-loose" data-i18n="fl.p2.desc">A building supply store managed "from memory". The manager has little time and little patience for systems with long workflows.</p>
+
+              <div class="callout">
+                <i class="ph ph-lightbulb"></i>
+                <p data-i18n="fl.p2.callout"><strong>A solution with no interface:</strong> Google Sheets as a database the user never sees, connected to a Telegram bot. Product registration, stock in, stock out and restock alerts all happen in the app the client already uses. No system screens, no training. Everything fits the client's daily routine.</p>
+              </div>
+
+              <div class="flex flex-wrap gap-2">
+                <span class="pill" data-i18n="pill.sheets">Google Sheets</span>
+                <span class="pill">Apps Script</span>
+                <span class="pill">Telegram Bot API</span>
+                <span class="pill">Webhook</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════ PROJETOS ════════════ -->
+    <section id="projetos" class="section">
+      <div class="max-w-[1140px] mx-auto px-6 md:px-10">
+
+        <div class="flex justify-between items-end mb-12 flex-wrap gap-4">
+          <div>
+            <p class="rv section-kicker" data-i18n="proj.kicker">Technical Projects</p>
+            <h2 class="rv d1 text-h2 font-bold text-cream tracking-tighter leading-tight" data-i18n="proj.title">Technical skills in practice</h2>
+          </div>
+          <p class="rv d2 font-mono text-meta text-cream-3 leading-loose md:text-right" data-i18n="proj.aside">Academic projects that show<br>what's under the hood of the solutions.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+          <article class="rv d1 project-card card-glow">
+            <div class="flex justify-between items-start">
+              <div class="icon-tile icon-tile-sm"><i class="ph ph-robot"></i></div>
+              <span class="badge-green"><i class="ph ph-check-circle"></i> <span data-i18n="proj.done">Completed</span></span>
+            </div>
+            <div>
+              <h3 class="project-title">NiadAgent</h3>
+              <p class="project-meta" data-i18n="proj.niad.meta">Distributed Systems · UFLA</p>
+            </div>
+            <p class="project-text" data-i18n="proj.niad.desc">Meeting audio via Telegram → Whisper (Docker) → summarization with the Gemini API via LangChain. An Express.js API Gateway orchestrates microservices isolated in containers.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="pill">Python</span><span class="pill">Docker</span>
+              <span class="pill">LangChain</span><span class="pill">Whisper</span>
+            </div>
+            <div class="project-actions">
+              <a href="https://github.com/gilmar-filho/NiadAgent" target="_blank" rel="noopener" class="btn-repo">
+                <i class="ph ph-github-logo"></i> <span data-i18n="proj.repo">Repository</span>
+              </a>
+            </div>
+          </article>
+
+          <article class="rv d2 project-card card-glow">
+            <div class="flex justify-between items-start">
+              <div class="icon-tile icon-tile-sm"><i class="ph ph-brain"></i></div>
+              <span class="badge-green"><i class="ph ph-check-circle"></i> <span data-i18n="proj.done">Completed</span></span>
+            </div>
+            <div>
+              <h3 class="project-title" data-i18n="proj.ai.title">AI Algorithms</h3>
+              <p class="project-meta" data-i18n="proj.ai.meta">Artificial Intelligence · UFLA</p>
+            </div>
+            <p class="project-text" data-i18n="proj.ai.desc">KNN, K-Means and MLP implemented from scratch and with Scikit-learn for a direct comparison. Metrics: accuracy, precision, recall, silhouette score, confusion matrices.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="pill">Python</span><span class="pill">Scikit-learn</span><span class="pill">Jupyter</span>
+            </div>
+            <div class="project-actions">
+              <a href="https://github.com/gilmar-filho/GCC128-Inteligencia_Artificial" target="_blank" rel="noopener" class="btn-repo">
+                <i class="ph ph-github-logo"></i> <span data-i18n="proj.repo">Repository</span>
+              </a>
+            </div>
+          </article>
+
+          <article class="rv d3 project-card card-glow">
+            <div class="flex justify-between items-start">
+              <div class="icon-tile icon-tile-sm"><i class="ph ph-database"></i></div>
+              <span class="badge-green"><i class="ph ph-check-circle"></i> <span data-i18n="proj.done">Completed</span></span>
+            </div>
+            <div>
+              <h3 class="project-title" data-i18n="proj.db.title">Database — RPG</h3>
+              <p class="project-meta" data-i18n="proj.db.meta">Database Systems · UFLA</p>
+            </div>
+            <p class="project-text" data-i18n="proj.db.desc">A complete relational database with inheritance, triggers, views and stored procedures. PHP interface. Advanced queries: JOINs, subqueries, UNION, EXISTS.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="pill">MySQL</span><span class="pill">Triggers</span><span class="pill">PHP</span>
+            </div>
+            <div class="project-actions">
+              <a href="https://github.com/gilmar-filho/Projeto-IntroSistemasBD" target="_blank" rel="noopener" class="btn-repo">
+                <i class="ph ph-github-logo"></i> <span data-i18n="proj.repo">Repository</span>
+              </a>
+            </div>
+          </article>
+
+          <article class="rv d4 project-card card-glow">
+            <div class="flex justify-between items-start">
+              <div class="icon-tile icon-tile-sm"><i class="ph ph-game-controller"></i></div>
+              <span class="badge-green"><i class="ph ph-wifi-high"></i> Online</span>
+            </div>
+            <div>
+              <h3 class="project-title" data-i18n="proj.game.title">Memory Game</h3>
+              <p class="project-meta" data-i18n="proj.game.meta">Web Programming · UFLA</p>
+            </div>
+            <p class="project-text" data-i18n="proj.game.desc">4×4 to 10×10 boards, 3D flip in pure CSS, persistent leaderboard, responsive. Zero dependencies. Global state, cached DOM, single responsibility.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="pill">HTML</span><span class="pill">CSS</span><span class="pill">JavaScript</span>
+            </div>
+            <div class="project-actions">
+              <a href="https://gilmar-filho.github.io/GAC116-Jogo_da_Memoria/page" target="_blank" rel="noopener" class="btn-play">
+                <i class="ph ph-play"></i> <span data-i18n="proj.play">Play</span>
+              </a>
+              <a href="https://github.com/gilmar-filho/GAC116-Jogo_da_Memoria" target="_blank" rel="noopener" class="btn-repo">
+                <i class="ph ph-github-logo"></i> <span data-i18n="proj.code">Code</span>
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════ CONTATO ════════════ -->
+    <section id="contato" class="section">
+      <div class="max-w-[1140px] mx-auto px-6 md:px-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-x-20 items-center">
+
+          <div>
+            <p class="rv section-kicker" data-i18n="contact.kicker">Contact</p>
+            <h2 class="rv d1 text-h2-lg font-bold text-cream tracking-tighter leading-[1.05] mb-6 glow-text" data-i18n="contact.title">Let's<br><span class="title-accent">talk!</span></h2>
+            <p class="rv d2 text-copy text-cream-2 leading-loose max-w-md" data-i18n="contact.lede">No strings attached. Tell me what's holding up your work and I'll see if I can help.</p>
+          </div>
+
+          <div class="flex flex-col gap-4">
+            <a href="https://wa.me/5535997304374" target="_blank" rel="noopener" class="rv cta-btn">
+              <div class="cta-icon bg-[rgba(37,211,102,.15)] text-[#25D366]"><i class="ph ph-whatsapp-logo"></i></div>
+              <div>
+                <p class="cta-label">WhatsApp</p>
+                <p class="cta-value">+55 35 99730-4374</p>
+              </div>
+              <i class="ph ph-arrow-right cta-arrow"></i>
+            </a>
+
+            <a href="https://www.linkedin.com/in/gilmarfilh/" target="_blank" rel="noopener" class="rv cta-btn">
+              <div class="cta-icon bg-[rgba(10,102,194,.15)] text-[#0A66C2]"><i class="ph ph-linkedin-logo"></i></div>
+              <div>
+                <p class="cta-label">LinkedIn</p>
+                <p class="cta-value">linkedin.com/in/gilmarfilh</p>
+              </div>
+              <i class="ph ph-arrow-right cta-arrow"></i>
+            </a>
+
+            <a href="mailto:gilmarmedeirosfilho@gmail.com" class="rv cta-btn">
+              <div class="cta-icon bg-accent/10 text-accent"><i class="ph ph-envelope-simple"></i></div>
+              <div>
+                <p class="cta-label" data-i18n="contact.email">Email</p>
+                <p class="cta-value">gilmarmedeirosfilho@gmail.com</p>
+              </div>
+              <i class="ph ph-arrow-right cta-arrow"></i>
+            </a>
+
+            <a href="https://github.com/gilmar-filho" target="_blank" rel="noopener" class="rv cta-btn">
+              <div class="cta-icon bg-cream/10 text-cream-2"><i class="ph ph-github-logo"></i></div>
+              <div>
+                <p class="cta-label">GitHub</p>
+                <p class="cta-value">github.com/gilmar-filho</p>
+              </div>
+              <i class="ph ph-arrow-right cta-arrow"></i>
+            </a>
+          </div>
+
+        </div>
+
+        <div class="rv mt-12 flex flex-col items-center gap-4 text-center">
+          <a href="../bootstrap-version/index.html" class="version-link" data-i18n="contact.toBs">Academic version (Bootstrap) →</a>
+          <p class="site-footer" data-i18n="footer">&copy; 2026 Gilmar Silva de Medeiros Filho. All rights reserved.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="../assets/js/i18n.js"></script>
+  <script src="../assets/js/hero.js"></script>
+  <script src="../assets/js/scroll.js"></script>
+  <script src="../assets/js/reveal.js"></script>
+
+</body>
+</html>
