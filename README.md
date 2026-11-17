@@ -69,6 +69,8 @@ Depois de alterar o `index.html` ou os textos em `assets/js/i18n.js`, regenere a
 npm run build:en
 ```
 
+Os arquivos em `assets/js` e `assets/css` são carregados com `?v=AAAAMMDD`. Ao alterá-los, atualize essa data no `index.html` e no `bootstrap-version/index.html` e rode `npm run build:en`: o Google guarda JS e CSS em cache por muito tempo e, sem a troca, renderiza o HTML novo com o script antigo.
+
 ## 💼 Projetos Destacados no Portfólio
 
 O portfólio documenta meus principais trabalhos e experimentos:
