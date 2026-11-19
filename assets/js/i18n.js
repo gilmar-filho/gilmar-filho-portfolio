@@ -21,7 +21,7 @@ const I18N = {
     'nav.projects':  'Projetos',
     'nav.contact':   'Contato',
 
-    'hero.kicker':    'Desenvolvedor · Lavras, MG',
+    'hero.kicker':    'Desenvolvedor · Itutinga, MG',
     'hero.lede':      '<em>Automação de processos</em> e sistemas inteligentes.<br>Transformo tarefas manuais em fluxos automáticos integrados com ferramentas que as pessoas já usam.',
     'hero.available': 'Disponível para novos projetos',
     'hero.scroll':    'role para explorar',
@@ -50,7 +50,7 @@ const I18N = {
 
     'about.kicker': 'Sobre mim',
     'about.title':  'Sistemas simples<br>que funcionam de verdade',
-    'about.place':  'Lavras, MG',
+    'about.place':  'Itutinga, MG (região de Lavras)',
     'about.study':  'UFLA · SI · 7º período',
     'about.free':   'Freelance disponível',
     'about.p1': 'Olá, sou <strong>Gilmar Filho</strong>, estudante de Sistemas de Informação na UFLA (7º período). Trabalho construindo automações para quem procura ganhar tempo delegando a um sistema suas tarefas repetitivas.',
@@ -140,7 +140,7 @@ const I18N = {
     'nav.projects':  'Projects',
     'nav.contact':   'Contact',
 
-    'hero.kicker':    'Developer · Lavras, Brazil',
+    'hero.kicker':    'Developer · Itutinga, Brazil',
     'hero.lede':      '<em>Process automation</em> and intelligent systems.<br>I turn manual tasks into automated workflows built on the tools people already use.',
     'hero.available': 'Available for new projects',
     'hero.scroll':    'scroll to explore',
@@ -169,10 +169,10 @@ const I18N = {
 
     'about.kicker': 'About me',
     'about.title':  'Simple systems<br>that actually work',
-    'about.place':  'Lavras, MG, Brazil',
-    'about.study':  'UFLA · Information Systems · 6th semester',
+    'about.place':  'Itutinga, MG, Brazil (Lavras area)',
+    'about.study':  'UFLA · Information Systems · 7th semester',
     'about.free':   'Open to freelance work',
-    'about.p1': 'Hi, I\'m <strong>Gilmar Filho</strong>, an Information Systems student at UFLA (Federal University of Lavras), now in my 6th semester. I build automations for people who want their time back by handing repetitive tasks over to a system.',
+    'about.p1': 'Hi, I\'m <strong>Gilmar Filho</strong>, an Information Systems student at UFLA (Federal University of Lavras), now in my 7th semester. I build automations for people who want their time back by handing repetitive tasks over to a system.',
     'about.p2': 'My specialty is turning manual processes into automated workflows — using <strong>Google Sheets</strong> with Apps Script, <strong>Python</strong>, and integrations with tools people already use every day, like Telegram.',
     'about.p3': 'Every project follows a deliberate choice: <strong>deliver what solves the problem well, not what impresses through volume</strong>. A system with 3 features the user relies on every day is worth more than a "complete" system that ends up as dead weight.',
 

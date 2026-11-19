@@ -49,6 +49,13 @@ const swaps = [
   ['<meta property="og:url" content="https://gilmarfilho.com/">', '<meta property="og:url" content="https://gilmarfilho.com/en/">'],
   ['<meta property="og:locale" content="pt_BR">', '<meta property="og:locale" content="en_US">'],
   ['<meta property="og:locale:alternate" content="en_US">', '<meta property="og:locale:alternate" content="pt_BR">'],
+  // Campos de texto do Person em inglês
+  ['"jobTitle": "Desenvolvedor de automação",', '"jobTitle": "Automation Developer",'],
+  [
+    '"description": "Estudante de Sistemas de Informação na UFLA. Automação de processos, Python, bots e infraestrutura para negócios reais.",',
+    '"description": "Information Systems student at UFLA. Process automation, Python, bots and infrastructure for real businesses.",',
+  ],
+  ['"knowsAbout": ["Automação de processos",', '"knowsAbout": ["Process automation",'],
   // ProfilePage própria da versão em inglês, para o Google não tratar /en/ como cópia de /
   [
     `"@id": "https://gilmarfilho.com/#profilepage",
