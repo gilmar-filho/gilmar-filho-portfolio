@@ -69,7 +69,22 @@ Depois de alterar o `index.html` ou os textos em `assets/js/i18n.js`, regenere a
 npm run build:en
 ```
 
-Os arquivos em `assets/js` e `assets/css` são carregados com `?v=AAAAMMDD`. Ao alterá-los, atualize essa data no `index.html` e no `bootstrap-version/index.html` e rode `npm run build:en`: o Google guarda JS e CSS em cache por muito tempo e, sem a troca, renderiza o HTML novo com o script antigo.
+## 📦 Deploy
+
+Cada push na `main` dispara o workflow `.github/workflows/deploy.yml`, que roda `npm run build` (`scripts/build-site.js`) e publica a pasta `_site` no GitHub Pages. O build:
+
+* regenera `en/index.html`, então a versão em inglês nunca fica desatualizada no ar, mesmo que o `npm run build:en` seja esquecido;
+* troca o `?v=` de cada JS e CSS local pelo hash do conteúdo do arquivo. O Google guarda esses arquivos em cache por muito tempo e, sem a troca, renderiza o HTML novo com o script antigo. O `?v=` escrito no código-fonte não importa;
+* preenche o `<lastmod>` do `sitemap.xml` com a data do último commit que alterou cada página (as fontes de cada URL ficam em `PAGES`, no topo do script);
+* avisa o [IndexNow](https://www.indexnow.org/) (Bing, Yandex e outros) sobre as páginas que mudaram no push. A chave fica em `b3be06ed741ae7e6eed7b586f2a1624f.txt`, na raiz.
+
+O CSS do Tailwind não é compilado no deploy: o `assets/css/tailwind-out.css` continua sendo gerado localmente e commitado.
+
+Para conferir o resultado sem publicar:
+
+```bash
+npm run build   # gera _site/ (ignorada pelo git)
+```
 
 ## 💼 Projetos Destacados no Portfólio
 

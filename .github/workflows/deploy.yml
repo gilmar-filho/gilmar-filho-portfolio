@@ -1,0 +1,66 @@
+name: Deploy
+
+# A cada push na main: gera a versão /en/, versiona JS/CSS pelo hash,
+# atualiza o lastmod do sitemap, publica no GitHub Pages e avisa o
+# IndexNow (Bing e outros) sobre as páginas que mudaram.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+env:
+  INDEXNOW_KEY: b3be06ed741ae7e6eed7b586f2a1624f
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # histórico completo para calcular o lastmod
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Montar o site
+        run: node scripts/build-site.js
+        env:
+          # vazio no disparo manual: aí o IndexNow é avisado de todas as páginas
+          BEFORE_SHA: ${{ github.event.before || '0' }}
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: Avisar o IndexNow
+        continue-on-error: true
+        run: |
+          urls=$(cat .indexnow-urls.json)
+          if [ "$urls" = "[]" ]; then
+            echo "Nenhuma página mudou; nada a avisar."
+            exit 0
+          fi
+          sleep 30 # dá tempo de o CDN do Pages servir a versão nova
+          curl -sS -o /dev/null -w "IndexNow: HTTP %{http_code}\n" \
+            -X POST https://api.indexnow.org/indexnow \
+            -H "Content-Type: application/json; charset=utf-8" \
+            -d "{\"host\":\"gilmarfilho.com\",\"key\":\"$INDEXNOW_KEY\",\"keyLocation\":\"https://gilmarfilho.com/$INDEXNOW_KEY.txt\",\"urlList\":$urls}"
