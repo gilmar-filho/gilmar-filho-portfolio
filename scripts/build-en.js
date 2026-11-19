@@ -49,6 +49,17 @@ const swaps = [
   ['<meta property="og:url" content="https://gilmarfilho.com/">', '<meta property="og:url" content="https://gilmarfilho.com/en/">'],
   ['<meta property="og:locale" content="pt_BR">', '<meta property="og:locale" content="en_US">'],
   ['<meta property="og:locale:alternate" content="en_US">', '<meta property="og:locale:alternate" content="pt_BR">'],
+  // ProfilePage própria da versão em inglês, para o Google não tratar /en/ como cópia de /
+  [
+    `"@id": "https://gilmarfilho.com/#profilepage",
+        "url": "https://gilmarfilho.com/",
+        "name": "Gilmar Filho | Desenvolvedor e Automação",
+        "inLanguage": "pt-BR",`,
+    `"@id": "https://gilmarfilho.com/en/#profilepage",
+        "url": "https://gilmarfilho.com/en/",
+        "name": "Gilmar Filho | Developer & Automation",
+        "inLanguage": "en",`,
+  ],
 ];
 for (const [from, to] of swaps) {
   if (!html.includes(from)) throw new Error(`trecho não encontrado: ${from}`);
